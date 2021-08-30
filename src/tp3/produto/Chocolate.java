@@ -1,0 +1,124 @@
+package tp3.produto;
+
+import java.util.Date;
+
+public abstract class Chocolate {
+    private int id, peso;
+    private String nome, descricao, tipo;
+    private Date dataCompra;
+    private double precoCompra, precoVenda, porcentagemCacau;
+    private boolean contemGluten, contemLactose, artesanal;
+
+    public Chocolate(int id, int peso, String nome, String descricao, String tipo, Date dataCompra, double precoCompra,
+                     double precoVenda, double porcentagemCacau, boolean contemGluten, boolean contemLactose,
+                     boolean artesanal) {
+        this.id = id;
+        this.peso = peso;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.tipo = tipo;
+        this.dataCompra = dataCompra;
+        this.precoCompra = precoCompra;
+        this.precoVenda = precoVenda;
+        this.porcentagemCacau = porcentagemCacau;
+        this.contemGluten = contemGluten;
+        this.contemLactose = contemLactose;
+        this.artesanal = artesanal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Date getDataCompra() {
+        return dataCompra;
+    }
+
+    public void setDataCompra(Date dataCompra) {
+        this.dataCompra = dataCompra;
+    }
+
+    public double getPrecoCompra() {
+        return precoCompra;
+    }
+
+    public void setPrecoCompra(double precoCompra) {
+        this.precoCompra = precoCompra;
+    }
+
+    public double getPrecoVenda() {
+        return precoVenda;
+    }
+
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+
+    public double getPorcentagemCacau() {
+        return porcentagemCacau;
+    }
+
+    public void setPorcentagemCacau(double porcentagemCacau) {
+        this.porcentagemCacau = porcentagemCacau;
+    }
+
+    public boolean isContemGluten() {
+        return contemGluten;
+    }
+
+    public void setContemGluten(boolean contemGluten) {
+        this.contemGluten = contemGluten;
+    }
+
+    public boolean isContemLactose() {
+        return contemLactose;
+    }
+
+    public void setContemLactose(boolean contemLactose) {
+        this.contemLactose = contemLactose;
+    }
+
+    public boolean isArtesanal() {
+        return artesanal;
+    }
+
+    public void setArtesanal(boolean artesanal) {
+        this.artesanal = artesanal;
+    }
+}
