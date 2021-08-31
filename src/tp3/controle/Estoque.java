@@ -15,17 +15,21 @@ public class Estoque {
         chocolates.put(chocolate, chocolates.getOrDefault(chocolate, 0) + quantidade);
     }
 
-    public boolean retirarQuantidade(Chocolate chocolate, int quantidade) {
-        if (quantidade == 0 || !chocolates.containsKey(chocolate)) {
-            return false;
+    public void retirarQuantidade(Chocolate chocolate, int quantidade) {
+        if (!chocolates.containsKey(chocolate)) {
+            throw new IllegalArgumentException("Produto não está no estoque");
+        }
+
+        if (quantidade == 0) {
+            throw new IllegalArgumentException("Quantidade não pode ser 0");
         }
 
         if (quantidade > chocolates.get(chocolate)) {
-            return false;
+            throw new IllegalArgumentException(String.format("Quantidade %d maior do que em estoque (%d)",
+                    quantidade, chocolates.get(chocolate)));
         }
 
         chocolates.put(chocolate, chocolates.get(chocolate) - quantidade);
-        return true;
     }
 
     public String stringChocolates() {
