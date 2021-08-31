@@ -1,6 +1,6 @@
-#Loja de chocolates
+# Loja de Chocolates
 
-###TP3 - T6.4
+## TP3 - T6.4
 
 Guilherme Puida Moreira
 
