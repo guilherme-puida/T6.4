@@ -2,7 +2,9 @@ package tp3.controle;
 
 import tp3.produto.Chocolate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Estoque {
     private final HashMap<Chocolate, Integer> chocolates;
@@ -30,6 +32,10 @@ public class Estoque {
         }
 
         chocolates.put(chocolate, chocolates.get(chocolate) - quantidade);
+    }
+
+    public Set<Chocolate> getChocolates() {
+        return chocolates.keySet();
     }
 
     public String stringChocolates() {
