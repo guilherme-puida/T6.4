@@ -29,32 +29,16 @@ public class Venda {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Cliente getCliente() {
         return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     public Funcionario getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
     public LocalDate getData() {
         return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
     }
 
     public HashMap<Chocolate, Integer> getChocolateVendidos() {
@@ -65,7 +49,7 @@ public class Venda {
         chocolateVendidos.put(chocolate, chocolateVendidos.getOrDefault(chocolate, 0) + quantidade);
     }
 
-    public double calcularValor() {
+    public void calcularValor() {
         double valorVenda = 0;
 
         for (Chocolate chocolate: chocolateVendidos.keySet()) {
@@ -73,6 +57,9 @@ public class Venda {
         }
 
         valor = valorVenda;
-        return valorVenda;
+    }
+
+    public double getValor() {
+        return valor;
     }
 }
