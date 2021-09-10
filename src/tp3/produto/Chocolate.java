@@ -1,15 +1,15 @@
 package tp3.produto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Chocolate {
     private int id, peso;
     private String nome, descricao, tipo;
-    private Date dataCompra;
+    private LocalDate dataCompra;
     private double precoCompra, precoVenda, porcentagemCacau;
     private boolean contemGluten, contemLactose, artesanal;
 
-    public Chocolate(int id, int peso, String nome, String descricao, String tipo, Date dataCompra, double precoCompra,
+    public Chocolate(int id, int peso, String nome, String descricao, String tipo, LocalDate dataCompra, double precoCompra,
                      double precoVenda, double porcentagemCacau, boolean contemGluten, boolean contemLactose,
                      boolean artesanal) {
         this.id = id;
@@ -66,11 +66,11 @@ public abstract class Chocolate {
         this.tipo = tipo;
     }
 
-    public Date getDataCompra() {
+    public LocalDate getDataCompra() {
         return dataCompra;
     }
 
-    public void setDataCompra(Date dataCompra) {
+    public void setDataCompra(LocalDate dataCompra) {
         this.dataCompra = dataCompra;
     }
 
