@@ -2,7 +2,6 @@ package tp3.controle;
 
 import tp3.produto.Chocolate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -38,7 +37,28 @@ public class Estoque {
         return chocolates.keySet();
     }
 
-    public String stringChocolates() {
-        return chocolates.toString();
+    public int getQuantidade(Chocolate chocolate) {
+        return chocolates.get(chocolate);
+    }
+
+    public Chocolate getChocolatePorId(int id) {
+        for (Chocolate chocolate: getChocolates()) {
+            if (chocolate.getId() == id) {
+                return chocolate;
+            }
+        }
+
+        return null;
+    }
+
+    public String stringEstoque() {
+        StringBuilder repr = new StringBuilder();
+
+        for (Chocolate chocolate: getChocolates()) {
+            repr.append(chocolate.infoBasica());
+            repr.append(" | Quantidade: ").append(chocolates.get(chocolate)).append("\n");
+        }
+
+        return repr.toString();
     }
 }

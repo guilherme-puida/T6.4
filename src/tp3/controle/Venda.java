@@ -6,6 +6,7 @@ import tp3.produto.Chocolate;
 
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 
@@ -23,22 +24,6 @@ public class Venda {
         this.funcionario = funcionario;
         this.data = data;
         chocolateVendidos = new HashMap<>();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public LocalDate getData() {
-        return data;
     }
 
     public HashMap<Chocolate, Integer> getChocolateVendidos() {
@@ -61,5 +46,27 @@ public class Venda {
 
     public double getValor() {
         return valor;
+    }
+
+    public String info() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format("Id: %d | Cliente: %s | Funcionário: %s | Valor: %f | Data: %s",
+                id, cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public LocalDate getData() {
+        return data;
     }
 }

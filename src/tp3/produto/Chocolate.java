@@ -26,6 +26,8 @@ public abstract class Chocolate {
         this.artesanal = artesanal;
     }
 
+    public abstract String infoBasica();
+
     public int getId() {
         return id;
     }
