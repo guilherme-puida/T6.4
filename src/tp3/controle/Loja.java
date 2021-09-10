@@ -222,14 +222,17 @@ public class Loja {
         return s.toString();
     }
 
+    // Remove um funcionário da lista
     public void removerCliente(Cliente cliente) {
         clientes.remove(cliente);
     }
 
+    // Remove um cliente da lista
     public void removerFuncionario(Funcionario funcionario) {
         funcionarios.remove(funcionario);
     }
 
+    // Remove uma venda da lista
     public void removerVenda(Venda venda) {
         vendas.remove(venda);
     }

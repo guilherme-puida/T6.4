@@ -73,7 +73,4 @@ public class Estoque {
         return chocolates.keySet();
     }
 
-    public int getQuantidade(Chocolate chocolate) {
-        return chocolates.get(chocolate);
-    }
 }

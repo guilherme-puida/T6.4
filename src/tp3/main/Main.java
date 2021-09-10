@@ -1,3 +1,16 @@
+/*
+TP3 - T6.4
+
+Guilherme Puida Moreira - 200019015
+Tiago Leão Buson - 200034162
+
+Na especificação do TP3 não era pedido menu interativo, então a Main desse projeto testa e comprova o funcionamento
+dos métodos implementados
+
+Alguns métodos foram implementados e não usados, como diversos gets e sets. Contudo, eles serão úteis no desenvolvimento
+do TP4.
+ */
+
 package tp3.main;
 
 import tp3.controle.Loja;
@@ -38,7 +51,7 @@ public class Main {
                 new String[]{"Amendoim", "Nozes"}, 25);
         loja.cadastrarBarra(loja.getProximoIdChocolate(), 250, "Barra Sensacional",
                 "Barra sensacional de chocolate", "Ao Leite",
-                LocalDate.of(2021, 9, 10), 12.0, 33.2,
+                LocalDate.of(2021, 5, 10), 12.0, 33.2,
                 25.0, true, true, false, "Menta",
                 new String[]{"Castanha"}, 30);
 
@@ -48,7 +61,7 @@ public class Main {
                 "Doce de leite", new String[]{"Morango"}, 20);
 
         loja.cadastrarTrufa(loja.getProximoIdChocolate(), 20, "Trufa Trufada", "Trufa de trufas",
-                "Ao leite", LocalDate.of(2021, 9, 10), 0.5, 2.0,
+                "Ao leite", LocalDate.of(2021, 7, 10), 0.5, 2.0,
                 20, true, true, false, "Licor", true, 100);
 
 
@@ -118,6 +131,12 @@ public class Main {
         chocotone.setPeso(600);
         chocotone.addFruta("Maça");
         System.out.println(chocotone.infoBasica());
+        System.out.println();
+
+        // Calculando gastos e lucro no mes de setembro de 2021
+        System.out.println("====Calculando gastos e lucro em setembro de 2021");
+        System.out.println("Os gastos em 09/21 foram de: " + loja.calcularGastosMes(9, 2021));
+        System.out.println("O lucro em 09/21 foi de: " + loja.calcularLucroMes(9, 2021));
 
     }
 }

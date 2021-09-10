@@ -11,11 +11,11 @@ import java.util.HashMap;
 
 
 public class Venda {
-    private int id;
+    private final int id;
     private double valor;
-    private Cliente cliente;
-    private Funcionario funcionario;
-    private LocalDate data;
+    private final Cliente cliente;
+    private final Funcionario funcionario;
+    private final LocalDate data;
     private final HashMap<Chocolate, Integer> chocolateVendidos;
 
     public Venda(int id, Cliente cliente, Funcionario funcionario, LocalDate data) {
