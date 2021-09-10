@@ -100,8 +100,16 @@ public class Loja {
                            Funcionario funcionario, LocalDate data) {
         Venda venda = new Venda(id, cliente, funcionario, data);
 
+        for (Chocolate chocolate: chocolatesQuantidades.keySet()) {
+            try {
+                estoque.retirarQuantidade(chocolate, chocolatesQuantidades.get(chocolate));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return;
+            }
+        }
 
-
+        vendas.add(venda);
     }
 
 
