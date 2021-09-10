@@ -50,7 +50,7 @@ public class Venda {
 
     public String info() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return String.format("Id: %d | Cliente: %s | Funcionário: %s | Valor: %f | Data: %s",
+        return String.format("Id: %d | Cliente: %s | Funcionário: %s | Valor: %.2f | Data: %s\n",
                 id, cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
     }
 

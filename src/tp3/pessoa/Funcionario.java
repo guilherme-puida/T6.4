@@ -26,4 +26,17 @@ public class Funcionario extends Pessoa{
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    public String infoBasica() {
+        return String.format("Id: %d | Nome: %s | Salário: %.2f | Cargo: %s",
+                super.getId(), super.getNome(), salario, cargo);
+    }
+
+    public String infoCompleta() {
+        return String.format(
+                "Id: %d|Idade: %d|Nome: %s|CPF:%s|Telefone:%s|Email:%s|Endereco:%s|Salario:%.2f|Cargo:%s",
+                super.getId(), super.getIdade(), super.getNome(), super.getCpf(), super.getTelefone(), super.getEmail(),
+                super.getEndereco().stringEndereco(), salario, cargo
+        );
+    }
 }

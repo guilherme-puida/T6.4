@@ -12,6 +12,7 @@ import tp3.produto.Trufa;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Loja {
     private Estoque estoque;
@@ -155,10 +156,38 @@ public class Loja {
         return null;
     }
 
+    public Cliente getClientePorNome(String nome) {
+        for (Cliente cliente: clientes) {
+            if (Objects.equals(cliente.getNome(), nome)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
     public Funcionario getFuncionarioPorId(int id) {
         for (Funcionario funcionario: funcionarios) {
             if (funcionario.getId() == id) {
                 return funcionario;
+            }
+        }
+
+        return null;
+    }
+
+    public Funcionario getFuncionarioPorNome(String nome) {
+        for (Funcionario funcionario: funcionarios) {
+            if (Objects.equals(funcionario.getNome(), nome)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+
+    public Venda getVendaPorId(int id) {
+        for (Venda venda: vendas) {
+            if (venda.getId() == id) {
+                return venda;
             }
         }
 
@@ -171,6 +200,23 @@ public class Loja {
             s.append(venda.info()).append("\n");
         }
 
+        return s.toString();
+    }
+
+    public String stringFuncionarios() {
+        StringBuilder s = new StringBuilder();
+        for (Funcionario funcionario: funcionarios) {
+            s.append(funcionario.infoBasica()).append("\n");
+        }
+
+        return s.toString();
+    }
+
+    public String stringClientes() {
+        StringBuilder s = new StringBuilder();
+        for (Cliente cliente: clientes) {
+            s.append(cliente.infoBasica()).append("\n");
+        }
         return s.toString();
     }
 

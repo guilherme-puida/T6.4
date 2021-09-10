@@ -33,7 +33,7 @@ public class Trufa extends Chocolate{
     }
 
     public String infoBasica() {
-        return String.format("Id: %d | Nome: %s | Peso: %d | Recheio: %s | Alcoólico: %s",
-                super.getId(), super.getNome(), super.getPeso(), recheio, alcoolico);
+        return String.format("Id: %d | Nome: %s | Peso: %dg | Recheio: %s | Alcoólico: %s | Preço: %.2f",
+                super.getId(), super.getNome(), super.getPeso(), recheio, alcoolico, super.getPrecoVenda());
     }
 }

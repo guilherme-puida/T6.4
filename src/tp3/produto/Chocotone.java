@@ -42,7 +42,8 @@ public class Chocotone extends Chocolate{
     }
 
     public String infoBasica() {
-        return String.format("Id: %d | Nome: %s | Peso: %d | Sabor: %s | Nibs: %s",
-                super.getId(), super.getNome(), super.getPeso(), recheio, String.join(", ", frutas));
+        return String.format("Id: %d | Nome: %s | Peso: %d | Sabor: %s | Nibs: %s | Preço: %.2f",
+                super.getId(), super.getNome(), super.getPeso(), recheio, String.join(", ", frutas),
+                super.getPrecoVenda());
     }
 }

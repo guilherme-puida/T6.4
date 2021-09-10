@@ -5,7 +5,6 @@ import tp3.pessoa.Endereco;
 import tp3.produto.Chocolate;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
@@ -53,7 +52,16 @@ public class Main {
 
 
         // Mostrando estoque
+        System.out.println("====Estoque====");
         System.out.println(loja.getEstoque().stringEstoque());
+
+        // Mostrando clientes
+        System.out.println("====Clientes====");
+        System.out.println(loja.stringClientes());
+
+        // Mostrando Funcionários
+        System.out.println("====Funcionarios====");
+        System.out.println(loja.stringFuncionarios());
 
         // Fazendo venda
         Chocolate ch1 = loja.getEstoque().getChocolatePorId(0);
@@ -66,7 +74,24 @@ public class Main {
                 loja.getFuncionarioPorId(0), LocalDate.now());
 
         // Informações da venda
-        System.out.println(loja.stringVendas());
+        System.out.println("====Venda feita====");
+        System.out.println(loja.getVendaPorId(0).info());
+
+        // Mostrando novamente o estoque
+        System.out.println("====Estoque atualizado, com os produtos vendidos retirados====");
+        System.out.println(loja.getEstoque().stringEstoque());
+
+        // Pesquisando cliente por nome:
+        System.out.println("====Pesquisando o cliente 'Guilherme'====");
+        System.out.println(loja.getClientePorNome("Guilherme").infoBasica());
+        System.out.println(loja.getClientePorNome("Guilherme").infoCompleta());
+
+        // Pesquisando funcionário por nome:
+        System.out.println("====Pesquisando o funcionário 'Antonio'====");
+        System.out.println(loja.getFuncionarioPorNome("Antonio").infoBasica());
+        System.out.println(loja.getFuncionarioPorNome("Antonio").infoCompleta());
+
+
 
     }
 }

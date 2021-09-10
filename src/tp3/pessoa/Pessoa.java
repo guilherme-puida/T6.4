@@ -15,6 +15,7 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
+    public abstract String infoBasica();
 
     public int getId() {
         return id;
