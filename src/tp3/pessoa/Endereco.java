@@ -9,6 +9,10 @@ public class Endereco {
         this.numero = numero;
         this.cep = cep;
     }
+    public String stringEndereco() {
+        return String.format("%s %s-%s (%s)", bairro, rua, numero, cep);
+    }
+
     public void setBairro(String bairro) { this.bairro = bairro; }
 
     public String getBairro() { return bairro; }
