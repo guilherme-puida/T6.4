@@ -26,14 +26,12 @@ public class Venda {
         chocolateVendidos = new HashMap<>();
     }
 
-    public HashMap<Chocolate, Integer> getChocolateVendidos() {
-        return chocolateVendidos;
-    }
-
+    // Adiciona um chocolate na venda
     public void adicionarChocolate(Chocolate chocolate, int quantidade) {
         chocolateVendidos.put(chocolate, chocolateVendidos.getOrDefault(chocolate, 0) + quantidade);
     }
 
+    // Calcula o valor da venda
     public void calcularValor() {
         double valorVenda = 0;
 
@@ -44,14 +42,15 @@ public class Venda {
         valor = valorVenda;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
+    // Representação em string de uma compra
     public String info() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return String.format("Id: %d | Cliente: %s | Funcionário: %s | Valor: %.2f | Data: %s\n",
                 id, cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
+    }
+
+    public double getValor() {
+        return valor;
     }
 
     public int getId() {
@@ -68,5 +67,9 @@ public class Venda {
 
     public LocalDate getData() {
         return data;
+    }
+
+    public HashMap<Chocolate, Integer> getChocolateVendidos() {
+        return chocolateVendidos;
     }
 }

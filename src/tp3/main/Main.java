@@ -3,6 +3,7 @@ package tp3.main;
 import tp3.controle.Loja;
 import tp3.pessoa.Endereco;
 import tp3.produto.Chocolate;
+import tp3.produto.Chocotone;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -85,13 +86,38 @@ public class Main {
         System.out.println("====Pesquisando o cliente 'Guilherme'====");
         System.out.println(loja.getClientePorNome("Guilherme").infoBasica());
         System.out.println(loja.getClientePorNome("Guilherme").infoCompleta());
+        System.out.println();
 
         // Pesquisando funcionário por nome:
         System.out.println("====Pesquisando o funcionário 'Antonio'====");
         System.out.println(loja.getFuncionarioPorNome("Antonio").infoBasica());
         System.out.println(loja.getFuncionarioPorNome("Antonio").infoCompleta());
+        System.out.println();
 
+        // Editando cliente
+        System.out.println("====Editando o cliente 'Guilherme'====");
+        System.out.println(loja.getClientePorNome("Guilherme").infoCompleta());
+        System.out.println("----Alterando a idade de 19 para 20----");
+        loja.getClientePorNome("Guilherme").setIdade(20);
+        System.out.println(loja.getClientePorNome("Guilherme").infoCompleta());
+        System.out.println();
 
+        // Removendo um cliente da lista
+        System.out.println("====Removendo o cliente 'Marcelo'====");
+        System.out.println(loja.stringClientes());
+        System.out.println("----Com cliente removido----");
+        loja.removerCliente(loja.getClientePorNome("Marcelo"));
+        System.out.println(loja.stringClientes());
+
+        // Editando um chocotone
+        System.out.println("====Editando um chocotone====");
+        System.out.println(loja.getEstoque().getChocolatePorNome("Chocotone Delicioso").infoBasica());
+        System.out.println("----Editando o chocotone----");
+        Chocotone chocotone = (Chocotone) loja.getEstoque().getChocolatePorNome("Chocotone Delicioso");
+        chocotone.setNome("O Melhor Chocotone");
+        chocotone.setPeso(600);
+        chocotone.addFruta("Maça");
+        System.out.println(chocotone.infoBasica());
 
     }
 }

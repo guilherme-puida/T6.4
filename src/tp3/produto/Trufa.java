@@ -1,6 +1,7 @@
 package tp3.produto;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Trufa extends Chocolate{
     private String recheio;
@@ -14,6 +15,24 @@ public class Trufa extends Chocolate{
         this.recheio = recheio;
         this.alcoolico = alcoolico;
 
+    }
+
+    public String infoBasica() {
+        return String.format("Id: %d | Nome: %s | Peso: %dg | Recheio: %s | Alcoólico: %s | Preço: %.2f",
+                super.getId(), super.getNome(), super.getPeso(), recheio, alcoolico, super.getPrecoVenda());
+    }
+
+    public String infoCompleta() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format(
+                "Id:%d|Peso:%d|Nome:%s|Descrição:%s|Tipo:%s|Data de compra:%s|" +
+                        "Preco da compra:$%.2f|Preco de venda:.%.2f|Porcentagem de Cacau:%.2f|" +
+                        "Gluten:%s|Lactose:%s|Artesanal:%s|Recheio:%s|Alcoolico:%s",
+                super.getId(), super.getPeso(), super.getNome(), super.getDescricao(), super.getTipo(),
+                super.getDataCompra().format(dtf), super.getPrecoCompra(), super.getPrecoVenda(),
+                super.getPorcentagemCacau(), super.isContemGluten(), super.isContemLactose(), super.isArtesanal(),
+                recheio, alcoolico
+        );
     }
 
     public String getRecheio() {
@@ -30,10 +49,5 @@ public class Trufa extends Chocolate{
 
     public void setAlcoolico(boolean alcoolico) {
         this.alcoolico = alcoolico;
-    }
-
-    public String infoBasica() {
-        return String.format("Id: %d | Nome: %s | Peso: %dg | Recheio: %s | Alcoólico: %s | Preço: %.2f",
-                super.getId(), super.getNome(), super.getPeso(), recheio, alcoolico, super.getPrecoVenda());
     }
 }

@@ -1,6 +1,9 @@
 package tp3.pessoa;
 
 public abstract class Pessoa {
+    /*
+    * Classe representando uma pessoa, que pode virar Cliente ou Funcionário
+    */
     private int id, idade;
     private String nome, cpf, telefone, email;
     private Endereco endereco;
@@ -16,6 +19,8 @@ public abstract class Pessoa {
     }
 
     public abstract String infoBasica();
+
+    public abstract String infoCompleta();
 
     public int getId() {
         return id;

@@ -28,6 +28,8 @@ public abstract class Chocolate {
 
     public abstract String infoBasica();
 
+    public abstract String infoCompleta();
+
     public int getId() {
         return id;
     }

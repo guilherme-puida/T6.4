@@ -21,6 +21,25 @@ public class Barra extends Chocolate{
         Collections.addAll(this.nibs, nibs);
     }
 
+    public String infoBasica() {
+        return String.format("Id: %d | Nome: %s | Peso: %dg | Sabor: %s | Nibs: %s | Preço: %.2f",
+                super.getId(), super.getNome(), super.getPeso(), sabor, String.join(", ", nibs),
+                super.getPrecoVenda());
+    }
+
+    public String infoCompleta() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format(
+                "Id:%d|Peso:%d|Nome:%s|Descrição:%s|Tipo:%s|Data de compra:%s|" +
+                        "Preco da compra:$%.2f|Preco de venda:.%.2f|Porcentagem de Cacau:%.2f|" +
+                        "Gluten:%s|Lactose:%s|Artesanal:%s|Sabor:%s|Nibs:%s",
+                super.getId(), super.getPeso(), super.getNome(), super.getDescricao(), super.getTipo(),
+                super.getDataCompra().format(dtf), super.getPrecoCompra(), super.getPrecoVenda(),
+                super.getPorcentagemCacau(), super.isContemGluten(), super.isContemLactose(), super.isArtesanal(),
+                sabor, String.join(", ", nibs)
+        );
+    }
+
     public String getSabor() {
         return sabor;
     }
@@ -41,11 +60,5 @@ public class Barra extends Chocolate{
 
     public void removeNib(String nib) {
         nibs.remove(nib);
-    }
-
-    public String infoBasica() {
-        return String.format("Id: %d | Nome: %s | Peso: %dg | Sabor: %s | Nibs: %s | Preço: %.2f",
-                super.getId(), super.getNome(), super.getPeso(), sabor, String.join(", ", nibs),
-                super.getPrecoVenda());
     }
 }
