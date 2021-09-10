@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 public class Venda {
     private int id;
+    private double valor;
     private Cliente cliente;
     private Funcionario funcionario;
     private LocalDate data;
@@ -62,5 +63,16 @@ public class Venda {
 
     public void adicionarChocolate(Chocolate chocolate, int quantidade) {
         chocolateVendidos.put(chocolate, chocolateVendidos.getOrDefault(chocolate, 0) + quantidade);
+    }
+
+    public double calcularValor() {
+        double valorVenda = 0;
+
+        for (Chocolate chocolate: chocolateVendidos.keySet()) {
+            valorVenda += chocolate.getPrecoVenda() * chocolateVendidos.get(chocolate);
+        }
+
+        valor = valorVenda;
+        return valorVenda;
     }
 }
