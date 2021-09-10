@@ -4,7 +4,8 @@ import tp3.pessoa.Cliente;
 import tp3.pessoa.Funcionario;
 import tp3.produto.Chocolate;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.HashMap;
 
 
@@ -12,10 +13,10 @@ public class Venda {
     private int id;
     private Cliente cliente;
     private Funcionario funcionario;
-    private Date data;
+    private LocalDate data;
     private final HashMap<Chocolate, Integer> chocolateVendidos;
 
-    public Venda(int id, Cliente cliente, Funcionario funcionario, Date data) {
+    public Venda(int id, Cliente cliente, Funcionario funcionario, LocalDate data) {
         this.id = id;
         this.cliente = cliente;
         this.funcionario = funcionario;
@@ -47,11 +48,11 @@ public class Venda {
         this.funcionario = funcionario;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
