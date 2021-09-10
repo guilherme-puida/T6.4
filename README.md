@@ -2,9 +2,9 @@
 
 ## TP3 - T6.4
 
-Guilherme Puida Moreira
+Guilherme Puida Moreira - 200019015
 
-Tiago Leão Buson
+Tiago Leão Buson - 200034162
 
 
 ## Observações gerais
