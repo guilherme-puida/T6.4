@@ -13,16 +13,23 @@ do TP4.
 
 package tp3.main;
 
+import jdk.dynalink.StandardNamespace;
 import tp3.controle.Loja;
 import tp3.pessoa.Endereco;
 import tp3.produto.Chocolate;
 import tp3.produto.Chocotone;
 
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.net.JarURLConnection;
 import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+
+        /*
         Loja loja = new Loja();
 
         // Cadastro de clientes inciais:
@@ -137,6 +144,24 @@ public class Main {
         System.out.println("====Calculando gastos e lucro em setembro de 2021");
         System.out.println("Os gastos em 09/21 foram de: " + loja.calcularGastosMes(9, 2021));
         System.out.println("O lucro em 09/21 foi de: " + loja.calcularLucroMes(9, 2021));
+        */
+        JFrame frame = new JFrame("Loja de Chocolates");
 
+        JTabbedPane tabbedPane = new JTabbedPane();
+        JPanel firstPanel = new JPanel();
+        JPanel secondPanel = new JPanel();
+        JPanel thirdPanel = new JPanel();
+
+        tabbedPane.addTab("Clientes", firstPanel);
+        tabbedPane.addTab("Produtos", secondPanel);
+        tabbedPane.addTab("Funcionários", thirdPanel);
+
+        tabbedPane.setVisible(true);
+
+        frame.add(tabbedPane);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
