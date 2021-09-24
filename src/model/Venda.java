@@ -1,8 +1,4 @@
-package tp3.controle;
-
-import tp3.pessoa.Cliente;
-import tp3.pessoa.Funcionario;
-import tp3.produto.Chocolate;
+package model;
 
 
 import java.time.LocalDate;

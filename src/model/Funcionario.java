@@ -1,4 +1,4 @@
-package tp3.pessoa;
+package model;
 
 public class Funcionario extends Pessoa{
     private double salario;

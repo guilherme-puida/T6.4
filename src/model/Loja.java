@@ -1,13 +1,5 @@
-package tp3.controle;
+package model;
 
-
-import tp3.pessoa.Cliente;
-import tp3.pessoa.Endereco;
-import tp3.pessoa.Funcionario;
-import tp3.produto.Barra;
-import tp3.produto.Chocolate;
-import tp3.produto.Chocotone;
-import tp3.produto.Trufa;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

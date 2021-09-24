@@ -1,4 +1,4 @@
-package tp3.pessoa;
+package model;
 
 public abstract class Pessoa {
     /*
@@ -21,6 +21,11 @@ public abstract class Pessoa {
     public abstract String infoBasica();
 
     public abstract String infoCompleta();
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 
     public int getId() {
         return id;

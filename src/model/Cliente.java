@@ -1,4 +1,4 @@
-package tp3.pessoa;
+package model;
 
 public class Cliente extends Pessoa{
     private String categoria;

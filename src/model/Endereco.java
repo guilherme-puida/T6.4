@@ -1,4 +1,4 @@
-package tp3.pessoa;
+package model;
 
 public class Endereco {
     private String bairro, rua, numero, cep;
@@ -9,6 +9,8 @@ public class Endereco {
         this.numero = numero;
         this.cep = cep;
     }
+
+
     public String stringEndereco() {
         return String.format("%s %s-%s (%s)", bairro, rua, numero, cep);
     }

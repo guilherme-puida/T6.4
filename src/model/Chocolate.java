@@ -1,4 +1,4 @@
-package tp3.produto;
+package model;
 
 import java.time.LocalDate;
 
@@ -29,6 +29,10 @@ public abstract class Chocolate {
     public abstract String infoBasica();
 
     public abstract String infoCompleta();
+
+    public String toString() {
+        return nome;
+    }
 
     public int getId() {
         return id;

@@ -1,6 +1,4 @@
-package tp3.controle;
-
-import tp3.produto.Chocolate;
+package model;
 
 import java.util.HashMap;
 import java.util.Objects;

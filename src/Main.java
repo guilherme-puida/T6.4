@@ -11,27 +11,19 @@ Alguns métodos foram implementados e não usados, como diversos gets e sets. Co
 do TP4.
  */
 
-package tp3.main;
-
-import jdk.dynalink.StandardNamespace;
-import tp3.controle.Loja;
-import tp3.pessoa.Endereco;
-import tp3.produto.Chocolate;
-import tp3.produto.Chocotone;
+import model.Loja;
+import model.Endereco;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.net.JarURLConnection;
 import java.time.LocalDate;
-import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
 
-        /*
         Loja loja = new Loja();
+        carregar_clientes(loja);
 
+        /*
         // Cadastro de clientes inciais:
         loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
                 "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
@@ -145,6 +137,7 @@ public class Main {
         System.out.println("Os gastos em 09/21 foram de: " + loja.calcularGastosMes(9, 2021));
         System.out.println("O lucro em 09/21 foi de: " + loja.calcularLucroMes(9, 2021));
         */
+
         JFrame frame = new JFrame("Loja de Chocolates");
 
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -163,5 +156,45 @@ public class Main {
         frame.setVisible(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+
+    public static void carregar_clientes(Loja loja) {
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
+
+        // Cadastro dos funcionários iniciais:
+        loja.cadastrarFuncionario(loja.getProximoIdFuncionario(), 23, "Antonio", "000.000.000-00",
+                "99999-9999", "email@email.com",
+                new Endereco("Sudoeste", "SQNW", "302", "00002-00"),
+                1000.00, "Caixa");
+        loja.cadastrarFuncionario(loja.getProximoIdFuncionario(), 34, "Ana", "000.000.000-00",
+                "99999-9999", "email@email.com",
+                new Endereco("Sudoeste", "SQNW", "302", "00002-00"),
+                30000.00, "Gerente");
+
+        // Cadastro dos produtos iniciais:
+        loja.cadastrarBarra(loja.getProximoIdChocolate(), 250, "Barra Incrível",
+                "Uma incrível barra de chocolate", "Meio-Amargo",
+                LocalDate.of(2021, 9, 10), 10.0, 20.0,
+                70.0, true, true, true, "Chocolate",
+                new String[]{"Amendoim", "Nozes"}, 25);
+        loja.cadastrarBarra(loja.getProximoIdChocolate(), 250, "Barra Sensacional",
+                "Barra sensacional de chocolate", "Ao Leite",
+                LocalDate.of(2021, 5, 10), 12.0, 33.2,
+                25.0, true, true, false, "Menta",
+                new String[]{"Castanha"}, 30);
+
+        loja.cadastrarChocotone(loja.getProximoIdChocolate(), 500, "Chocotone Delicioso",
+                "O melhor chocotone", "Gourmet", LocalDate.of(2021, 9, 10),
+                8.0, 20.0, 10, true, true, false,
+                "Doce de leite", new String[]{"Morango"}, 20);
+
+        loja.cadastrarTrufa(loja.getProximoIdChocolate(), 20, "Trufa Trufada", "Trufa de trufas",
+                "Ao leite", LocalDate.of(2021, 7, 10), 0.5, 2.0,
+                20, true, true, false, "Licor", true, 100);
     }
 }
