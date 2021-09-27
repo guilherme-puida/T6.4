@@ -7,16 +7,22 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class Loja {
+    private static Loja instance = new Loja();
+
     private final Estoque estoque;
     private final ArrayList<Funcionario> funcionarios;
     private final ArrayList<Cliente> clientes;
     private final ArrayList<Venda> vendas;
 
-    public Loja() {
+    private Loja() {
         this.estoque = new Estoque();
         this.funcionarios = new ArrayList<>();
         this.clientes = new ArrayList<>();
         this.vendas = new ArrayList<>();
+    }
+
+    public static Loja getInstance() {
+        return instance;
     }
 
     // Cadastra um novo cliente na lista de clientes

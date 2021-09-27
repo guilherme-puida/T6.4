@@ -1,10 +1,10 @@
-/*
+package main;/*
 TP3 - T6.4
 
 Guilherme Puida Moreira - 200019015
 Tiago Leão Buson - 200034162
 
-Na especificação do TP3 não era pedido menu interativo, então a Main desse projeto testa e comprova o funcionamento
+Na especificação do TP3 não era pedido menu interativo, então a main.Main desse projeto testa e comprova o funcionamento
 dos métodos implementados
 
 Alguns métodos foram implementados e não usados, como diversos gets e sets. Contudo, eles serão úteis no desenvolvimento
@@ -135,13 +135,49 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        Loja loja = new Loja();
+        Loja loja = Loja.getInstance();
         carregar_clientes(loja);
 
         MainFrame frame = new MainFrame("teste");
     }
 
     public static void carregar_clientes(Loja loja) {
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
+                "diamante");
+        loja.cadastrarCliente(loja.getProximoIdCliente(), 25, "Marcelo", "000.000.000-00", "99999-9999",
+                "email@email.com", new Endereco("Asa Sul", "SQS", "102", "00001-00"),
+                "bronze");
         loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
                 "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
                 "diamante");
