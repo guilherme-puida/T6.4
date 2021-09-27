@@ -11,19 +11,7 @@ Alguns métodos foram implementados e não usados, como diversos gets e sets. Co
 do TP4.
  */
 
-import model.Loja;
-import model.Endereco;
-
-import javax.swing.*;
-import java.time.LocalDate;
-
-public class Main {
-    public static void main(String[] args) {
-
-        Loja loja = new Loja();
-        carregar_clientes(loja);
-
-        /*
+/*
         // Cadastro de clientes inciais:
         loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",
                 "email@email.com", new Endereco("Asa Norte", "SQN", "307", "00000-00"),
@@ -137,25 +125,20 @@ public class Main {
         System.out.println("Os gastos em 09/21 foram de: " + loja.calcularGastosMes(9, 2021));
         System.out.println("O lucro em 09/21 foi de: " + loja.calcularLucroMes(9, 2021));
         */
+import model.Loja;
+import model.Endereco;
+import view.MainFrame;
 
-        JFrame frame = new JFrame("Loja de Chocolates");
+import javax.swing.*;
+import java.time.LocalDate;
 
-        JTabbedPane tabbedPane = new JTabbedPane();
-        JPanel firstPanel = new JPanel();
-        JPanel secondPanel = new JPanel();
-        JPanel thirdPanel = new JPanel();
+public class Main {
+    public static void main(String[] args) {
 
-        tabbedPane.addTab("Clientes", firstPanel);
-        tabbedPane.addTab("Produtos", secondPanel);
-        tabbedPane.addTab("Funcionários", thirdPanel);
+        Loja loja = new Loja();
+        carregar_clientes(loja);
 
-        tabbedPane.setVisible(true);
-
-        frame.add(tabbedPane);
-        frame.setSize(500, 500);
-        frame.setVisible(true);
-
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        MainFrame frame = new MainFrame("teste");
     }
 
     public static void carregar_clientes(Loja loja) {
