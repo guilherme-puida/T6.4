@@ -10,13 +10,12 @@ public class MainFrame extends JFrame {
     public MainFrame(String title) {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        //setLayout(new BorderLayout());
 
         tabs = new JTabbedPane();
 
-        tabs.add("Aba 1", new Tab());
-        tabs.add("Aba 2", new Tab());
         tabs.add("ClientesTab", new ClientesTab());
+        tabs.add("Funcionarios", new FuncionariosTab());
 
         toolBar = new MainToolBar();
 
