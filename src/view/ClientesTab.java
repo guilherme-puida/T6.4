@@ -1,8 +1,5 @@
 package view;
 
-import model.Cliente;
-import model.Loja;
-
 import javax.swing.*;
 import java.awt.*;
 

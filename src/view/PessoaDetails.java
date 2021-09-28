@@ -3,7 +3,7 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class PessoaDetails extends DetailsPanel {
+public abstract class PessoaDetails extends DetailsPanel {
     private final JTextField id, idade, nome, cpf, telefone, email, bairro,
             rua, numero, cep;
 

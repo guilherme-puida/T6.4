@@ -4,7 +4,7 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class DetailsPanel extends JPanel {
+public abstract class DetailsPanel extends JPanel {
     private final JPanel innerDetailsPanel;
     private final JButton submit;
     private final GridBagConstraints left, right;

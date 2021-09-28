@@ -22,6 +22,11 @@ public class Venda {
         chocolateVendidos = new HashMap<>();
     }
 
+    @Override
+    public String toString() {
+        return String.format("%d - %s", this.id, this.cliente.getNome());
+    }
+
     // Adiciona um chocolate na venda
     public void adicionarChocolate(Chocolate chocolate, int quantidade) {
         chocolateVendidos.put(chocolate, chocolateVendidos.getOrDefault(chocolate, 0) + quantidade);
