@@ -25,7 +25,7 @@ public class MainToolBarController implements ActionListener {
         } else if (e.getSource() == MainToolBar.adicionarProduto) {
             System.out.println("Adicionar Produto!");
         } else if (e.getSource() == MainToolBar.adicionarFuncionario) {
-            System.out.println("Adicionar Funcionario!");
+            new view.FuncionarioOptionPane(parent);
         } else if (e.getSource() == MainToolBar.adicionarVenda) {
             System.out.println("Adicionar Venda!");
         }

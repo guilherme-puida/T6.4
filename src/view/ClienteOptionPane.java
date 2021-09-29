@@ -14,7 +14,7 @@ public class ClienteOptionPane extends JDialog{
     public ClienteOptionPane(JFrame parent) {
         super(parent, "Cliente");
         this.parent = parent;
-        setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        setModalityType(ModalityType.APPLICATION_MODAL);
 
         details = new ClienteDetails();
         add(details);
