@@ -133,13 +133,16 @@ import javax.swing.*;
 import java.time.LocalDate;
 
 public class Main {
+    private static MainFrame frame;
     public static void main(String[] args) {
 
         Loja loja = Loja.getInstance();
         carregar_clientes(loja);
 
-        MainFrame frame = new MainFrame("teste");
+        frame = new MainFrame("teste");
     }
+
+    public MainFrame getFrame() { return frame; }
 
     public static void carregar_clientes(Loja loja) {
         loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00", "99999-9999",

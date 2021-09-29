@@ -27,7 +27,7 @@ public class MainToolBar extends JToolBar {
         add(remover);
 
         setFloatable(false);
-        ActionListener actionListener = new MainToolBarController();
+        ActionListener actionListener = new MainToolBarController(this);
         adicionarCliente.addActionListener(actionListener);
         adicionarProduto.addActionListener(actionListener);
         adicionarFuncionario.addActionListener(actionListener);
