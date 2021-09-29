@@ -5,48 +5,57 @@ import model.Endereco;
 import model.Loja;
 import view.ClienteDetails;
 import view.ClienteOptionPane;
-import view.MainFrame;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ClienteOptionPaneController implements ActionListener {
     ClienteOptionPane view;
-
     public ClienteOptionPaneController(ClienteOptionPane view) {
         this.view = view;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        //TODO certificar que os campos não são nulos
+
         if (e.getSource().equals(view.getDetails().getSubmit())) {
-            String[] info = new String[10];
 
             ClienteDetails details = view.getDetails();
-            info[1] = details.getNome().getText();
-            info[2] = details.getCpf().getText();
-            info[3] = details.getTelefone().getText();
-            info[4] = details.getEmail().getText();
-            info[5] = details.getBairro().getText();
-            info[6] = details.getRua().getText();
-            info[7] = details.getNumero().getText();
-            info[8] = details.getCep().getText();
-            info[9] = details.getCategoria().getText();
 
-            Endereco endereco = new Endereco(info[5], info[6], info[7], info[8]);
+            String idade = details.getIdade().getText();
 
-            Loja.getInstance().cadastrarCliente(
-                    Loja.getInstance().getProximoIdCliente(),
-                    18,
-                    info[1],
-                    info[2],
-                    info[3],
-                    info[4],
-                    endereco,
-                    info[9]
+            // Tenta converter a idade para Inteiro
+            int idadeInt;
+            try {
+                idadeInt = Integer.parseInt(idade);
+            } catch(NumberFormatException ignored) {
+                // TODO não permitir que a idade seja inválida
+                idadeInt = 0;
+            }
+
+            Endereco endereco = new Endereco(
+                    details.getBairro().getText(),
+                    details.getRua().getText(),
+                    details.getNumero().getText(),
+                    details.getCep().getText()
             );
 
+
+            // Cadastra o cliente.
+            Loja.getInstance().cadastrarCliente(
+                    Loja.getInstance().getProximoIdCliente(),
+                    idadeInt,
+                    details.getNome().getText(),
+                    details.getCpf().getText(),
+                    details.getTelefone().getText(),
+                    details.getEmail().getText(),
+                    endereco,
+                    details.getCategoria().getText()
+            );
+
+            // Atualiza a lista de clientes que é mostrada.
             Main.getFrame().getClientesTab().getListaClientes().updateLista();
             view.dispose();
 
