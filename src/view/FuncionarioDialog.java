@@ -3,11 +3,11 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class FuncionarioOptionPane extends JDialog {
+public class FuncionarioDialog extends JDialog {
     private final FuncionarioDetails details;
     private final JFrame parent;
 
-    public FuncionarioOptionPane(JFrame parent) {
+    public FuncionarioDialog(JFrame parent) {
         super(parent, "Funcionário");
         this.parent = parent;
         setModalityType(ModalityType.APPLICATION_MODAL);

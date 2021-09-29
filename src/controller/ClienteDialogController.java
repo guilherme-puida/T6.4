@@ -4,14 +4,14 @@ import main.Main;
 import model.Endereco;
 import model.Loja;
 import view.ClienteDetails;
-import view.ClienteOptionPane;
+import view.ClienteDialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClienteOptionPaneController implements ActionListener {
-    ClienteOptionPane view;
-    public ClienteOptionPaneController(ClienteOptionPane view) {
+public class ClienteDialogController implements ActionListener {
+    ClienteDialog view;
+    public ClienteDialogController(ClienteDialog view) {
         this.view = view;
     }
 
