@@ -1,5 +1,7 @@
 package view;
 
+import model.Chocolate;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,6 +16,8 @@ public class ProdutoDetails extends DetailsPanel{
 
     private final JTextField sabor, nibs, recheio, frutas;
     private final JCheckBox alcoolico;
+
+    private final JLabel saborLabel, recheioLabel, nibsLabel, frutasLabel, alcoolicoLabel;
 
     public ProdutoDetails(int escolha) {
         super("Detalhes do produto");
@@ -60,23 +64,29 @@ public class ProdutoDetails extends DetailsPanel{
         getInnerDetailsPanel().add(new JLabel("Porcentagem de Cacau:"), left);
         getInnerDetailsPanel().add(porcentagemCacau, right);
 
+        saborLabel = new JLabel("Sabor:");
+        nibsLabel = new JLabel("Nibs:");
+        recheioLabel = new JLabel("Recheio:");
+        frutasLabel = new JLabel("Frutas:");
+        alcoolicoLabel = new JLabel("Alcoólico");
+
         switch(escolha) {
             case BARRA -> {
-                getInnerDetailsPanel().add(new JLabel("Sabor:"), left);
+                getInnerDetailsPanel().add(saborLabel, left);
                 getInnerDetailsPanel().add(sabor, right);
-                getInnerDetailsPanel().add(new JLabel("Nibs:"), left);
+                getInnerDetailsPanel().add(nibsLabel, left);
                 getInnerDetailsPanel().add(nibs, right);
             }
             case CHOCOTONE -> {
-                getInnerDetailsPanel().add(new JLabel("Recheio"), left);
+                getInnerDetailsPanel().add(recheioLabel, left);
                 getInnerDetailsPanel().add(recheio, right);
-                getInnerDetailsPanel().add(new JLabel("Frutas:"), left);
+                getInnerDetailsPanel().add(frutasLabel, left);
                 getInnerDetailsPanel().add(frutas, right);
             }
             case TRUFA -> {
-                getInnerDetailsPanel().add(new JLabel("Recheio"), left);
+                getInnerDetailsPanel().add(recheioLabel, left);
                 getInnerDetailsPanel().add(recheio, right);
-                getInnerDetailsPanel().add(new JLabel("Alcoólico:"), left);
+                getInnerDetailsPanel().add(alcoolicoLabel, left);
                 getInnerDetailsPanel().add(alcoolico, right);
             }
         }
@@ -90,6 +100,9 @@ public class ProdutoDetails extends DetailsPanel{
         getInnerDetailsPanel().add(contemLactose, right);
         getInnerDetailsPanel().add(new JLabel("Artesanal:"), left);
         getInnerDetailsPanel().add(artesanal, right);
+    }
 
+    public void popularDados(Chocolate chocolate) {
+        
     }
 }

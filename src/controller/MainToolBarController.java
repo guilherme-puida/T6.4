@@ -3,6 +3,8 @@ package controller;
 import main.Main;
 import model.Cliente;
 import model.Loja;
+import view.ClienteDialog;
+import view.FuncionarioDialog;
 import view.MainFrame;
 import view.MainToolBar;
 
@@ -22,11 +24,11 @@ public class MainToolBarController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bar.getAdicionarCliente()) {
-            new view.ClienteOptionPane(parent);
+            new ClienteDialog(parent);
         } else if (e.getSource() == bar.getAdicionarProduto()) {
             System.out.println("Adicionar Produto!");
         } else if (e.getSource() == bar.getAdicionarFuncionario()) {
-            new view.FuncionarioOptionPane(parent);
+            new FuncionarioDialog(parent);
         } else if (e.getSource() == bar.getAdicionarVenda()) {
             System.out.println("Adicionar Venda!");
         } else if (e.getSource() == bar.getRemover()) {

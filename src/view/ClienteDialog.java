@@ -1,17 +1,15 @@
 package view;
 
-import controller.ClienteOptionPaneController;
+import controller.ClienteDialogController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class ClienteOptionPane extends JDialog{
+public class ClienteDialog extends JDialog{
     private final ClienteDetails details;
     private final JFrame parent;
 
-    public ClienteOptionPane(JFrame parent) {
+    public ClienteDialog(JFrame parent) {
         super(parent, "Cliente");
         this.parent = parent;
         setModalityType(ModalityType.APPLICATION_MODAL);
@@ -19,7 +17,7 @@ public class ClienteOptionPane extends JDialog{
         details = new ClienteDetails();
         add(details);
 
-        details.getSubmit().addActionListener(new ClienteOptionPaneController(this));
+        details.getSubmit().addActionListener(new ClienteDialogController(this));
 
 
         setMinimumSize(new Dimension(600, 200));
