@@ -23,4 +23,7 @@ public class FuncionarioDialog extends JDialog {
         pack();
         setVisible(true);
     }
+
+    public FuncionarioDetails getDetails() { return details; }
+
 }

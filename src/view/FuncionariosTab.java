@@ -1,6 +1,9 @@
 package view;
 
+import controller.FuncionariosTabController;
+
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 public class FuncionariosTab extends JPanel {
@@ -16,5 +19,20 @@ public class FuncionariosTab extends JPanel {
 
         details = new FuncionarioDetails();
         add(details, BorderLayout.CENTER);
+
+    }
+
+    public ListaPanel getListaFuncionarios() { return listaFuncionarios; }
+
+    public FuncionarioDetails getDetails() {
+        return details;
+    }
+
+    public void resetListSelectionController() {
+        for (ListSelectionListener l : listaFuncionarios.getLista().getListSelectionListeners()) {
+            listaFuncionarios.getLista().removeListSelectionListener(l);
+        }
+
+        listaFuncionarios.getLista().addListSelectionListener(new FuncionariosTabController(this));
     }
 }
