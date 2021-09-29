@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ClientesTab extends JPanel {
-    ListaPanel listaClientes;
+    private final ListaPanel listaClientes;
 
-    ClienteDetails details;
+    private final ClienteDetails details;
 
     public ClientesTab() {
         setLayout(new BorderLayout(0, 0));
@@ -16,7 +16,13 @@ public class ClientesTab extends JPanel {
 
         details = new ClienteDetails();
         add(details, BorderLayout.CENTER);
+    }
 
+    public ListaPanel getListaClientes() {
+        return listaClientes;
+    }
 
+    public ClienteDetails getDetails() {
+        return details;
     }
 }

@@ -19,13 +19,10 @@ public class ListaPanel extends JPanel {
 
     public ListaPanel(int selection) {
         this.selection = selection;
+        listaScroller = new JScrollPane();
         updateLista();
 
-        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        lista.setLayoutOrientation(JList.VERTICAL);
-        lista.setVisibleRowCount(-1);
 
-        listaScroller = new JScrollPane(lista);
         listaScroller.setPreferredSize(new Dimension(200, 600));
         listaScroller.setMinimumSize(new Dimension(200, 600));
 
@@ -39,5 +36,11 @@ public class ListaPanel extends JPanel {
             case 2 -> lista = new JList<>(Loja.getInstance().getEstoque().getChocolates().toArray(new Chocolate[0]));
             case 3 -> lista = new JList<>(Loja.getInstance().getVendas());
         }
+
+        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lista.setLayoutOrientation(JList.VERTICAL);
+        lista.setVisibleRowCount(-1);
+
+        listaScroller.setViewportView(lista);
     }
 }

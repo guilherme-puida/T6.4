@@ -9,9 +9,11 @@ import java.awt.event.ActionListener;
 
 public class ClienteOptionPane extends JDialog{
     private final ClienteDetails details;
+    private final JFrame parent;
 
     public ClienteOptionPane(JFrame parent) {
         super(parent, "Cliente");
+        this.parent = parent;
         setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 
         details = new ClienteDetails();

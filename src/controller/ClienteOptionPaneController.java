@@ -1,9 +1,11 @@
 package controller;
 
+import main.Main;
 import model.Endereco;
 import model.Loja;
 import view.ClienteDetails;
 import view.ClienteOptionPane;
+import view.MainFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -45,6 +47,7 @@ public class ClienteOptionPaneController implements ActionListener {
                     info[9]
             );
 
+            Main.getFrame().getClientesTab().getListaClientes().updateLista();
             view.dispose();
 
         }
