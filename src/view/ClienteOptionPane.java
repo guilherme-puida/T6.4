@@ -1,5 +1,7 @@
 package view;
 
+import controller.ClienteOptionPaneController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,7 @@ public class ClienteOptionPane extends JDialog{
         details = new ClienteDetails();
         add(details);
 
-        details.getSubmit().addActionListener(e -> dispose());
+        details.getSubmit().addActionListener(new ClienteOptionPaneController(this));
 
 
         setMinimumSize(new Dimension(600, 200));
