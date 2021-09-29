@@ -1,5 +1,8 @@
 package view;
 
+import model.Cliente;
+import model.Pessoa;
+
 import javax.swing.*;
 
 public class ClienteDetails extends PessoaDetails {
@@ -14,6 +17,13 @@ public class ClienteDetails extends PessoaDetails {
 
         getInnerDetailsPanel().add(labelCategoria, getLeft());
         getInnerDetailsPanel().add(categoria, getRight());
+    }
+
+    @Override
+    public void popularDados(Pessoa pessoa) {
+        Cliente cliente = (Cliente) pessoa;
+        super.popularDados(cliente);
+        categoria.setText(cliente.getCategoria());
     }
 
     public JTextField getCategoria() {

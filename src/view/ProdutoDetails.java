@@ -1,7 +1,5 @@
 package view;
 
-import model.Chocolate;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -25,6 +23,8 @@ public class ProdutoDetails extends DetailsPanel{
         this.escolha = escolha;
 
         id = new JTextField();
+        id.setEditable(false);
+
         peso = new JTextField();
         nome = new JTextField();
         descricao = new JTextField();
@@ -102,7 +102,5 @@ public class ProdutoDetails extends DetailsPanel{
         getInnerDetailsPanel().add(artesanal, right);
     }
 
-    public void popularDados(Chocolate chocolate) {
-        
-    }
+
 }

@@ -1,5 +1,7 @@
 package view;
 
+import model.Pessoa;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -22,6 +24,7 @@ public abstract class PessoaDetails extends DetailsPanel {
         JLabel labelCep = new JLabel("Cep:");
 
         id = new JTextField();
+        id.setEditable(false);
         idade = new JTextField();
         nome = new JTextField();
         cpf = new JTextField();
@@ -56,6 +59,19 @@ public abstract class PessoaDetails extends DetailsPanel {
         getInnerDetailsPanel().add(numero, right);
         getInnerDetailsPanel().add(labelCep, left);
         getInnerDetailsPanel().add(cep, right);
+    }
+
+    public void popularDados(Pessoa pessoa) {
+        id.setText(String.valueOf(pessoa.getId()));
+        idade.setText(String.valueOf(pessoa.getIdade()));
+        nome.setText(pessoa.getNome());
+        cpf.setText(pessoa.getCpf());
+        telefone.setText(pessoa.getTelefone());
+        email.setText(pessoa.getEmail());
+        bairro.setText(pessoa.getEndereco().getBairro());
+        rua.setText(pessoa.getEndereco().getRua());
+        numero.setText(pessoa.getEndereco().getNumero());
+        cep.setText(pessoa.getEndereco().getCep());
     }
 
     public JTextField getId() {

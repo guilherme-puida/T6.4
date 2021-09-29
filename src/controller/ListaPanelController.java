@@ -1,22 +1,24 @@
 package controller;
 
 
-import model.Cliente;
 import model.Loja;
+import view.ListaPanel;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class ListaPanelController implements ActionListener {
+public class ListaPanelController implements ListSelectionListener {
     Loja loja = Loja.getInstance();
+    ListaPanel panel;
 
-    public ListaPanelController(JList jList) {
-
+    public ListaPanelController(ListaPanel panel) {
+        this.panel = panel;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void valueChanged(ListSelectionEvent e) {
+        if (!e.getValueIsAdjusting()) {
 
+        }
     }
 }
