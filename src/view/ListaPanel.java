@@ -43,4 +43,16 @@ public class ListaPanel extends JPanel {
 
         listaScroller.setViewportView(lista);
     }
+
+    public int getSelection() {
+        return selection;
+    }
+
+    public JList<?> getLista() {
+        return lista;
+    }
+
+    public JScrollPane getListaScroller() {
+        return listaScroller;
+    }
 }

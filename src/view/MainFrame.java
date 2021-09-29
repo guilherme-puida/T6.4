@@ -11,6 +11,7 @@ public class MainFrame extends JFrame {
 
     private final ClientesTab clientesTab;
     private final FuncionariosTab funcionariosTab;
+    private final ProdutosTab produtosTab;
 
     public MainFrame(String title) {
         super(title);
@@ -19,9 +20,11 @@ public class MainFrame extends JFrame {
         tabs = new JTabbedPane();
         clientesTab = new ClientesTab();
         funcionariosTab = new FuncionariosTab();
+        produtosTab = new ProdutosTab();
 
         tabs.add("Clientes", clientesTab);
         tabs.add("Funcionarios", funcionariosTab);
+        tabs.add("Produtos", produtosTab);
 
         toolBar = new MainToolBar();
 
