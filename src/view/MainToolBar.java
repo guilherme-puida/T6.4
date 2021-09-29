@@ -1,9 +1,12 @@
 package view;
 
+import controller.MainToolBarController;
+
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class MainToolBar extends JToolBar {
-    private final JButton adicionarCliente,
+    public static JButton adicionarCliente, //Tiago mudou de private final para public static.
             adicionarProduto,
             adicionarFuncionario,
             adicionarVenda, remover;
@@ -24,5 +27,11 @@ public class MainToolBar extends JToolBar {
         add(remover);
 
         setFloatable(false);
+        ActionListener actionListener = new MainToolBarController(this);
+        adicionarCliente.addActionListener(actionListener);
+        adicionarProduto.addActionListener(actionListener);
+        adicionarFuncionario.addActionListener(actionListener);
+        adicionarVenda.addActionListener(actionListener);
+
     }
 }

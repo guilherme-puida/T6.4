@@ -10,7 +10,6 @@ public class MainFrame extends JFrame {
     public MainFrame(String title) {
         super(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //setLayout(new BorderLayout());
 
         tabs = new JTabbedPane();
 
@@ -22,8 +21,7 @@ public class MainFrame extends JFrame {
         getContentPane().add(tabs, BorderLayout.CENTER);
         add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        setSize(1000, 800);
-        //pack();
+        setSize(1000, 600);
         setVisible(true);
         setResizable(false);
     }
