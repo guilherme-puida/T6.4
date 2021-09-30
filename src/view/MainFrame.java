@@ -51,4 +51,8 @@ public class MainFrame extends JFrame {
     public FuncionariosTab getFuncionariosTab() {
         return funcionariosTab;
     }
+
+    public ProdutosTab getProdutosTab() {
+        return produtosTab;
+    }
 }

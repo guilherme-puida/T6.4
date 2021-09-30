@@ -38,12 +38,4 @@ public class FuncionarioDetails extends PessoaDetails {
     public JTextField getCargo() {
         return cargo;
     }
-
-    public JLabel getLabelSalario() {
-        return labelSalario;
-    }
-
-    public JLabel getLabelCargo() {
-        return labelCargo;
-    }
 }

@@ -13,7 +13,7 @@ public class ProdutoDetails extends DetailsPanel{
     public static final int BARRA = 0, CHOCOTONE = 1, TRUFA = 2;
 
     private final JTextField id, peso, nome, descricao, tipo, precoCompra, precoVenda,
-    porcentagemCacau;
+    porcentagemCacau, dataCompra;
     private final JCheckBox contemGluten, contemLactose, artesanal;
 
     private final JTextField sabor, nibs, recheio, frutas;
@@ -35,6 +35,9 @@ public class ProdutoDetails extends DetailsPanel{
         precoCompra = new JTextField();
         precoVenda = new JTextField();
         porcentagemCacau = new JTextField();
+
+        dataCompra = new JTextField();
+        dataCompra.setEditable(false);
 
         sabor = new JTextField();
         nibs = new JTextField();
@@ -66,6 +69,8 @@ public class ProdutoDetails extends DetailsPanel{
         getInnerDetailsPanel().add(precoVenda, right);
         getInnerDetailsPanel().add(new JLabel("Porcentagem de Cacau:"), left);
         getInnerDetailsPanel().add(porcentagemCacau, right);
+        getInnerDetailsPanel().add(new JLabel("Data da compra:"), left);
+        getInnerDetailsPanel().add(dataCompra, right);
 
         saborLabel = new JLabel("Sabor:");
         nibsLabel = new JLabel("Nibs:");
@@ -103,6 +108,7 @@ public class ProdutoDetails extends DetailsPanel{
         precoCompra.setText(String.valueOf(chocolate.getPrecoCompra()));
         precoVenda.setText(String.valueOf(chocolate.getPrecoVenda()));
         porcentagemCacau.setText(String.valueOf(chocolate.getPorcentagemCacau()));
+        dataCompra.setText(chocolate.getDataCompra().toString());
 
         contemGluten.setSelected(chocolate.isContemGluten());
         contemLactose.setSelected(chocolate.isContemLactose());
@@ -158,5 +164,67 @@ public class ProdutoDetails extends DetailsPanel{
         nibs.setVisible(false);
     }
 
+    public JTextField getId() {
+        return id;
+    }
 
+    public JTextField getPeso() {
+        return peso;
+    }
+
+    public JTextField getNome() {
+        return nome;
+    }
+
+    public JTextField getDescricao() {
+        return descricao;
+    }
+
+    public JTextField getTipo() {
+        return tipo;
+    }
+
+    public JTextField getPrecoCompra() {
+        return precoCompra;
+    }
+
+    public JTextField getPrecoVenda() {
+        return precoVenda;
+    }
+
+    public JTextField getPorcentagemCacau() {
+        return porcentagemCacau;
+    }
+
+    public JCheckBox getContemGluten() {
+        return contemGluten;
+    }
+
+    public JCheckBox getContemLactose() {
+        return contemLactose;
+    }
+
+    public JCheckBox getArtesanal() {
+        return artesanal;
+    }
+
+    public JTextField getSabor() {
+        return sabor;
+    }
+
+    public JTextField getNibs() {
+        return nibs;
+    }
+
+    public JTextField getRecheio() {
+        return recheio;
+    }
+
+    public JTextField getFrutas() {
+        return frutas;
+    }
+
+    public JCheckBox getAlcoolico() {
+        return alcoolico;
+    }
 }

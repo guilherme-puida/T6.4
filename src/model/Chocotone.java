@@ -59,4 +59,9 @@ public class Chocotone extends Chocolate{
     public void removeFruta(String fruta) {
         frutas.remove(fruta);
     }
+
+    public void setFrutas(String[] frutas) {
+        this.frutas.clear();
+        Collections.addAll(this.frutas, frutas);
+    }
 }

@@ -5,11 +5,12 @@ import controller.FuncionariosTabController;
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class FuncionariosTab extends JPanel {
-    private ListaPanel listaFuncionarios;
+    private final ListaPanel listaFuncionarios;
 
-    private FuncionarioDetails details;
+    private final FuncionarioDetails details;
 
     public FuncionariosTab() {
         setLayout(new BorderLayout(0, 0));
@@ -20,7 +21,10 @@ public class FuncionariosTab extends JPanel {
         details = new FuncionarioDetails();
         add(details, BorderLayout.CENTER);
 
-        listaFuncionarios.getLista().addListSelectionListener(new FuncionariosTabController(this));
+        FuncionariosTabController controller = new FuncionariosTabController(this);
+
+        listaFuncionarios.getLista().addListSelectionListener(controller);
+        details.getSubmit().addActionListener(controller);
     }
 
     public ListaPanel getListaFuncionarios() { return listaFuncionarios; }
@@ -34,6 +38,13 @@ public class FuncionariosTab extends JPanel {
             listaFuncionarios.getLista().removeListSelectionListener(l);
         }
 
-        listaFuncionarios.getLista().addListSelectionListener(new FuncionariosTabController(this));
+        for (ActionListener l : details.getSubmit().getActionListeners()) {
+            details.getSubmit().removeActionListener(l);
+        }
+
+        FuncionariosTabController controller = new FuncionariosTabController(this);
+
+        listaFuncionarios.getLista().addListSelectionListener(controller);
+        details.getSubmit().addActionListener(controller);
     }
 }

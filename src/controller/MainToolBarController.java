@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainToolBarController implements ActionListener {
-    Loja loja = Loja.getInstance();
     MainToolBar bar;
     JFrame parent;
 

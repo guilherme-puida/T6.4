@@ -5,6 +5,7 @@ import controller.ProdutosTabController;
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class ProdutosTab extends JPanel {
         private final ListaPanel listaProdutos;
@@ -20,7 +21,10 @@ public class ProdutosTab extends JPanel {
             details = new ProdutoDetails();
             add(details, BorderLayout.CENTER);
 
-            listaProdutos.getLista().addListSelectionListener(new ProdutosTabController(this));
+            ProdutosTabController controller = new ProdutosTabController(this);
+
+            listaProdutos.getLista().addListSelectionListener(controller);
+            details.getSubmit().addActionListener(controller);
 
         }
 
@@ -37,6 +41,13 @@ public class ProdutosTab extends JPanel {
                 listaProdutos.getLista().removeListSelectionListener(l);
             }
 
-            listaProdutos.getLista().addListSelectionListener(new ProdutosTabController(this));
+            for (ActionListener l : details.getSubmit().getActionListeners()) {
+                details.getSubmit().removeActionListener(l);
+            }
+
+            ProdutosTabController controller = new ProdutosTabController(this);
+
+            listaProdutos.getLista().addListSelectionListener(controller);
+            details.getSubmit().addActionListener(controller);
         }
 }

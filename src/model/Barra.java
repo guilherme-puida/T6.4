@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Barra extends Chocolate{
@@ -58,5 +59,10 @@ public class Barra extends Chocolate{
 
     public void removeNib(String nib) {
         nibs.remove(nib);
+    }
+
+    public void setNibs(String[] nibs) {
+        this.nibs.clear();
+        Collections.addAll(this.nibs, nibs);
     }
 }

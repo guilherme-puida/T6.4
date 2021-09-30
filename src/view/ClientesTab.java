@@ -1,10 +1,12 @@
 package view;
 
 import controller.ClientesTabController;
+import controller.FuncionariosTabController;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class ClientesTab extends JPanel {
     private final ListaPanel listaClientes;
@@ -20,8 +22,10 @@ public class ClientesTab extends JPanel {
         details = new ClienteDetails();
         add(details, BorderLayout.CENTER);
 
+        ClientesTabController controller = new ClientesTabController(this);
 
-        listaClientes.getLista().addListSelectionListener(new ClientesTabController(this));
+        listaClientes.getLista().addListSelectionListener(controller);
+        details.getSubmit().addActionListener(controller);
     }
 
     public ListaPanel getListaClientes() {
@@ -37,7 +41,14 @@ public class ClientesTab extends JPanel {
             listaClientes.getLista().removeListSelectionListener(l);
         }
 
-        listaClientes.getLista().addListSelectionListener(new ClientesTabController(this));
+        for (ActionListener l : details.getSubmit().getActionListeners()) {
+            details.getSubmit().removeActionListener(l);
+        }
+
+        ClientesTabController controller = new ClientesTabController(this);
+
+        details.getSubmit().addActionListener(controller);
+        listaClientes.getLista().addListSelectionListener(controller);
     }
 
 }
