@@ -156,6 +156,7 @@ public class ProdutoDetails extends DetailsPanel{
     }
 
     public void showBarra() {
+        setAllInvisible();
         saborLabel.setVisible(true);
         sabor.setVisible(true);
         nibsLabel.setVisible(true);
@@ -163,6 +164,7 @@ public class ProdutoDetails extends DetailsPanel{
     }
 
     public void showChocotone() {
+        setAllInvisible();
         frutasLabel.setVisible(true);
         frutas.setVisible(true);
         recheioLabel.setVisible(true);
@@ -170,6 +172,7 @@ public class ProdutoDetails extends DetailsPanel{
     }
 
     public void showTrufa() {
+        setAllInvisible();
         recheioLabel.setVisible(true);
         recheio.setVisible(true);
         alcoolicoLabel.setVisible(true);
@@ -238,5 +241,9 @@ public class ProdutoDetails extends DetailsPanel{
 
     public JCheckBox getAlcoolico() {
         return alcoolico;
+    }
+
+    public JTextField getDataCompra() {
+        return dataCompra;
     }
 }
