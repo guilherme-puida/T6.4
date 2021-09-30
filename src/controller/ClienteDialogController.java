@@ -57,6 +57,8 @@ public class ClienteDialogController implements ActionListener {
 
             // Atualiza a lista de clientes que é mostrada.
             Main.getFrame().getClientesTab().getListaClientes().updateLista();
+            Main.getFrame().getClientesTab().resetListSelectionController();
+
             view.dispose();
 
         }
