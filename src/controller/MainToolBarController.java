@@ -2,6 +2,7 @@ package controller;
 
 import main.Main;
 import model.Cliente;
+import model.Funcionario;
 import model.Loja;
 import view.ClienteDialog;
 import view.FuncionarioDialog;
@@ -32,6 +33,7 @@ public class MainToolBarController implements ActionListener {
         } else if (e.getSource() == bar.getAdicionarVenda()) {
             System.out.println("Adicionar Venda!");
         } else if (e.getSource() == bar.getRemover()) {
+
             MainFrame frame = Main.getFrame();
             JTabbedPane tabs = frame.getTabs();
 
@@ -39,9 +41,16 @@ public class MainToolBarController implements ActionListener {
                 // TODO outras abas
                 case 0 -> {
                     Cliente r = (Cliente) frame.getClientesTab().getListaClientes().getLista().getSelectedValue();
-                    System.out.println(r.infoBasica());
                     Loja.getInstance().removerCliente(r);
                     frame.getClientesTab().getListaClientes().updateLista();
+                    frame.getClientesTab().resetListSelectionController();
+                }
+                case 1 -> {
+                    Funcionario r = (Funcionario) frame.getFuncionariosTab()
+                            .getListaFuncionarios().getLista().getSelectedValue();
+                    Loja.getInstance().removerFuncionario(r);
+                    frame.getFuncionariosTab().getListaFuncionarios().updateLista();
+                    frame.getFuncionariosTab().resetListSelectionController();
                 }
             }
         }
