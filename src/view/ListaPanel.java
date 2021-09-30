@@ -31,10 +31,10 @@ public class ListaPanel extends JPanel {
 
     public void updateLista() {
         switch (selection) {
-            case 0 -> lista = new JList<>(Loja.getInstance().getClientes());
-            case 1 -> lista = new JList<>(Loja.getInstance().getFuncionarios());
-            case 2 -> lista = new JList<>(Loja.getInstance().getEstoque().getChocolates().toArray(new Chocolate[0]));
-            case 3 -> lista = new JList<>(Loja.getInstance().getVendas());
+            case CLIENTE -> lista = new JList<>(Loja.getInstance().getClientes());
+            case FUNCIONARIO -> lista = new JList<>(Loja.getInstance().getFuncionarios());
+            case CHOCOLATE -> lista = new JList<>(Loja.getInstance().getEstoque().getChocolates().toArray(new Chocolate[0]));
+            case VENDA -> lista = new JList<>(Loja.getInstance().getVendas());
         }
 
         lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

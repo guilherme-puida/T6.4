@@ -23,7 +23,6 @@ public class FuncionarioDetails extends PessoaDetails {
         getInnerDetailsPanel().add(labelCargo, getLeft());
         getInnerDetailsPanel().add(cargo, getRight());
     }
-    // TODO popular dados.
     @Override
     public void popularDados(Pessoa pessoa) {
         Funcionario funcionario = (Funcionario) pessoa;
