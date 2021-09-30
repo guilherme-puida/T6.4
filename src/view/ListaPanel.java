@@ -1,9 +1,9 @@
 package view;
 
-import model.*;
+import model.Chocolate;
+import model.Loja;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 public class ListaPanel extends JPanel {

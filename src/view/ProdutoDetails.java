@@ -1,9 +1,6 @@
 package view;
 
-import model.Barra;
-import model.Chocolate;
-import model.Chocotone;
-import model.Trufa;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;

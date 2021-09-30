@@ -7,35 +7,37 @@ import javax.swing.*;
 
 public class FuncionarioDetails extends PessoaDetails {
 
-    private final JTextField salario, cargo;
-    private final JLabel labelSalario, labelCargo;
-    public FuncionarioDetails() {
-        super("Detalhes do funcionário.");
+  private final JTextField salario, cargo;
+  private final JLabel labelSalario, labelCargo;
 
-        labelSalario = new JLabel("Salário");
-        labelCargo = new JLabel("Cargo:");
+  public FuncionarioDetails() {
+    super("Detalhes do funcionário.");
 
-        salario = new JTextField();
-        cargo = new JTextField();
+    labelSalario = new JLabel("Salário");
+    labelCargo = new JLabel("Cargo:");
 
-        getInnerDetailsPanel().add(labelSalario, getLeft());
-        getInnerDetailsPanel().add(salario, getRight());
-        getInnerDetailsPanel().add(labelCargo, getLeft());
-        getInnerDetailsPanel().add(cargo, getRight());
-    }
-    @Override
-    public void popularDados(Pessoa pessoa) {
-        Funcionario funcionario = (Funcionario) pessoa;
-        super.popularDados(funcionario);
-        salario.setText(String.valueOf(funcionario.getSalario()));
-        cargo.setText(funcionario.getCargo());
+    salario = new JTextField();
+    cargo = new JTextField();
 
-    }
-    public JTextField getSalario() {
-        return salario;
-    }
+    getInnerDetailsPanel().add(labelSalario, getLeft());
+    getInnerDetailsPanel().add(salario, getRight());
+    getInnerDetailsPanel().add(labelCargo, getLeft());
+    getInnerDetailsPanel().add(cargo, getRight());
+  }
 
-    public JTextField getCargo() {
-        return cargo;
-    }
+  @Override
+  public void popularDados(Pessoa pessoa) {
+    Funcionario funcionario = (Funcionario) pessoa;
+    super.popularDados(funcionario);
+    salario.setText(String.valueOf(funcionario.getSalario()));
+    cargo.setText(funcionario.getCargo());
+  }
+
+  public JTextField getSalario() {
+    return salario;
+  }
+
+  public JTextField getCargo() {
+    return cargo;
+  }
 }

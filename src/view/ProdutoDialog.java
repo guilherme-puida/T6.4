@@ -8,65 +8,58 @@ import java.awt.*;
 import java.time.LocalDate;
 
 public class ProdutoDialog extends JDialog {
-    private final ProdutoDetails details;
-    private final JComboBox<String> seletor;
-    private final JSpinner quantidade;
+  private final ProdutoDetails details;
+  private final JComboBox<String> seletor;
+  private final JSpinner quantidade;
 
+  public ProdutoDialog(JFrame parent) {
+    super(parent, "Produto");
+    setLayout(new BorderLayout());
+    setModalityType(ModalityType.APPLICATION_MODAL);
 
-    public ProdutoDialog(JFrame parent) {
-        super(parent, "Produto");
-        setLayout(new BorderLayout());
-        setModalityType(ModalityType.APPLICATION_MODAL);
+    ProdutoDialogController controller = new ProdutoDialogController(this);
 
-        ProdutoDialogController controller = new ProdutoDialogController(this);
+    JPanel topBar = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
 
-        JPanel topBar = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+    String[] opcoes = {"Barra", "Chocotone", "Trufa"};
+    seletor = new JComboBox<>(opcoes);
+    seletor.setSelectedIndex(0);
+    topBar.add(seletor);
 
-        String[] opcoes = {"Barra", "Chocotone", "Trufa"};
-        seletor = new JComboBox<>(opcoes);
-        seletor.setSelectedIndex(0);
-        topBar.add(seletor);
+    topBar.add(new JLabel("Quantidade:"));
+    quantidade = new JSpinner(new SpinnerNumberModel(1, 1, null, 1) {});
+    Component editor = quantidade.getEditor();
+    JFormattedTextField textField = ((JSpinner.DefaultEditor) editor).getTextField();
+    textField.setColumns(5);
+    topBar.add(quantidade);
 
-        topBar.add(new JLabel("Quantidade:"));
-        quantidade = new JSpinner(new SpinnerNumberModel(1,
-                1, null, 1) {
-        });
-        Component editor = quantidade.getEditor();
-        JFormattedTextField textField = ((JSpinner.DefaultEditor) editor).getTextField();
-        textField.setColumns(5);
-        topBar.add(quantidade);
+    seletor.addActionListener(controller);
 
-        seletor.addActionListener(controller);
+    add(topBar, BorderLayout.BEFORE_FIRST_LINE);
 
-        add(topBar, BorderLayout.BEFORE_FIRST_LINE);
+    details = new ProdutoDetails();
+    add(details, BorderLayout.CENTER);
 
-        details = new ProdutoDetails();
-        add(details, BorderLayout.CENTER);
+    details.getId().setText(String.valueOf(Loja.getInstance().showProximoIdChocolate()));
+    details.getDataCompra().setText(LocalDate.now().toString());
 
-        details.getId().setText(
-                String.valueOf(Loja.getInstance().showProximoIdChocolate())
-        );
-        details.getDataCompra().setText(
-                LocalDate.now().toString()
-        );
+    details.getSubmit().addActionListener(controller);
 
-        details.getSubmit().addActionListener(controller);
+    setMinimumSize(new Dimension(600, 400));
+    pack();
+    setResizable(false);
+    setVisible(true);
+  }
 
-        setMinimumSize(new Dimension(600, 400));
-        pack();
-        setResizable(false);
-        setVisible(true);
-    }
+  public ProdutoDetails getDetails() {
+    return details;
+  }
 
-    public ProdutoDetails getDetails() {
-        return details;
-    }
+  public JComboBox<String> getSeletor() {
+    return seletor;
+  }
 
-    public JComboBox<String> getSeletor() {
-        return seletor;
-    }
-
-    public JSpinner getQuantidade() {
-        return quantidade;
-    }
+  public JSpinner getQuantidade() {
+    return quantidade;
+  }
 }
