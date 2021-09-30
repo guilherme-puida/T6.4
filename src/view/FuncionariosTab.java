@@ -7,9 +7,9 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 public class FuncionariosTab extends JPanel {
-    ListaPanel listaFuncionarios;
+    private ListaPanel listaFuncionarios;
 
-    FuncionarioDetails details;
+    private FuncionarioDetails details;
 
     public FuncionariosTab() {
         setLayout(new BorderLayout(0, 0));
@@ -20,6 +20,7 @@ public class FuncionariosTab extends JPanel {
         details = new FuncionarioDetails();
         add(details, BorderLayout.CENTER);
 
+        listaFuncionarios.getLista().addListSelectionListener(new FuncionariosTabController(this));
     }
 
     public ListaPanel getListaFuncionarios() { return listaFuncionarios; }

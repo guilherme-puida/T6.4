@@ -1,5 +1,8 @@
 package view;
 
+import controller.FuncionarioDialogController;
+import model.Loja;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,12 +18,16 @@ public class FuncionarioDialog extends JDialog {
         details = new FuncionarioDetails();
         add(details);
 
-        // TODO
-        // details.getSubmit().addActionListener(new FuncionarioOptionPaneController(this));
-        details.getSubmit().addActionListener(e -> dispose());
+        details.getId().setText(
+                String.valueOf(Loja.getInstance().showProximoIdFuncionario())
+        );
+
+        details.getSubmit().addActionListener(new FuncionarioDialogController(this));
+
 
         setMinimumSize(new Dimension(600, 200));
         pack();
+        setResizable(false);
         setVisible(true);
     }
 
