@@ -40,8 +40,12 @@ public class FuncionarioDialogController implements ActionListener{
                     details.getCep().getText()
             );
 
-            Double salario = Double.valueOf(details.getSalario().getText());
-
+            double salario;
+            try {
+                salario = Double.parseDouble(details.getSalario().getText());
+            } catch (NumberFormatException ignored) {
+                salario = 0.0;
+            }
             // Cadastra o funcionario
             Loja.getInstance().cadastrarFuncionario(
                     Loja.getInstance().getProximoIdFuncionario(),
