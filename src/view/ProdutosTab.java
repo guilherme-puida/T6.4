@@ -14,8 +14,16 @@ public class ProdutosTab extends JPanel {
             listaProdutos = new ListaPanel(ListaPanel.CHOCOLATE);
             add(listaProdutos, BorderLayout.LINE_START);
 
-            details = new ProdutoDetails(ProdutoDetails.TRUFA);
+            details = new ProdutoDetails();
             add(details, BorderLayout.CENTER);
 
+        }
+
+        public ListaPanel getListaProdutos() {
+            return listaProdutos;
+        }
+
+        public ProdutoDetails getDetails() {
+            return details;
         }
 }

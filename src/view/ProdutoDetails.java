@@ -1,12 +1,16 @@
 package view;
 
+import model.Barra;
+import model.Chocolate;
+import model.Chocotone;
+import model.Trufa;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class ProdutoDetails extends DetailsPanel{
 
     public static final int BARRA = 0, CHOCOTONE = 1, TRUFA = 2;
-    private int escolha;
 
     private final JTextField id, peso, nome, descricao, tipo, precoCompra, precoVenda,
     porcentagemCacau;
@@ -17,10 +21,9 @@ public class ProdutoDetails extends DetailsPanel{
 
     private final JLabel saborLabel, recheioLabel, nibsLabel, frutasLabel, alcoolicoLabel;
 
-    public ProdutoDetails(int escolha) {
+    public ProdutoDetails() {
         super("Detalhes do produto");
 
-        this.escolha = escolha;
 
         id = new JTextField();
         id.setEditable(false);
@@ -70,36 +73,89 @@ public class ProdutoDetails extends DetailsPanel{
         frutasLabel = new JLabel("Frutas:");
         alcoolicoLabel = new JLabel("Alcoólico");
 
-        switch(escolha) {
-            case BARRA -> {
-                getInnerDetailsPanel().add(saborLabel, left);
-                getInnerDetailsPanel().add(sabor, right);
-                getInnerDetailsPanel().add(nibsLabel, left);
-                getInnerDetailsPanel().add(nibs, right);
-            }
-            case CHOCOTONE -> {
-                getInnerDetailsPanel().add(recheioLabel, left);
-                getInnerDetailsPanel().add(recheio, right);
-                getInnerDetailsPanel().add(frutasLabel, left);
-                getInnerDetailsPanel().add(frutas, right);
-            }
-            case TRUFA -> {
-                getInnerDetailsPanel().add(recheioLabel, left);
-                getInnerDetailsPanel().add(recheio, right);
-                getInnerDetailsPanel().add(alcoolicoLabel, left);
-                getInnerDetailsPanel().add(alcoolico, right);
-            }
-        }
+        getInnerDetailsPanel().add(saborLabel, left);
+        getInnerDetailsPanel().add(sabor, right);
+        getInnerDetailsPanel().add(nibsLabel, left);
+        getInnerDetailsPanel().add(nibs, right);
+        getInnerDetailsPanel().add(recheioLabel, left);
+        getInnerDetailsPanel().add(recheio, right);
+        getInnerDetailsPanel().add(frutasLabel, left);
+        getInnerDetailsPanel().add(frutas, right);
+        getInnerDetailsPanel().add(alcoolicoLabel, left);
+        getInnerDetailsPanel().add(alcoolico, right);
 
-
-        left.gridx = GridBagConstraints.RELATIVE;
-        right.gridx = GridBagConstraints.RELATIVE;
         getInnerDetailsPanel().add(new JLabel("Contém Gluten:"), left);
         getInnerDetailsPanel().add(contemGluten, right);
         getInnerDetailsPanel().add(new JLabel("Contém Lactose:"), left);
         getInnerDetailsPanel().add(contemLactose, right);
         getInnerDetailsPanel().add(new JLabel("Artesanal:"), left);
         getInnerDetailsPanel().add(artesanal, right);
+
+        setAllInvisible();
+    }
+
+    public void popularDados(int selection, Chocolate chocolate) {
+        id.setText(String.valueOf(chocolate.getId()));
+        peso.setText(String.valueOf(chocolate.getPeso()));
+        nome.setText(chocolate.getNome());
+        descricao.setText(chocolate.getDescricao());
+        tipo.setText(chocolate.getTipo());
+        precoCompra.setText(String.valueOf(chocolate.getPrecoCompra()));
+        precoVenda.setText(String.valueOf(chocolate.getPrecoVenda()));
+        porcentagemCacau.setText(String.valueOf(chocolate.getPorcentagemCacau()));
+
+        contemGluten.setSelected(chocolate.isContemGluten());
+        contemLactose.setSelected(chocolate.isContemLactose());
+        artesanal.setSelected(chocolate.isArtesanal());
+
+        setAllInvisible();
+
+        switch (selection) {
+            case BARRA -> {
+                sabor.setVisible(true);
+                saborLabel.setVisible(true);
+                nibsLabel.setVisible(true);
+                nibs.setVisible(true);
+
+                Barra barra = (Barra) chocolate;
+                sabor.setText(barra.getSabor());
+                nibs.setText(String.join(",", barra.getNibs()));
+            }
+            case CHOCOTONE -> {
+                recheioLabel.setVisible(true);
+                recheio.setVisible(true);
+                frutasLabel.setVisible(true);
+                frutas.setVisible(true);
+
+                Chocotone chocotone = (Chocotone) chocolate;
+                recheio.setText(chocotone.getRecheio());
+                frutas.setText(String.join(",", chocotone.getFrutas()));
+            }
+            case TRUFA -> {
+                recheioLabel.setVisible(true);
+                recheio.setVisible(true);
+                alcoolicoLabel.setVisible(true);
+                alcoolico.setVisible(true);
+
+                Trufa trufa = (Trufa) chocolate;
+                recheio.setText(trufa.getRecheio());
+                alcoolico.setSelected(trufa.isAlcoolico());
+            }
+
+        }
+    }
+
+    public void setAllInvisible() {
+        recheioLabel.setVisible(false);
+        recheio.setVisible(false);
+        frutasLabel.setVisible(false);
+        frutas.setVisible(false);
+        alcoolicoLabel.setVisible(false);
+        alcoolico.setVisible(false);
+        sabor.setVisible(false);
+        saborLabel.setVisible(false);
+        nibsLabel.setVisible(false);
+        nibs.setVisible(false);
     }
 
 
