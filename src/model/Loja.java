@@ -14,6 +14,11 @@ public class Loja {
     private final ArrayList<Cliente> clientes;
     private final ArrayList<Venda> vendas;
 
+    private int clienteId = 0;
+    private int funcionarioId = 0;
+    private int produtoId = 0;
+    private int vendaId = 0;
+
     private Loja() {
         this.estoque = new Estoque();
         this.funcionarios = new ArrayList<>();
@@ -62,13 +67,18 @@ public class Loja {
                 porcentagemCacau, contemGluten, contemLactose, artesanal, recheio, frutas), quantidade);
     }
 
-
     public int getProximoIdCliente() {
-        return clientes.size();
+        clienteId++;
+        return clienteId;
+    }
+
+    public int showProximoIdCliente() {
+        return clienteId+1;
     }
 
     public int getProximoIdFuncionario() {
-        return funcionarios.size();
+        funcionarioId++;
+        return funcionarioId;
     }
 
     public int showProximoIdFuncionario(){
@@ -80,8 +90,13 @@ public class Loja {
         return produtoId;
     }
 
+    public int showProximoIdChocolate() {
+        return produtoId+1;
+    }
+
     public int getProximoIdVenda() {
-        return vendas.size();
+        vendaId++;
+        return vendaId;
     }
 
     public int showProximoIdVenda(){
