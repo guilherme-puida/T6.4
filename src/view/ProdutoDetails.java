@@ -26,11 +26,14 @@ public class ProdutoDetails extends DetailsPanel{
         id.setEditable(false);
 
         peso = new JTextField();
+        peso.setToolTipText("Inteiro.");
         nome = new JTextField();
         descricao = new JTextField();
         tipo = new JTextField();
         precoCompra = new JTextField();
+        precoCompra.setToolTipText("Double.");
         precoVenda = new JTextField();
+        precoVenda.setToolTipText("Double.");
         porcentagemCacau = new JTextField();
 
         dataCompra = new JTextField();
@@ -38,8 +41,10 @@ public class ProdutoDetails extends DetailsPanel{
 
         sabor = new JTextField();
         nibs = new JTextField();
+        nibs.setToolTipText("No formato [nibs1, nibs2, nibs3, ...]");
         recheio = new JTextField();
         frutas = new JTextField();
+        frutas.setToolTipText("No formato [fruta1, fruta2, fruta3, ...]");
 
         contemGluten = new JCheckBox();
         contemLactose = new JCheckBox();

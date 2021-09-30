@@ -126,11 +126,11 @@ System.out.println("Os gastos em 09/21 foram de: " + loja.calcularGastosMes(9, 2
 System.out.println("O lucro em 09/21 foi de: " + loja.calcularLucroMes(9, 2021));
 */
 
-import model.Endereco;
-import model.Loja;
+import model.*;
 import view.MainFrame;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 
 public class Main {
   private static MainFrame frame;
@@ -364,5 +364,37 @@ public class Main {
         "Licor",
         true,
         100);
+
+
+    // Teste de vendas
+    Chocolate chocolate1 = loja.getEstoque().getChocolatePorId(1);
+    Chocolate chocolate2 = loja.getEstoque().getChocolatePorId(2);
+    Cliente cliente = loja.getClientePorId(1);
+    Funcionario funcionario = loja.getFuncionarioPorId(1);
+
+    HashMap<Chocolate, Integer> chocolatesVendidos = new HashMap<>();
+    chocolatesVendidos.put(chocolate1, 1);
+    chocolatesVendidos.put(chocolate2, 1);
+
+    loja.fazerVenda(
+            chocolatesVendidos,
+            loja.getProximoIdVenda(),
+            cliente,
+            funcionario,
+            LocalDate.now()
+    );
+
+    cliente = loja.getClientePorId(2);
+    chocolatesVendidos = new HashMap<>();
+    chocolatesVendidos.put(chocolate1, 5);
+
+    loja.fazerVenda(
+            chocolatesVendidos,
+            loja.getProximoIdVenda(),
+            cliente,
+            funcionario,
+            LocalDate.now()
+    );
+
   }
 }

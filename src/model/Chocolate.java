@@ -41,7 +41,7 @@ public abstract class Chocolate {
   public abstract String infoCompleta();
 
   public String toString() {
-    return nome;
+    return String.format("%d - %s", id, nome);
   }
 
   public int getId() {

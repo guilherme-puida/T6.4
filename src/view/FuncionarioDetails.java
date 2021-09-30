@@ -17,6 +17,7 @@ public class FuncionarioDetails extends PessoaDetails {
     labelCargo = new JLabel("Cargo:");
 
     salario = new JTextField();
+    salario.setToolTipText("Double.");
     cargo = new JTextField();
 
     getInnerDetailsPanel().add(labelSalario, getLeft());

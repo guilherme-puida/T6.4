@@ -31,7 +31,7 @@ public abstract class Pessoa {
 
   @Override
   public String toString() {
-    return nome;
+    return String.format("%d - %s", id, nome);
   }
 
   public int getId() {

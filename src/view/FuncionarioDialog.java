@@ -8,11 +8,9 @@ import java.awt.*;
 
 public class FuncionarioDialog extends JDialog {
   private final FuncionarioDetails details;
-  private final JFrame parent;
 
   public FuncionarioDialog(JFrame parent) {
     super(parent, "Funcionário");
-    this.parent = parent;
     setModalityType(ModalityType.APPLICATION_MODAL);
 
     details = new FuncionarioDetails();

@@ -25,6 +25,7 @@ public abstract class PessoaDetails extends DetailsPanel {
     id = new JTextField();
     id.setEditable(false);
     idade = new JTextField();
+    idade.setToolTipText("Inteiro.");
     nome = new JTextField();
     cpf = new JTextField();
     telefone = new JTextField();
