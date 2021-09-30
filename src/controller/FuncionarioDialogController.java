@@ -9,62 +9,64 @@ import view.FuncionarioDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FuncionarioDialogController implements ActionListener{
-    FuncionarioDialog view;
-    public FuncionarioDialogController(FuncionarioDialog view) { this.view = view;}
+public class FuncionarioDialogController implements ActionListener {
+  FuncionarioDialog view;
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+  public FuncionarioDialogController(FuncionarioDialog view) {
+    this.view = view;
+  }
 
-        //TODO certificar que os campos não são nulos
+  @Override
+  public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource().equals(view.getDetails().getSubmit())) {
+    // TODO certificar que os campos não são nulos
 
-            FuncionarioDetails details = view.getDetails();
+    if (e.getSource().equals(view.getDetails().getSubmit())) {
 
-            String idade = details.getIdade().getText();
+      FuncionarioDetails details = view.getDetails();
 
-            // Tenta converter a idade para Inteiro
-            int idadeInt;
-            try {
-                idadeInt = Integer.parseInt(idade);
-            } catch(NumberFormatException ignored) {
-                // TODO não permitir que a idade seja inválida
-                idadeInt = 0;
-            }
+      String idade = details.getIdade().getText();
 
-            Endereco endereco = new Endereco(
-                    details.getBairro().getText(),
-                    details.getRua().getText(),
-                    details.getNumero().getText(),
-                    details.getCep().getText()
-            );
+      // Tenta converter a idade para Inteiro
+      int idadeInt;
+      try {
+        idadeInt = Integer.parseInt(idade);
+      } catch (NumberFormatException ignored) {
+        // TODO não permitir que a idade seja inválida
+        idadeInt = 0;
+      }
 
-            double salario;
-            try {
-                salario = Double.parseDouble(details.getSalario().getText());
-            } catch (NumberFormatException ignored) {
-                salario = 0.0;
-            }
-            // Cadastra o funcionario
-            Loja.getInstance().cadastrarFuncionario(
-                    Loja.getInstance().getProximoIdFuncionario(),
-                    idadeInt,
-                    details.getNome().getText(),
-                    details.getCpf().getText(),
-                    details.getTelefone().getText(),
-                    details.getEmail().getText(),
-                    endereco,
-                    salario,
-                    details.getCargo().getText()
-            );
+      Endereco endereco =
+          new Endereco(
+              details.getBairro().getText(),
+              details.getRua().getText(),
+              details.getNumero().getText(),
+              details.getCep().getText());
 
-            // Atualiza a lista de clientes que é mostrada.
-            Main.getFrame().getFuncionariosTab().getListaFuncionarios().updateLista();
-            Main.getFrame().getFuncionariosTab().resetListSelectionController();
+      double salario;
+      try {
+        salario = Double.parseDouble(details.getSalario().getText());
+      } catch (NumberFormatException ignored) {
+        salario = 0.0;
+      }
+      // Cadastra o funcionario
+      Loja.getInstance()
+          .cadastrarFuncionario(
+              Loja.getInstance().getProximoIdFuncionario(),
+              idadeInt,
+              details.getNome().getText(),
+              details.getCpf().getText(),
+              details.getTelefone().getText(),
+              details.getEmail().getText(),
+              endereco,
+              salario,
+              details.getCargo().getText());
 
-            view.dispose();
+      // Atualiza a lista de clientes que é mostrada.
+      Main.getFrame().getFuncionariosTab().getListaFuncionarios().updateLista();
+      Main.getFrame().getFuncionariosTab().resetListSelectionController();
 
-        }
+      view.dispose();
     }
+  }
 }

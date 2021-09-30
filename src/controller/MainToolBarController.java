@@ -1,10 +1,7 @@
 package controller;
 
 import main.Main;
-import model.Chocolate;
-import model.Cliente;
-import model.Funcionario;
-import model.Loja;
+import model.*;
 import view.*;
 
 import javax.swing.*;
