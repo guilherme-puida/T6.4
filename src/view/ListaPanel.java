@@ -3,6 +3,7 @@ package view;
 import model.*;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 public class ListaPanel extends JPanel {

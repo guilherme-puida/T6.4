@@ -23,6 +23,7 @@ public class ClienteDetails extends PessoaDetails {
     public void popularDados(Pessoa pessoa) {
         Cliente cliente = (Cliente) pessoa;
         super.popularDados(cliente);
+
         categoria.setText(cliente.getCategoria());
     }
 
