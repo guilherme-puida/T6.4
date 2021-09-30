@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class Loja {
-    private static Loja instance = new Loja();
+    private static final Loja instance = new Loja();
 
     private final Estoque estoque;
     private final ArrayList<Funcionario> funcionarios;

@@ -122,6 +122,7 @@ public class ProdutoDetails extends DetailsPanel{
 
                 Barra barra = (Barra) chocolate;
                 sabor.setText(barra.getSabor());
+                String nibsStr = barra.getNibs();
                 nibs.setText(String.join(",", barra.getNibs()));
             }
             case CHOCOTONE -> {

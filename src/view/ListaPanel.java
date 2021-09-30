@@ -13,10 +13,10 @@ public class ListaPanel extends JPanel {
     public static final int CHOCOLATE = 2;
     public static final int VENDA = 3;
 
-    private int selection;
+    private final int selection;
 
     private JList<?> lista;
-    private JScrollPane listaScroller;
+    private final JScrollPane listaScroller;
 
     public ListaPanel(int selection) {
         this.selection = selection;
