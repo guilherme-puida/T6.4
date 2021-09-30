@@ -1,13 +1,11 @@
 package controller;
 
 import main.Main;
+import model.Chocolate;
 import model.Cliente;
 import model.Funcionario;
 import model.Loja;
-import view.ClienteDialog;
-import view.FuncionarioDialog;
-import view.MainFrame;
-import view.MainToolBar;
+import view.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,7 +24,7 @@ public class MainToolBarController implements ActionListener {
         if (e.getSource() == bar.getAdicionarCliente()) {
             new ClienteDialog(parent);
         } else if (e.getSource() == bar.getAdicionarProduto()) {
-            System.out.println("Adicionar Produto!");
+            new ProdutoDialog(parent);
         } else if (e.getSource() == bar.getAdicionarFuncionario()) {
             new FuncionarioDialog(parent);
         } else if (e.getSource() == bar.getAdicionarVenda()) {
@@ -50,6 +48,13 @@ public class MainToolBarController implements ActionListener {
                     Loja.getInstance().removerFuncionario(r);
                     frame.getFuncionariosTab().getListaFuncionarios().updateLista();
                     frame.getFuncionariosTab().resetListSelectionController();
+                }
+                case 2 -> {
+                    Chocolate r = (Chocolate) frame.getProdutosTab().getListaProdutos()
+                            .getLista().getSelectedValue();
+                    Loja.getInstance().getEstoque().removerChocolate(r);
+                    frame.getProdutosTab().getListaProdutos().updateLista();
+                    frame.getProdutosTab().resetListSelectionController();
                 }
             }
         }

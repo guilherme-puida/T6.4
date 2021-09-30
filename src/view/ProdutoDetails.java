@@ -118,30 +118,21 @@ public class ProdutoDetails extends DetailsPanel{
 
         switch (selection) {
             case BARRA -> {
-                sabor.setVisible(true);
-                saborLabel.setVisible(true);
-                nibsLabel.setVisible(true);
-                nibs.setVisible(true);
+                showBarra();
 
                 Barra barra = (Barra) chocolate;
                 sabor.setText(barra.getSabor());
                 nibs.setText(String.join(",", barra.getNibs()));
             }
             case CHOCOTONE -> {
-                recheioLabel.setVisible(true);
-                recheio.setVisible(true);
-                frutasLabel.setVisible(true);
-                frutas.setVisible(true);
+                showChocotone();
 
                 Chocotone chocotone = (Chocotone) chocolate;
                 recheio.setText(chocotone.getRecheio());
                 frutas.setText(String.join(",", chocotone.getFrutas()));
             }
             case TRUFA -> {
-                recheioLabel.setVisible(true);
-                recheio.setVisible(true);
-                alcoolicoLabel.setVisible(true);
-                alcoolico.setVisible(true);
+                showTrufa();
 
                 Trufa trufa = (Trufa) chocolate;
                 recheio.setText(trufa.getRecheio());
@@ -162,6 +153,27 @@ public class ProdutoDetails extends DetailsPanel{
         saborLabel.setVisible(false);
         nibsLabel.setVisible(false);
         nibs.setVisible(false);
+    }
+
+    public void showBarra() {
+        saborLabel.setVisible(true);
+        sabor.setVisible(true);
+        nibsLabel.setVisible(true);
+        nibs.setVisible(true);
+    }
+
+    public void showChocotone() {
+        frutasLabel.setVisible(true);
+        frutas.setVisible(true);
+        recheioLabel.setVisible(true);
+        recheio.setVisible(true);
+    }
+
+    public void showTrufa() {
+        recheioLabel.setVisible(true);
+        recheio.setVisible(true);
+        alcoolicoLabel.setVisible(true);
+        alcoolico.setVisible(true);
     }
 
     public JTextField getId() {

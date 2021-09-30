@@ -8,11 +8,9 @@ import java.awt.*;
 
 public class ClienteDialog extends JDialog{
     private final ClienteDetails details;
-    private final JFrame parent;
 
     public ClienteDialog(JFrame parent) {
         super(parent, "Cliente");
-        this.parent = parent;
         setModalityType(ModalityType.APPLICATION_MODAL);
 
         details = new ClienteDetails();

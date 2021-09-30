@@ -71,4 +71,8 @@ public class Estoque {
         return chocolates.keySet();
     }
 
+
+    public void removerChocolate(Chocolate chocolate) {
+        chocolates.remove(chocolate);
+    }
 }
