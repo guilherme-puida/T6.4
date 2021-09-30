@@ -71,12 +71,21 @@ public class Loja {
         return funcionarios.size();
     }
 
+    public int showProximoIdFuncionario(){
+        return funcionarioId+1;
+    }
+
     public int getProximoIdChocolate() {
-        return estoque.getChocolates().size();
+        produtoId++;
+        return produtoId;
     }
 
     public int getProximoIdVenda() {
         return vendas.size();
+    }
+
+    public int showProximoIdVenda(){
+        return vendaId+1;
     }
 
     // Calcula os gastos em um determinado mes
