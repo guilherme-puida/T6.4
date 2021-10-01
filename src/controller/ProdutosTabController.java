@@ -32,7 +32,6 @@ public class ProdutosTabController implements ListSelectionListener, ActionListe
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("performed");
         if (e.getSource().equals(produtosTab.getDetails().getSubmit())) {
             Chocolate chocolate = (Chocolate) produtosTab.getListaProdutos().getLista().getSelectedValue();
 

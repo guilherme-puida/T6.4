@@ -67,6 +67,10 @@ public class Estoque {
     return repr.toString();
   }
 
+  public int getQuantidadeEmEstoque(Chocolate chocolate) {
+    return chocolates.get(chocolate);
+  }
+
   public Set<Chocolate> getChocolates() {
     return chocolates.keySet();
   }

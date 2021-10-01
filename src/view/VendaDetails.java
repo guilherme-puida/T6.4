@@ -4,19 +4,22 @@ import model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class VendaDetails extends DetailsPanel {
   private final JTextField id, valor, data;
   private final JComboBox<Cliente> cliente;
   private final JComboBox<Funcionario> funcionario;
-  //private final ArrayList<JLabel>
+  private final ArrayList<JLabel> listaLabels;
+  private final ArrayList<JSpinner> listaProdutos;
 
 
   public VendaDetails() {
     super("Detalhes da venda:");
 
-    //produtosLabel = new JLabel[]{};
-    //produtosQuantidade = new JSpinner[]{};
+    listaLabels = new ArrayList<>();
+    listaProdutos = new ArrayList<>();
 
     GridBagConstraints left = super.getLeft();
     GridBagConstraints right = super.getRight();
@@ -48,15 +51,16 @@ public class VendaDetails extends DetailsPanel {
 
   public void popularDados(Venda venda) {
     // Retirando os labels e spinners antigos
-    /*for (JLabel label : produtosLabel) {
+    for (JLabel label : listaLabels) {
       getInnerDetailsPanel().remove(label);
     }
-    for (JSpinner spinner : produtosQuantidade) {
+    for (JSpinner spinner : listaProdutos) {
       getInnerDetailsPanel().remove(spinner);
     }
-    // Atualizando a tela.
-    */
+    listaLabels.clear();
+    listaProdutos.clear();
 
+    // Atualizando a tela.
     getInnerDetailsPanel().validate();
     getInnerDetailsPanel().repaint();
 
@@ -73,10 +77,56 @@ public class VendaDetails extends DetailsPanel {
     valor.setText(String.valueOf(venda.getValor()));
     data.setText(venda.getData().toString());
 
-    //
+    // Adicionando os produtos
+    for (Map.Entry<Chocolate, Integer> entry : venda.getChocolateVendidos().entrySet()) {
+      Chocolate chocolate = entry.getKey();
+      int quantidade = entry.getValue();
+
+      int maxQuantidade = Loja.getInstance().getEstoque().getQuantidadeEmEstoque(chocolate);
 
 
+      listaProdutos.add(new JSpinner( new SpinnerNumberModel(
+              quantidade,
+              quantidade,
+              maxQuantidade,
+              1
+              )
+      ));
+
+      listaLabels.add(new JLabel(chocolate.getNome() + " :"));
+    }
+
+    for (int i = 0; i < listaProdutos.size(); i++) {
+      getInnerDetailsPanel().add(listaLabels.get(i), getLeft());
+      getInnerDetailsPanel().add(listaProdutos.get(i), getRight());
+    }
   }
 
+  public JTextField getId() {
+    return id;
+  }
 
+  public JTextField getValor() {
+    return valor;
+  }
+
+  public JTextField getData() {
+    return data;
+  }
+
+  public JComboBox<Cliente> getCliente() {
+    return cliente;
+  }
+
+  public JComboBox<Funcionario> getFuncionario() {
+    return funcionario;
+  }
+
+  public ArrayList<JLabel> getListaLabels() {
+    return listaLabels;
+  }
+
+  public ArrayList<JSpinner> getListaProdutos() {
+    return listaProdutos;
+  }
 }
