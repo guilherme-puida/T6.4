@@ -3,13 +3,20 @@ package model;
 import java.time.LocalDate;
 
 public abstract class Chocolate {
-  private int id, peso;
-  private String nome, descricao, tipo;
+  private int id;
+  private int peso;
+  private String nome;
+  private String descricao;
+  private String tipo;
   private LocalDate dataCompra;
-  private double precoCompra, precoVenda, porcentagemCacau;
-  private boolean contemGluten, contemLactose, artesanal;
+  private double precoCompra;
+  private double precoVenda;
+  private double porcentagemCacau;
+  private boolean contemGluten;
+  private boolean contemLactose;
+  private boolean artesanal;
 
-  public Chocolate(int id, int peso, String nome, String descricao, String tipo,
+  protected Chocolate(int id, int peso, String nome, String descricao, String tipo,
                    LocalDate dataCompra, double precoCompra, double precoVenda,
                    double porcentagemCacau, boolean contemGluten, boolean contemLactose,
                    boolean artesanal) {

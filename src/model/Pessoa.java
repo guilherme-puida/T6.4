@@ -4,11 +4,15 @@ public abstract class Pessoa {
   /*
    * Classe representando uma pessoa, que pode virar Cliente ou Funcionário
    */
-  private int id, idade;
-  private String nome, cpf, telefone, email;
+  private int id;
+  private int idade;
+  private String nome;
+  private String cpf;
+  private String telefone;
+  private String email;
   private Endereco endereco;
 
-  public Pessoa(int id, int idade, String nome, String cpf, String telefone, String email,
+  protected Pessoa(int id, int idade, String nome, String cpf, String telefone, String email,
                 Endereco endereco) {
     this.id = id;
     this.idade = idade;

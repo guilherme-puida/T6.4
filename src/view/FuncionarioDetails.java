@@ -7,14 +7,14 @@ import javax.swing.*;
 
 public class FuncionarioDetails extends PessoaDetails {
 
-  private final JTextField salario, cargo;
-  private final JLabel labelSalario, labelCargo;
+  private final JTextField salario;
+  private final JTextField cargo;
 
   public FuncionarioDetails() {
     super("Detalhes do funcionário.");
 
-    labelSalario = new JLabel("Salário");
-    labelCargo = new JLabel("Cargo:");
+    JLabel labelSalario = new JLabel("Salário");
+    JLabel labelCargo = new JLabel("Cargo:");
 
     salario = new JTextField();
     salario.setToolTipText("Double.");

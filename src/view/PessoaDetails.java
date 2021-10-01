@@ -6,9 +6,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class PessoaDetails extends DetailsPanel {
-  private final JTextField id, idade, nome, cpf, telefone, email, bairro, rua, numero, cep;
+  private final JTextField id;
+  private final JTextField idade;
+  private final JTextField nome;
+  private final JTextField cpf;
+  private final JTextField telefone;
+  private final JTextField email;
+  private final JTextField bairro;
+  private final JTextField rua;
+  private final JTextField numero;
+  private final JTextField cep;
 
-  public PessoaDetails(String titulo) {
+  protected PessoaDetails(String titulo) {
     super(titulo);
 
     JLabel labelId = new JLabel("Id:");

@@ -41,7 +41,9 @@ public class ProdutosTabController implements ListSelectionListener, ActionListe
               (Chocolate) produtosTab.getListaProdutos().getLista().getSelectedValue();
 
       int peso;
-      double precoVenda, precoCompra, porcentagemCacau;
+      double precoVenda;
+      double precoCompra;
+      double porcentagemCacau;
       ProdutoDetails details = produtosTab.getDetails();
 
       try {

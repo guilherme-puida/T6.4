@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Loja {
@@ -151,7 +152,7 @@ public class Loja {
   }
 
   // Realiza uma venda, retirando a quantidade de chocolates vendidos do estoque
-  public void fazerVenda(HashMap<Chocolate, Integer> chocolatesQuantidades, int id,
+  public void fazerVenda(Map<Chocolate, Integer> chocolatesQuantidades, int id,
                          Cliente cliente, Funcionario funcionario, LocalDate data) {
     Venda venda = new Venda(id, cliente, funcionario, data);
 

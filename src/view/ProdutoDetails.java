@@ -10,16 +10,34 @@ import java.awt.*;
 
 public class ProdutoDetails extends DetailsPanel {
 
-  public static final int BARRA = 0, CHOCOTONE = 1, TRUFA = 2;
+  public static final int BARRA = 0;
+  public static final int CHOCOTONE = 1;
+  public static final int TRUFA = 2;
 
-  private final JTextField id, peso, nome, descricao, tipo, precoCompra, precoVenda,
-          porcentagemCacau, dataCompra;
-  private final JCheckBox contemGluten, contemLactose, artesanal;
+  private final JTextField id;
+  private final JTextField peso;
+  private final JTextField nome;
+  private final JTextField descricao;
+  private final JTextField tipo;
+  private final JTextField precoCompra;
+  private final JTextField precoVenda;
+  private final JTextField porcentagemCacau;
+  private final JTextField dataCompra;
+  private final JCheckBox contemGluten;
+  private final JCheckBox contemLactose;
+  private final JCheckBox artesanal;
 
-  private final JTextField sabor, nibs, recheio, frutas;
+  private final JTextField sabor;
+  private final JTextField nibs;
+  private final JTextField recheio;
+  private final JTextField frutas;
   private final JCheckBox alcoolico;
 
-  private final JLabel saborLabel, recheioLabel, nibsLabel, frutasLabel, alcoolicoLabel;
+  private final JLabel saborLabel;
+  private final JLabel recheioLabel;
+  private final JLabel nibsLabel;
+  private final JLabel frutasLabel;
+  private final JLabel alcoolicoLabel;
 
   public ProdutoDetails() {
     super("Detalhes do produto");
@@ -140,7 +158,6 @@ public class ProdutoDetails extends DetailsPanel {
 
         Barra barra = (Barra) chocolate;
         sabor.setText(barra.getSabor());
-        String nibsStr = barra.getNibs();
         nibs.setText(String.join(",", barra.getNibs()));
       }
       case CHOCOTONE -> {

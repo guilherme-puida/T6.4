@@ -6,9 +6,10 @@ import java.awt.*;
 public abstract class DetailsPanel extends JPanel {
   private final JPanel innerDetailsPanel;
   private final JButton submit;
-  private final GridBagConstraints left, right;
+  private final GridBagConstraints left;
+  private final GridBagConstraints right;
 
-  public DetailsPanel(String titulo) {
+  protected DetailsPanel(String titulo) {
     setLayout(new BorderLayout());
     add(new JLabel(titulo), BorderLayout.NORTH);
 

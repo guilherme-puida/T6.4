@@ -12,8 +12,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class VendasTabController implements ActionListener, ListSelectionListener {
   private final VendasTab vendasTab;
@@ -40,8 +40,8 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       venda.setFuncionario((Funcionario) details.getFuncionario().getSelectedItem());
 
       HashMap<Chocolate, Integer> vendidos = new HashMap<>();
-      ArrayList<JSpinner> produtosSpinner = details.getListaQuantidades();
-      ArrayList<JComboBox<Chocolate>> boxes = details.getListaChocolates();
+      List<JSpinner> produtosSpinner = details.getListaQuantidades();
+      List<JComboBox<Chocolate>> boxes = details.getListaChocolates();
 
 
       for (int i = 0; i < produtosSpinner.size(); i++) {

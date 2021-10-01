@@ -7,8 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainToolBar extends JToolBar {
-  private final JButton adicionarCliente, adicionarProduto, adicionarFuncionario, adicionarVenda,
-          remover;
+  private final JButton adicionarCliente;
+  private final JButton adicionarProduto;
+  private final JButton adicionarFuncionario;
+  private final JButton adicionarVenda;
+  private final JButton remover;
 
   private final JLabel pesquisaLabel;
   private final JTextField pesquisar;

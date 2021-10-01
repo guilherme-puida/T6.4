@@ -5,10 +5,13 @@ import model.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class VendaDetails extends DetailsPanel {
-  private final JTextField id, valor, data;
+  private final JTextField id;
+  private final JTextField valor;
+  private final JTextField data;
   private final JComboBox<Cliente> cliente;
   private final JComboBox<Funcionario> funcionario;
   private final ArrayList<JComboBox<Chocolate>> listaChocolates;
@@ -122,11 +125,11 @@ public class VendaDetails extends DetailsPanel {
     return funcionario;
   }
 
-  public ArrayList<JComboBox<Chocolate>> getListaChocolates() {
+  public List<JComboBox<Chocolate>> getListaChocolates() {
     return listaChocolates;
   }
 
-  public ArrayList<JSpinner> getListaQuantidades() {
+  public List<JSpinner> getListaQuantidades() {
     return listaQuantidades;
   }
 }

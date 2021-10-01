@@ -1,7 +1,10 @@
 package model;
 
 public class Endereco {
-  private String bairro, rua, numero, cep;
+  private String bairro;
+  private String rua;
+  private String numero;
+  private String cep;
 
   public Endereco(String bairro, String rua, String numero, String cep) {
     this.bairro = bairro;
