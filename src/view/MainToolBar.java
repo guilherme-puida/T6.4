@@ -7,11 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainToolBar extends JToolBar {
-  private final JButton adicionarCliente,
-      adicionarProduto,
-      adicionarFuncionario,
-      adicionarVenda,
-      remover;
+  private final JButton adicionarCliente, adicionarProduto, adicionarFuncionario, adicionarVenda,
+          remover;
 
   private final JLabel pesquisaLabel;
   private final JTextField pesquisar;
@@ -25,7 +22,7 @@ public class MainToolBar extends JToolBar {
     remover = new JButton("Remover");
 
     pesquisaLabel = new JLabel("Pesquisar:");
-    pesquisar =  new JTextField();
+    pesquisar = new JTextField();
 
     add(adicionarCliente);
     add(adicionarFuncionario);
@@ -51,7 +48,7 @@ public class MainToolBar extends JToolBar {
     adicionarFuncionario.addActionListener(actionListener);
     adicionarVenda.addActionListener(actionListener);
     remover.addActionListener(actionListener);
-    pesquisar.addActionListener( enter );
+    pesquisar.addActionListener(enter);
   }
 
   public JButton getAdicionarCliente() {
@@ -74,5 +71,5 @@ public class MainToolBar extends JToolBar {
     return remover;
   }
 
-  public JTextField getPesquisar() { return pesquisar; }
+  public JTextField getPesquisar() {return pesquisar;}
 }

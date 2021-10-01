@@ -6,10 +6,10 @@ import java.util.HashMap;
 
 public class Venda {
   private final int id;
+  private final LocalDate data;
   private double valor;
   private Cliente cliente;
   private Funcionario funcionario;
-  private final LocalDate data;
   private HashMap<Chocolate, Integer> chocolateVendidos;
 
   public Venda(int id, Cliente cliente, Funcionario funcionario, LocalDate data) {
@@ -44,17 +44,16 @@ public class Venda {
   // Representação em string de uma compra
   public String info() {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    return String.format(
-        "Id: %d | Cliente: %s | Funcionário: %s | Valor: %.2f | Data: %s\n",
-        id, cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
-  }
-
-  public void setChocolateVendidos(HashMap<Chocolate, Integer> vendidos) {
-
+    return String.format("Id: %d | Cliente: %s | Funcionário: %s | Valor: %.2f | Data: %s\n", id,
+            cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
   }
 
   public double getValor() {
     return valor;
+  }
+
+  public void setValor(double valor) {
+    this.valor = valor;
   }
 
   public int getId() {
@@ -65,8 +64,16 @@ public class Venda {
     return cliente;
   }
 
+  public void setCliente(Cliente cliente) {
+    this.cliente = cliente;
+  }
+
   public Funcionario getFuncionario() {
     return funcionario;
+  }
+
+  public void setFuncionario(Funcionario funcionario) {
+    this.funcionario = funcionario;
   }
 
   public LocalDate getData() {
@@ -77,15 +84,7 @@ public class Venda {
     return chocolateVendidos;
   }
 
-  public void setValor(double valor) {
-    this.valor = valor;
-  }
-
-  public void setCliente(Cliente cliente) {
-    this.cliente = cliente;
-  }
-
-  public void setFuncionario(Funcionario funcionario) {
-    this.funcionario = funcionario;
+  public void setChocolateVendidos(HashMap<Chocolate, Integer> vendidos) {
+      chocolateVendidos = vendidos;
   }
 }

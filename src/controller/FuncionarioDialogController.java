@@ -36,12 +36,8 @@ public class FuncionarioDialogController implements ActionListener {
         idadeInt = 0;
       }
 
-      Endereco endereco =
-          new Endereco(
-              details.getBairro().getText(),
-              details.getRua().getText(),
-              details.getNumero().getText(),
-              details.getCep().getText());
+      Endereco endereco = new Endereco(details.getBairro().getText(), details.getRua().getText(),
+              details.getNumero().getText(), details.getCep().getText());
 
       double salario;
       try {
@@ -50,16 +46,9 @@ public class FuncionarioDialogController implements ActionListener {
         salario = 0.0;
       }
       // Cadastra o funcionario
-      Loja.getInstance()
-          .cadastrarFuncionario(
-              Loja.getInstance().getProximoIdFuncionario(),
-              idadeInt,
-              details.getNome().getText(),
-              details.getCpf().getText(),
-              details.getTelefone().getText(),
-              details.getEmail().getText(),
-              endereco,
-              salario,
+      Loja.getInstance().cadastrarFuncionario(Loja.getInstance().getProximoIdFuncionario(),
+              idadeInt, details.getNome().getText(), details.getCpf().getText(),
+              details.getTelefone().getText(), details.getEmail().getText(), endereco, salario,
               details.getCargo().getText());
 
       // Atualiza a lista de clientes que é mostrada.

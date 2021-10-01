@@ -36,23 +36,13 @@ public class ClienteDialogController implements ActionListener {
         idadeInt = 0;
       }
 
-      Endereco endereco =
-          new Endereco(
-              details.getBairro().getText(),
-              details.getRua().getText(),
-              details.getNumero().getText(),
-              details.getCep().getText());
+      Endereco endereco = new Endereco(details.getBairro().getText(), details.getRua().getText(),
+              details.getNumero().getText(), details.getCep().getText());
 
       // Cadastra o cliente.
-      Loja.getInstance()
-          .cadastrarCliente(
-              Loja.getInstance().getProximoIdCliente(),
-              idadeInt,
-              details.getNome().getText(),
-              details.getCpf().getText(),
-              details.getTelefone().getText(),
-              details.getEmail().getText(),
-              endereco,
+      Loja.getInstance().cadastrarCliente(Loja.getInstance().getProximoIdCliente(), idadeInt,
+              details.getNome().getText(), details.getCpf().getText(),
+              details.getTelefone().getText(), details.getEmail().getText(), endereco,
               details.getCategoria().getText());
 
       // Atualiza a lista de clientes que é mostrada.

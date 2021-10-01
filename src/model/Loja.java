@@ -1,7 +1,9 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class Loja {
   private static final Loja instance = new Loja();
@@ -28,140 +30,48 @@ public class Loja {
   }
 
   // Cadastra um novo cliente na lista de clientes
-  public void cadastrarCliente(
-      int id,
-      int idade,
-      String nome,
-      String cpf,
-      String telefone,
-      String email,
-      Endereco endereco,
-      String categoria) {
+  public void cadastrarCliente(int id, int idade, String nome, String cpf, String telefone,
+                               String email, Endereco endereco, String categoria) {
     clientes.add(new Cliente(id, idade, nome, cpf, telefone, email, endereco, categoria));
   }
 
   // Cadastra um novo funcionário na lista de funcionários
 
-  public void cadastrarFuncionario(
-      int id,
-      int idade,
-      String nome,
-      String cpf,
-      String telefone,
-      String email,
-      Endereco endereco,
-      double salario,
-      String cargo) {
-    funcionarios.add(
-        new Funcionario(id, idade, nome, cpf, telefone, email, endereco, salario, cargo));
+  public void cadastrarFuncionario(int id, int idade, String nome, String cpf, String telefone,
+                                   String email, Endereco endereco, double salario, String cargo) {
+    funcionarios.add(new Funcionario(id, idade, nome, cpf, telefone, email, endereco, salario,
+            cargo));
   }
 
   // Cadastra uma nova barra na lista de chocolates
-  public void cadastrarBarra(
-      int id,
-      int peso,
-      String nome,
-      String descricao,
-      String tipo,
-      LocalDate dataCompra,
-      double precoCompra,
-      double precoVenda,
-      double porcentagemCacau,
-      boolean contemGluten,
-      boolean contemLactose,
-      boolean artesanal,
-      String sabor,
-      String[] nibs,
-      int quantidade) {
-    estoque.adicionarChocolate(
-        new Barra(
-            id,
-            peso,
-            nome,
-            descricao,
-            tipo,
-            dataCompra,
-            precoCompra,
-            precoVenda,
-            porcentagemCacau,
-            contemGluten,
-            contemLactose,
-            artesanal,
-            sabor,
-            nibs),
-        quantidade);
+  public void cadastrarBarra(int id, int peso, String nome, String descricao, String tipo,
+                             LocalDate dataCompra, double precoCompra, double precoVenda,
+                             double porcentagemCacau, boolean contemGluten, boolean contemLactose
+          , boolean artesanal, String sabor, String[] nibs, int quantidade) {
+    estoque.adicionarChocolate(new Barra(id, peso, nome, descricao, tipo, dataCompra, precoCompra
+            , precoVenda, porcentagemCacau, contemGluten, contemLactose, artesanal, sabor, nibs),
+            quantidade);
   }
 
   // Cadastra uma nova trufa na lista de chocolates
-  public void cadastrarTrufa(
-      int id,
-      int peso,
-      String nome,
-      String descricao,
-      String tipo,
-      LocalDate dataCompra,
-      double precoCompra,
-      double precoVenda,
-      double porcentagemCacau,
-      boolean contemGluten,
-      boolean contemLactose,
-      boolean artesanal,
-      String recheio,
-      boolean alcoolico,
-      int quantidade) {
-    estoque.adicionarChocolate(
-        new Trufa(
-            id,
-            peso,
-            nome,
-            descricao,
-            tipo,
-            dataCompra,
-            precoCompra,
-            precoVenda,
-            porcentagemCacau,
-            contemGluten,
-            contemLactose,
-            artesanal,
-            recheio,
-            alcoolico),
-        quantidade);
+  public void cadastrarTrufa(int id, int peso, String nome, String descricao, String tipo,
+                             LocalDate dataCompra, double precoCompra, double precoVenda,
+                             double porcentagemCacau, boolean contemGluten, boolean contemLactose
+          , boolean artesanal, String recheio, boolean alcoolico, int quantidade) {
+    estoque.adicionarChocolate(new Trufa(id, peso, nome, descricao, tipo, dataCompra, precoCompra
+            , precoVenda, porcentagemCacau, contemGluten, contemLactose, artesanal, recheio,
+            alcoolico), quantidade);
   }
 
   // Cadastra um novo chocotone na lista de chocolates
-  public void cadastrarChocotone(
-      int id,
-      int peso,
-      String nome,
-      String descricao,
-      String tipo,
-      LocalDate dataCompra,
-      double precoCompra,
-      double precoVenda,
-      double porcentagemCacau,
-      boolean contemGluten,
-      boolean contemLactose,
-      boolean artesanal,
-      String recheio,
-      String[] frutas,
-      int quantidade) {
-    estoque.adicionarChocolate(
-        new Chocotone(
-            id,
-            peso,
-            nome,
-            descricao,
-            tipo,
-            dataCompra,
-            precoCompra,
-            precoVenda,
-            porcentagemCacau,
-            contemGluten,
-            contemLactose,
-            artesanal,
-            recheio,
-            frutas),
-        quantidade);
+  public void cadastrarChocotone(int id, int peso, String nome, String descricao, String tipo,
+                                 LocalDate dataCompra, double precoCompra, double precoVenda,
+                                 double porcentagemCacau, boolean contemGluten,
+                                 boolean contemLactose, boolean artesanal, String recheio,
+                                 String[] frutas, int quantidade) {
+    estoque.adicionarChocolate(new Chocotone(id, peso, nome, descricao, tipo, dataCompra,
+            precoCompra, precoVenda, porcentagemCacau, contemGluten, contemLactose, artesanal,
+            recheio, frutas), quantidade);
   }
 
   public int getProximoIdCliente() {
@@ -200,6 +110,25 @@ public class Loja {
     return vendaId + 1;
   }
 
+  // Calcula o lucro de determinado mes
+  public double calcularLucroMes(int mes, int ano) throws IllegalArgumentException {
+    if (mes < 1 || mes > 12) {
+      throw new IllegalArgumentException("Mês inválido");
+    }
+
+    double gastos = calcularGastosMes(mes, ano);
+    double receita = 0;
+
+    for (Venda venda : vendas) {
+      LocalDate dataVenda = venda.getData();
+      if (dataVenda.getMonthValue() == mes && dataVenda.getYear() == ano) {
+        receita += venda.getValor();
+      }
+    }
+
+    return receita - gastos;
+  }
+
   // Calcula os gastos em um determinado mes
   public double calcularGastosMes(int mes, int ano) throws IllegalArgumentException {
     if (mes < 1 || mes > 12) {
@@ -221,32 +150,9 @@ public class Loja {
     return gastos;
   }
 
-  // Calcula o lucro de determinado mes
-  public double calcularLucroMes(int mes, int ano) throws IllegalArgumentException {
-    if (mes < 1 || mes > 12) {
-      throw new IllegalArgumentException("Mês inválido");
-    }
-
-    double gastos = calcularGastosMes(mes, ano);
-    double receita = 0;
-
-    for (Venda venda : vendas) {
-      LocalDate dataVenda = venda.getData();
-      if (dataVenda.getMonthValue() == mes && dataVenda.getYear() == ano) {
-        receita += venda.getValor();
-      }
-    }
-
-    return receita - gastos;
-  }
-
   // Realiza uma venda, retirando a quantidade de chocolates vendidos do estoque
-  public void fazerVenda(
-      HashMap<Chocolate, Integer> chocolatesQuantidades,
-      int id,
-      Cliente cliente,
-      Funcionario funcionario,
-      LocalDate data) {
+  public void fazerVenda(HashMap<Chocolate, Integer> chocolatesQuantidades, int id,
+                         Cliente cliente, Funcionario funcionario, LocalDate data) {
     Venda venda = new Venda(id, cliente, funcionario, data);
 
     for (Chocolate chocolate : chocolatesQuantidades.keySet()) {

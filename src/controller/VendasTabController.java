@@ -1,6 +1,9 @@
 package controller;
 
-import model.*;
+import model.Chocolate;
+import model.Cliente;
+import model.Funcionario;
+import model.Venda;
 import view.VendaDetails;
 import view.VendasTab;
 
@@ -37,13 +40,24 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       venda.setFuncionario((Funcionario) details.getFuncionario().getSelectedItem());
 
       HashMap<Chocolate, Integer> vendidos = new HashMap<>();
-      ArrayList<JSpinner> produtosSpinner = details.getListaProdutos();
-      ArrayList<JLabel> labels = details.getListaLabels();
+      ArrayList<JSpinner> produtosSpinner = details.getListaQuantidades();
+      ArrayList<JComboBox<Chocolate>> boxes = details.getListaChocolates();
 
-      /*
+
       for (int i = 0; i < produtosSpinner.size(); i++) {
-          vendidos.put()
-      } */
+        vendidos.put((Chocolate) boxes.get(i).getSelectedItem(),
+                (int) produtosSpinner.get(i).getValue());
+      }
+
+      System.out.println(vendidos);
+
+      venda.setChocolateVendidos(vendidos);
+      int index = vendasTab.getListaVendas().getLista().getSelectedIndex();
+      vendasTab.getListaVendas().updateLista();
+      vendasTab.getListaVendas().getLista().setSelectedIndex(index);
+
+      vendasTab.resetListSelectionController();
+
     }
   }
 }

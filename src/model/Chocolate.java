@@ -9,19 +9,10 @@ public abstract class Chocolate {
   private double precoCompra, precoVenda, porcentagemCacau;
   private boolean contemGluten, contemLactose, artesanal;
 
-  public Chocolate(
-      int id,
-      int peso,
-      String nome,
-      String descricao,
-      String tipo,
-      LocalDate dataCompra,
-      double precoCompra,
-      double precoVenda,
-      double porcentagemCacau,
-      boolean contemGluten,
-      boolean contemLactose,
-      boolean artesanal) {
+  public Chocolate(int id, int peso, String nome, String descricao, String tipo,
+                   LocalDate dataCompra, double precoCompra, double precoVenda,
+                   double porcentagemCacau, boolean contemGluten, boolean contemLactose,
+                   boolean artesanal) {
     this.id = id;
     this.peso = peso;
     this.nome = nome;

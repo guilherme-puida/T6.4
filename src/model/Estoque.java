@@ -1,6 +1,8 @@
 package model;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.Set;
 
 public class Estoque {
   private final HashMap<Chocolate, Integer> chocolates;
@@ -15,8 +17,7 @@ public class Estoque {
   }
 
   // Retira certa quantidade de chocolate do map.
-  public void retirarQuantidade(Chocolate chocolate, int quantidade)
-      throws IllegalArgumentException {
+  public void retirarQuantidade(Chocolate chocolate, int quantidade) throws IllegalArgumentException {
     if (!chocolates.containsKey(chocolate)) {
       throw new IllegalArgumentException("Produto não está no estoque");
     }
@@ -26,9 +27,8 @@ public class Estoque {
     }
 
     if (quantidade > chocolates.get(chocolate)) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Quantidade %d maior do que em estoque (%d)", quantidade, chocolates.get(chocolate)));
+      throw new IllegalArgumentException(String.format("Quantidade %d maior do que em estoque " +
+              "(%d)", quantidade, chocolates.get(chocolate)));
     }
 
     chocolates.put(chocolate, chocolates.get(chocolate) - quantidade);
@@ -43,6 +43,10 @@ public class Estoque {
     }
 
     return null;
+  }
+
+  public Set<Chocolate> getChocolates() {
+    return chocolates.keySet();
   }
 
   public Chocolate getChocolatePorNome(String nome) {
@@ -69,10 +73,6 @@ public class Estoque {
 
   public int getQuantidadeEmEstoque(Chocolate chocolate) {
     return chocolates.get(chocolate);
-  }
-
-  public Set<Chocolate> getChocolates() {
-    return chocolates.keySet();
   }
 
   public void removerChocolate(Chocolate chocolate) {

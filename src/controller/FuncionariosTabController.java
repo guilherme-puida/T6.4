@@ -20,7 +20,7 @@ public class FuncionariosTabController implements ListSelectionListener, ActionL
   public void valueChanged(ListSelectionEvent e) {
     if (!e.getValueIsAdjusting()) {
       Funcionario funcionario =
-          (Funcionario) funcionariosTab.getListaFuncionarios().getLista().getSelectedValue();
+              (Funcionario) funcionariosTab.getListaFuncionarios().getLista().getSelectedValue();
       funcionariosTab.getDetails().popularDados(funcionario);
     }
   }
@@ -29,7 +29,7 @@ public class FuncionariosTabController implements ListSelectionListener, ActionL
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(funcionariosTab.getDetails().getSubmit())) {
       Funcionario funcionario =
-          (Funcionario) funcionariosTab.getListaFuncionarios().getLista().getSelectedValue();
+              (Funcionario) funcionariosTab.getListaFuncionarios().getLista().getSelectedValue();
 
       FuncionarioDetails details = funcionariosTab.getDetails();
       int idadeInt;

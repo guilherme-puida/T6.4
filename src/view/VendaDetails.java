@@ -11,15 +11,15 @@ public class VendaDetails extends DetailsPanel {
   private final JTextField id, valor, data;
   private final JComboBox<Cliente> cliente;
   private final JComboBox<Funcionario> funcionario;
-  private final ArrayList<JLabel> listaLabels;
-  private final ArrayList<JSpinner> listaProdutos;
+  private final ArrayList<JComboBox<Chocolate>> listaChocolates;
+  private final ArrayList<JSpinner> listaQuantidades;
 
 
   public VendaDetails() {
     super("Detalhes da venda:");
 
-    listaLabels = new ArrayList<>();
-    listaProdutos = new ArrayList<>();
+    listaChocolates = new ArrayList<>();
+    listaQuantidades = new ArrayList<>();
 
     GridBagConstraints left = super.getLeft();
     GridBagConstraints right = super.getRight();
@@ -46,32 +46,31 @@ public class VendaDetails extends DetailsPanel {
     getInnerDetailsPanel().add(new JLabel("Funcionário:"), left);
     getInnerDetailsPanel().add(funcionario, right);
 
+
     popularDados(Loja.getInstance().getVendaPorId(1));
   }
 
   public void popularDados(Venda venda) {
-    // Retirando os labels e spinners antigos
-    for (JLabel label : listaLabels) {
+    // Retirando as boxes e spinners antigos
+    for (JComboBox<Chocolate> label : listaChocolates) {
       getInnerDetailsPanel().remove(label);
     }
-    for (JSpinner spinner : listaProdutos) {
+    for (JSpinner spinner : listaQuantidades) {
       getInnerDetailsPanel().remove(spinner);
     }
-    listaLabels.clear();
-    listaProdutos.clear();
+    listaChocolates.clear();
+    listaQuantidades.clear();
 
     // Atualizando a tela.
     getInnerDetailsPanel().validate();
     getInnerDetailsPanel().repaint();
 
     Loja loja = Loja.getInstance();
-    cliente.setModel(new DefaultComboBoxModel<>(
-            loja.getClientes()
-    ));
+    cliente.setModel(new DefaultComboBoxModel<>(loja.getClientes()));
+    cliente.setSelectedItem(venda.getCliente());
 
-    funcionario.setModel(new DefaultComboBoxModel<>(
-            loja.getFuncionarios()
-    ));
+    funcionario.setModel(new DefaultComboBoxModel<>(loja.getFuncionarios()));
+    funcionario.setSelectedItem(venda.getFuncionario());
 
     id.setText(String.valueOf(venda.getId()));
     valor.setText(String.valueOf(venda.getValor()));
@@ -85,20 +84,21 @@ public class VendaDetails extends DetailsPanel {
       int maxQuantidade = Loja.getInstance().getEstoque().getQuantidadeEmEstoque(chocolate);
 
 
-      listaProdutos.add(new JSpinner( new SpinnerNumberModel(
-              quantidade,
-              quantidade,
-              maxQuantidade,
-              1
-              )
-      ));
+      listaQuantidades.add(new JSpinner(new SpinnerNumberModel(quantidade, quantidade,
+              maxQuantidade, 1)));
 
-      listaLabels.add(new JLabel(chocolate.getNome() + " :"));
+      DefaultComboBoxModel<Chocolate> model =
+              new DefaultComboBoxModel<>(loja.getEstoque().getChocolates().toArray(new Chocolate[0]));
+
+      JComboBox<Chocolate> opcoes = new JComboBox<>(model);
+      opcoes.setSelectedItem(chocolate);
+
+      listaChocolates.add(opcoes);
     }
 
-    for (int i = 0; i < listaProdutos.size(); i++) {
-      getInnerDetailsPanel().add(listaLabels.get(i), getLeft());
-      getInnerDetailsPanel().add(listaProdutos.get(i), getRight());
+    for (int i = 0; i < listaQuantidades.size(); i++) {
+      getInnerDetailsPanel().add(listaChocolates.get(i), getLeft());
+      getInnerDetailsPanel().add(listaQuantidades.get(i), getRight());
     }
   }
 
@@ -122,11 +122,11 @@ public class VendaDetails extends DetailsPanel {
     return funcionario;
   }
 
-  public ArrayList<JLabel> getListaLabels() {
-    return listaLabels;
+  public ArrayList<JComboBox<Chocolate>> getListaChocolates() {
+    return listaChocolates;
   }
 
-  public ArrayList<JSpinner> getListaProdutos() {
-    return listaProdutos;
+  public ArrayList<JSpinner> getListaQuantidades() {
+    return listaQuantidades;
   }
 }

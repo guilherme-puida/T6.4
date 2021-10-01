@@ -8,14 +8,8 @@ public abstract class Pessoa {
   private String nome, cpf, telefone, email;
   private Endereco endereco;
 
-  public Pessoa(
-      int id,
-      int idade,
-      String nome,
-      String cpf,
-      String telefone,
-      String email,
-      Endereco endereco) {
+  public Pessoa(int id, int idade, String nome, String cpf, String telefone, String email,
+                Endereco endereco) {
     this.id = id;
     this.idade = idade;
     this.nome = nome;
