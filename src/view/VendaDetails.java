@@ -17,9 +17,15 @@ public class VendaDetails extends DetailsPanel {
   private final ArrayList<JComboBox<Chocolate>> listaChocolates;
   private final ArrayList<JSpinner> listaQuantidades;
 
+  private final JButton adicionarNovoProduto;
+
 
   public VendaDetails() {
     super("Detalhes da venda:");
+
+    adicionarNovoProduto = new JButton("Adicionar novo produto");
+    add(adicionarNovoProduto, BorderLayout.BEFORE_FIRST_LINE);
+    adicionarNovoProduto.addActionListener(e -> new AdicionarProdutoVendaDialog());
 
     listaChocolates = new ArrayList<>();
     listaQuantidades = new ArrayList<>();

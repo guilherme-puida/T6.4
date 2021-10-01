@@ -1,9 +1,6 @@
 package controller;
 
-import model.Chocolate;
-import model.Cliente;
-import model.Funcionario;
-import model.Venda;
+import model.*;
 import view.VendaDetails;
 import view.VendasTab;
 
@@ -51,7 +48,21 @@ public class VendasTabController implements ActionListener, ListSelectionListene
 
       System.out.println(vendidos);
 
+      HashMap<Chocolate, Integer> vendidosAntes = venda.getChocolateVendidos();
       venda.setChocolateVendidos(vendidos);
+
+      for (Chocolate chocolate : vendidos.keySet()) {
+        if (vendidosAntes.containsKey(chocolate)) {
+          Loja.getInstance().getEstoque().retirarQuantidade(
+                  chocolate, vendidos.get(chocolate) - vendidosAntes.get(chocolate)
+          );
+        } else {
+          Loja.getInstance().getEstoque().retirarQuantidade(
+                  chocolate, vendidos.get(chocolate)
+          );
+        }
+      }
+
       venda.calcularValor();
       int index = vendasTab.getListaVendas().getLista().getSelectedIndex();
       vendasTab.getListaVendas().updateLista();
