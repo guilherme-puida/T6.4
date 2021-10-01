@@ -1,10 +1,7 @@
 package controller;
 
 import main.Main;
-import model.Chocolate;
-import model.Cliente;
-import model.Funcionario;
-import model.Loja;
+import model.*;
 import view.*;
 
 import javax.swing.*;
@@ -29,7 +26,7 @@ public class MainToolBarController implements ActionListener {
     } else if (e.getSource() == bar.getAdicionarFuncionario()) {
       new FuncionarioDialog(parent);
     } else if (e.getSource() == bar.getAdicionarVenda()) {
-      System.out.println("Adicionar Venda!");
+      new VendaDialog(parent);
     } else if (e.getSource() == bar.getRemover()) {
 
       MainFrame frame = Main.getFrame();
