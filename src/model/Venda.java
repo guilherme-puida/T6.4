@@ -7,10 +7,10 @@ import java.util.HashMap;
 public class Venda {
   private final int id;
   private double valor;
-  private final Cliente cliente;
-  private final Funcionario funcionario;
+  private Cliente cliente;
+  private Funcionario funcionario;
   private final LocalDate data;
-  private final HashMap<Chocolate, Integer> chocolateVendidos;
+  private HashMap<Chocolate, Integer> chocolateVendidos;
 
   public Venda(int id, Cliente cliente, Funcionario funcionario, LocalDate data) {
     this.id = id;
@@ -49,6 +49,10 @@ public class Venda {
         id, cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
   }
 
+  public void setChocolateVendidos(HashMap<Chocolate, Integer> vendidos) {
+
+  }
+
   public double getValor() {
     return valor;
   }
@@ -71,5 +75,17 @@ public class Venda {
 
   public HashMap<Chocolate, Integer> getChocolateVendidos() {
     return chocolateVendidos;
+  }
+
+  public void setValor(double valor) {
+    this.valor = valor;
+  }
+
+  public void setCliente(Cliente cliente) {
+    this.cliente = cliente;
+  }
+
+  public void setFuncionario(Funcionario funcionario) {
+    this.funcionario = funcionario;
   }
 }
