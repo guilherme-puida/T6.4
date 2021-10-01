@@ -2,54 +2,44 @@ package view;
 
 import controller.AdicionarProdutoVendaDialogController;
 import model.Chocolate;
-import model.Loja;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class AdicionarProdutoVendaDialog extends JDialog {
-    private final JComboBox<Chocolate> produto;
-    private final JSpinner quantidade;
-    private final JButton submit;
+  private final JComboBox<Chocolate> produto;
+  private final JButton submit;
 
-  public AdicionarProdutoVendaDialog() {
+  public AdicionarProdutoVendaDialog(JFrame parent) {
+    super(parent, "Adicionar novo produto");
+    setModalityType(ModalityType.APPLICATION_MODAL);
+
     setLayout(new BorderLayout(20, 20));
 
-    Loja loja = Loja.getInstance();
-    produto = new JComboBox<>(new DefaultComboBoxModel<>(
-            loja.getEstoque().getChocolates().toArray(new Chocolate[0])
-    ));
-
-    quantidade = new JSpinner(new SpinnerNumberModel(
-            1, 1, null, 1
-    ));
-
+    produto = new JComboBox<>();
     submit = new JButton("Salvar");
 
-    add(produto, BorderLayout.BEFORE_FIRST_LINE);
-    add(quantidade, BorderLayout.CENTER);
-    add(submit, BorderLayout.AFTER_LAST_LINE);
-
-    AdicionarProdutoVendaDialogController controller = new AdicionarProdutoVendaDialogController(this);
+    AdicionarProdutoVendaDialogController controller =
+            new AdicionarProdutoVendaDialogController(this);
 
     produto.addActionListener(controller);
     submit.addActionListener(controller);
 
-    setVisible(true);
-    setSize(300, 100);
-    setResizable(false);
+    add(produto, BorderLayout.CENTER);
+    add(submit, BorderLayout.AFTER_LAST_LINE);
 
+
+    setMinimumSize(new Dimension(300, 200));
+    pack();
+    setResizable(false);
+    setVisible(true);
   }
 
-    public JComboBox<Chocolate> getProduto() {
-        return produto;
-    }
+  public JComboBox<Chocolate> getProduto() {
+    return produto;
+  }
 
-    public JSpinner getQuantidade() {
-        return quantidade;
-    }
-
-    public JButton getSubmit() {
-        return submit;
-    }
+  public JButton getSubmit() {
+    return submit;
+  }
 }
