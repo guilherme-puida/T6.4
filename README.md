@@ -1,6 +1,6 @@
 # Loja de Chocolates
 
-## TP3 - T6.4
+## TP4 - T6.4
 
 Guilherme Puida Moreira - 200019015
 
