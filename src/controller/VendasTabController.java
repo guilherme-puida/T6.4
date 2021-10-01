@@ -52,6 +52,7 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       System.out.println(vendidos);
 
       venda.setChocolateVendidos(vendidos);
+      venda.calcularValor();
       int index = vendasTab.getListaVendas().getLista().getSelectedIndex();
       vendasTab.getListaVendas().updateLista();
       vendasTab.getListaVendas().getLista().setSelectedIndex(index);
