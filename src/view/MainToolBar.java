@@ -6,11 +6,14 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class MainToolBar extends JToolBar {
-  private final JButton adicionarCliente, // Tiago mudou de private final para public static.
+  private final JButton adicionarCliente,
       adicionarProduto,
       adicionarFuncionario,
       adicionarVenda,
       remover;
+
+  private final JLabel pesquisaLabel;
+  private final JTextField pesquisar;
 
   public MainToolBar() {
     adicionarCliente = new JButton("Adicionar Cliente");
@@ -20,11 +23,16 @@ public class MainToolBar extends JToolBar {
 
     remover = new JButton("Remover");
 
+    pesquisaLabel = new JLabel("Pesquisar:");
+    pesquisar =  new JTextField();
+
     add(adicionarCliente);
     add(adicionarFuncionario);
     add(adicionarProduto);
     add(adicionarVenda);
     add(remover);
+    add(pesquisaLabel);
+    add(pesquisar);
 
     setFloatable(false);
     ActionListener actionListener = new MainToolBarController(this);
@@ -33,6 +41,7 @@ public class MainToolBar extends JToolBar {
     adicionarFuncionario.addActionListener(actionListener);
     adicionarVenda.addActionListener(actionListener);
     remover.addActionListener(actionListener);
+    pesquisar.addActionListener(actionListener);
   }
 
   public JButton getAdicionarCliente() {
@@ -54,4 +63,6 @@ public class MainToolBar extends JToolBar {
   public JButton getRemover() {
     return remover;
   }
+
+  public JTextField getPesquisar() { return pesquisar; }
 }

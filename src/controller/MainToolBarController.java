@@ -54,6 +54,8 @@ public class MainToolBarController implements ActionListener {
                     frame.getProdutosTab().resetListSelectionController();
                 }
             }
+        } else if (e.getSource() == bar.getPesquisar()) {
+            System.out.println("Pesquisa!");
         }
     }
 }
