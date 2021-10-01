@@ -1,10 +1,12 @@
 package view;
 
-import model.Chocolate;
-import model.Loja;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaPanel extends JPanel {
 
@@ -36,6 +38,40 @@ public class ListaPanel extends JPanel {
       case CHOCOLATE -> lista =
               new JList<>(Loja.getInstance().getEstoque().getChocolates().toArray(new Chocolate[0]));
       case VENDA -> lista = new JList<>(Loja.getInstance().getVendas());
+    }
+
+    lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    lista.setLayoutOrientation(JList.VERTICAL);
+    lista.setVisibleRowCount(-1);
+
+    listaScroller.setViewportView(lista);
+  }
+
+
+  // Esse método é pura mágica.
+  public void updateLista(String text) {
+    switch (selection) {
+      case CLIENTE -> {
+        List<Cliente> clientesFiltrado = Arrays.asList(Loja.getInstance().getClientes());
+        clientesFiltrado = clientesFiltrado.stream().filter(p -> p.toString().contains(text)).collect(Collectors.toList());
+        lista = new JList<>(clientesFiltrado.toArray());
+      }
+      case FUNCIONARIO -> {
+        List<Funcionario> funcionariosFiltrado = Arrays.asList(Loja.getInstance().getFuncionarios());
+        funcionariosFiltrado = funcionariosFiltrado.stream().filter(p -> p.toString().contains(text)).collect(Collectors.toList());
+        lista = new JList<>(funcionariosFiltrado.toArray());
+      }
+      case CHOCOLATE -> {
+        List<Chocolate> chocolatesFiltrados =
+                Arrays.asList(Loja.getInstance().getEstoque().getChocolates().toArray(new Chocolate[0]));
+        chocolatesFiltrados = chocolatesFiltrados.stream().filter(p -> p.toString().contains(text)).collect(Collectors.toList());
+        lista = new JList<>(chocolatesFiltrados.toArray());
+      }
+      case VENDA -> {
+        List<Venda> vendasFiltradas = Arrays.asList(Loja.getInstance().getVendas());
+        vendasFiltradas = vendasFiltradas.stream().filter(p -> p.toString().contains(text)).collect(Collectors.toList());
+        lista = new JList<>(vendasFiltradas.toArray());
+      }
     }
 
     lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

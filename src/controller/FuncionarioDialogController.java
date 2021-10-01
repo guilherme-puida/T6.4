@@ -19,8 +19,6 @@ public class FuncionarioDialogController implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
 
-    // TODO certificar que os campos não são nulos
-
     if (e.getSource().equals(view.getDetails().getSubmit())) {
 
       FuncionarioDetails details = view.getDetails();
@@ -32,7 +30,6 @@ public class FuncionarioDialogController implements ActionListener {
       try {
         idadeInt = Integer.parseInt(idade);
       } catch (NumberFormatException ignored) {
-        // TODO não permitir que a idade seja inválida
         idadeInt = 0;
       }
 

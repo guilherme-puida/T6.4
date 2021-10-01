@@ -3,7 +3,6 @@ package view;
 import controller.MainToolBarController;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainToolBar extends JToolBar {
@@ -36,13 +35,6 @@ public class MainToolBar extends JToolBar {
     add(pesquisar);
 
 
-    Action enter = new AbstractAction() { //minha tentativa de rodar a barra de pesquisa com Enter.
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("ENTER");
-      }
-    };
-
 
     setFloatable(false);
     ActionListener actionListener = new MainToolBarController(this);
@@ -51,7 +43,7 @@ public class MainToolBar extends JToolBar {
     adicionarFuncionario.addActionListener(actionListener);
     adicionarVenda.addActionListener(actionListener);
     remover.addActionListener(actionListener);
-    pesquisar.addActionListener(enter);
+    pesquisar.addActionListener(actionListener);
   }
 
   public JButton getAdicionarCliente() {

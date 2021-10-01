@@ -7,10 +7,11 @@ import view.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class MainToolBarController implements ActionListener {
-  MainToolBar bar;
-  JFrame parent;
+  protected MainToolBar bar;
+  protected JFrame parent;
 
   public MainToolBarController(MainToolBar bar) {
     this.bar = bar;
@@ -33,7 +34,6 @@ public class MainToolBarController implements ActionListener {
       JTabbedPane tabs = frame.getTabs();
 
       switch (tabs.getSelectedIndex()) {
-        // TODO outras abas
         case 0 -> {
           Cliente r =
                   (Cliente) frame.getClientesTab().getListaClientes().getLista().getSelectedValue();
@@ -55,9 +55,30 @@ public class MainToolBarController implements ActionListener {
           frame.getProdutosTab().getListaProdutos().updateLista();
           frame.getProdutosTab().resetListSelectionController();
         }
+
       }
     } else if (e.getSource() == bar.getPesquisar()) {
-      System.out.println("Pesquisa!");
+      MainFrame frame = Main.getFrame();
+      if (Objects.equals(bar.getPesquisar().getText(), "")) {
+        System.out.println("Here");
+        frame.getClientesTab().getListaClientes().updateLista();
+        frame.getClientesTab().resetListSelectionController();
+        frame.getFuncionariosTab().getListaFuncionarios().updateLista();
+        frame.getFuncionariosTab().resetListSelectionController();
+        frame.getProdutosTab().getListaProdutos().updateLista();
+        frame.getProdutosTab().resetListSelectionController();
+        frame.getVendasTab().getListaVendas().updateLista();
+        frame.getVendasTab().resetListSelectionController();
+      } else {
+        String text = bar.getPesquisar().getText();
+        frame.getClientesTab().getListaClientes().updateLista(text);
+        frame.getFuncionariosTab().getListaFuncionarios().updateLista(text);
+        frame.getProdutosTab().getListaProdutos().updateLista(text);
+        frame.getVendasTab().getListaVendas().updateLista(text);
+        }
+      }
+      }
     }
-  }
-}
+
+
+
