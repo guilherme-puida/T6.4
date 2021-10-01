@@ -9,8 +9,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class VendasTabController implements ActionListener, ListSelectionListener {
   private final VendasTab vendasTab;
@@ -40,10 +39,9 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       List<JSpinner> produtosSpinner = details.getListaQuantidades();
       List<JComboBox<Chocolate>> boxes = details.getListaChocolates();
 
-
       for (int i = 0; i < produtosSpinner.size(); i++) {
-        vendidos.put((Chocolate) boxes.get(i).getSelectedItem(),
-                (int) produtosSpinner.get(i).getValue());
+        vendidos.put(
+            (Chocolate) boxes.get(i).getSelectedItem(), (int) produtosSpinner.get(i).getValue());
       }
 
       System.out.println(vendidos);
@@ -53,13 +51,15 @@ public class VendasTabController implements ActionListener, ListSelectionListene
 
       for (Chocolate chocolate : vendidos.keySet()) {
         if (vendidosAntes.containsKey(chocolate)) {
-          Loja.getInstance().getEstoque().retirarQuantidade(
-                  chocolate, vendidos.get(chocolate) - vendidosAntes.get(chocolate)
-          );
+          if (!Objects.equals(vendidosAntes.get(chocolate), vendidos.get(chocolate))) {
+            Loja.getInstance()
+                .getEstoque()
+                .retirarQuantidade(
+                    chocolate, vendidos.get(chocolate) - vendidosAntes.get(chocolate));
+          }
+
         } else {
-          Loja.getInstance().getEstoque().retirarQuantidade(
-                  chocolate, vendidos.get(chocolate)
-          );
+          Loja.getInstance().getEstoque().retirarQuantidade(chocolate, vendidos.get(chocolate));
         }
       }
 
@@ -69,7 +69,7 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       vendasTab.getListaVendas().getLista().setSelectedIndex(index);
 
       vendasTab.resetListSelectionController();
-
+      details.popularDados(venda);
     }
   }
 }
