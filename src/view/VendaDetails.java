@@ -9,9 +9,14 @@ public class VendaDetails extends DetailsPanel {
   private final JTextField id, valor, data;
   private final JComboBox<Cliente> cliente;
   private final JComboBox<Funcionario> funcionario;
+  //private final ArrayList<JLabel>
+
 
   public VendaDetails() {
     super("Detalhes da venda:");
+
+    //produtosLabel = new JLabel[]{};
+    //produtosQuantidade = new JSpinner[]{};
 
     GridBagConstraints left = super.getLeft();
     GridBagConstraints right = super.getRight();
@@ -25,6 +30,7 @@ public class VendaDetails extends DetailsPanel {
 
     cliente = new JComboBox<>();
     funcionario = new JComboBox<>();
+
 
     getInnerDetailsPanel().add(new JLabel("Id:"), left);
     getInnerDetailsPanel().add(id, right);
@@ -41,6 +47,19 @@ public class VendaDetails extends DetailsPanel {
   }
 
   public void popularDados(Venda venda) {
+    // Retirando os labels e spinners antigos
+    /*for (JLabel label : produtosLabel) {
+      getInnerDetailsPanel().remove(label);
+    }
+    for (JSpinner spinner : produtosQuantidade) {
+      getInnerDetailsPanel().remove(spinner);
+    }
+    // Atualizando a tela.
+    */
+
+    getInnerDetailsPanel().validate();
+    getInnerDetailsPanel().repaint();
+
     Loja loja = Loja.getInstance();
     cliente.setModel(new DefaultComboBoxModel<>(
             loja.getClientes()
@@ -54,6 +73,10 @@ public class VendaDetails extends DetailsPanel {
     valor.setText(String.valueOf(venda.getValor()));
     data.setText(venda.getData().toString());
 
+    //
+
+
   }
+
 
 }
