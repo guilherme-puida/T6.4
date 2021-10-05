@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Classe que cria o template do painel de listagem que será usado em outras classes.
+ */
 public class ListaPanel extends JPanel {
 
   public static final int CLIENTE = 0;
@@ -19,6 +22,10 @@ public class ListaPanel extends JPanel {
   private final JScrollPane listaScroller;
   private JList<?> lista;
 
+  /**
+   * Cria o JScrollPane de listagem.
+   * @param selection inteiro para a seleção do objeto desejado.
+   */
   public ListaPanel(int selection) {
     this.selection = selection;
     listaScroller = new JScrollPane();
@@ -31,6 +38,9 @@ public class ListaPanel extends JPanel {
     add(listaScroller);
   }
 
+  /**
+   * Faz o update da lista, para quando são feitas mudanças.
+   */
   public void updateLista() {
     switch (selection) {
       case CLIENTE -> lista = new JList<>(Loja.getInstance().getClientes());
@@ -47,7 +57,7 @@ public class ListaPanel extends JPanel {
     listaScroller.setViewportView(lista);
   }
 
-
+  //TODO Javadoc desse metodo kk
   // Esse método é pura mágica.
   public void updateLista(String text) {
     switch (selection) {
@@ -81,14 +91,26 @@ public class ListaPanel extends JPanel {
     listaScroller.setViewportView(lista);
   }
 
+  /**
+   * Getter da seleção do objeto requerido.
+   * @return inteiro de seleção de objeto.
+   */
   public int getSelection() {
     return selection;
   }
 
+  /**
+   * Getter da lista
+   * @return JList do modelo de lista
+   */
   public JList<?> getLista() {
     return lista;
   }
 
+  /**
+   * Getter do scroller da lista
+   * @return JScrollPane do modelo de scroller de lista.
+   */
   public JScrollPane getListaScroller() {
     return listaScroller;
   }
