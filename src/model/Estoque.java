@@ -11,6 +11,10 @@ public class Estoque {
     chocolates = new HashMap<>();
   }
 
+  public void clear() {
+    chocolates.clear();
+  }
+
   // Adiciona um chocolate no mapa de chocolates
   public void adicionarChocolate(Chocolate chocolate, int quantidade) {
     chocolates.put(chocolate, chocolates.getOrDefault(chocolate, 0) + quantidade);

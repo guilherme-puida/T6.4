@@ -1,10 +1,7 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Loja {
   private static final Loja instance = new Loja();
@@ -24,6 +21,18 @@ public class Loja {
     this.funcionarios = new ArrayList<>();
     this.clientes = new ArrayList<>();
     this.vendas = new ArrayList<>();
+  }
+
+  public void reset() {
+    clientes.clear();
+    funcionarios.clear();
+    vendas.clear();
+    estoque.clear();
+
+    clienteId = 0;
+    funcionarioId = 0;
+    produtoId = 0;
+    vendaId = 0;
   }
 
   public static Loja getInstance() {

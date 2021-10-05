@@ -1,9 +1,6 @@
 package model;
 
 public abstract class Pessoa {
-  /*
-   * Classe representando uma pessoa, que pode virar Cliente ou Funcionário
-   */
   private int id;
   private int idade;
   private String nome;
@@ -12,8 +9,14 @@ public abstract class Pessoa {
   private String email;
   private Endereco endereco;
 
-  protected Pessoa(int id, int idade, String nome, String cpf, String telefone, String email,
-                Endereco endereco) {
+  protected Pessoa(
+      int id,
+      int idade,
+      String nome,
+      String cpf,
+      String telefone,
+      String email,
+      Endereco endereco) {
     this.id = id;
     this.idade = idade;
     this.nome = nome;
