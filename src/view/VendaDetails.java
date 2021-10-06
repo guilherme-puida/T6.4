@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe de detalhes para a venda. Mostra todas as informações da venda selecionada. Usa a classe DetailsPanel como template.
+ * @author Guilherme
+ * @version 1.0
+ */
 public class VendaDetails extends DetailsPanel {
   private final JTextField id;
   private final JTextField valor;
@@ -19,6 +24,9 @@ public class VendaDetails extends DetailsPanel {
   private final ArrayList<JSpinner> listaQuantidades;
 
 
+  /**
+   * Cria os JLabels e os JTextFields dos detalhes das vendas.
+   */
   public VendaDetails() {
     super("Detalhes da venda:");
 
@@ -58,6 +66,10 @@ public class VendaDetails extends DetailsPanel {
     popularDados(Loja.getInstance().getVendaPorId(1));
   }
 
+  /**
+   * Popula os JTextFields do metodo VendaDetails() com os detalhes da venda requerida.
+   * @param venda objeto da Venda.
+   */
   public void popularDados(Venda venda) {
     // Retirando as boxes e spinners antigos
     for (JComboBox<Chocolate> label : listaChocolates) {
@@ -110,30 +122,58 @@ public class VendaDetails extends DetailsPanel {
     }
   }
 
+  /**
+   * Getter do id da venda.
+   * @return JTextField do id da venda.
+   */
   public JTextField getId() {
     return id;
   }
 
+  /**
+   * Getter do valor da venda.
+   * @return JTextField do valor da venda.
+   */
   public JTextField getValor() {
     return valor;
   }
 
+  /**
+   * Getter da data da venda.
+   * @return JTextField da data da venda.
+   */
   public JTextField getData() {
     return data;
   }
 
+  /**
+   * Getter do cliente que fez a venda.
+   * @return JComboBox do cliente que fez a venda.
+   */
   public JComboBox<Cliente> getCliente() {
     return cliente;
   }
 
+  /**
+   * Getter do funcionario que fez a venda.
+   * @return JComboBox do funcionario que fez a venda.
+   */
   public JComboBox<Funcionario> getFuncionario() {
     return funcionario;
   }
 
+  /**
+   * Getter da lista de chocolates.
+   * @return Lista de JComboBox de chocolates.
+   */
   public List<JComboBox<Chocolate>> getListaChocolates() {
     return listaChocolates;
   }
 
+  /**
+   * Getter da lista de quantidades de chocolate da venda.
+   * @return Lista de JSpinner das quantidades de chocolate.
+   */
   public List<JSpinner> getListaQuantidades() {
     return listaQuantidades;
   }

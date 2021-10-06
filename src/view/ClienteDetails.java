@@ -6,7 +6,7 @@ import model.Pessoa;
 import javax.swing.*;
 
 /**
- * Classe de detalhes para o cliente. Mostra todas as informações do cliente selecionado. Usa a classe DetailsPanel como template.
+ * Classe de detalhes para o cliente. Mostra todas as informações do cliente selecionado. Usa a classe DetailsPanel como template e extende a classe PessoaDetails.
  * @author Guilherme e Tiago
  * @version 1.0
  */

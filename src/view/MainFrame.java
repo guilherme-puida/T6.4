@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Classe MainFrame que: (1)Cria o MainToolBar. (2)Cria o JTabbedPane e adiciona as tabs de clientes, funcionarios, produtos e vendas nele.
+ * Classe MainFrame que: (1)Adiciona o MainToolBar. (2)Cria o JTabbedPane e adiciona as tabs de clientes, funcionarios, produtos e vendas nele.
  * @author Guilherme
  * @version 1.0
  */
@@ -18,8 +18,8 @@ public class MainFrame extends JFrame {
   private final VendasTab vendasTab;
 
   /**
-   * Cria o MainToolBar e o JTabbedPane, com todas as tabs necessarias.
-   * @param title
+   * Adiciona a MainToolBar e cria o JTabbedPane, com todas as tabs necessarias.
+   * @param title String do titulo, varia dependendo de qual objeto é requerido.
    */
   public MainFrame(String title) {
     super(title);

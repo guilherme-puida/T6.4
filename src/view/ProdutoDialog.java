@@ -7,11 +7,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 
+/**
+ * Classe com o dialog de criação de Produtos. Usa a classe ProdutoDetails como base.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ProdutoDialog extends JDialog {
   private final ProdutoDetails details;
   private final JComboBox<String> seletor;
   private final JSpinner quantidade;
 
+  /**
+   * Cria o dialog de criação de produtos. Varia dependendo da escolha de tipo de chocolate. Usa a classe ProdutoDetails como base.
+   * @param parent JFrame da classe pai.
+   */
   public ProdutoDialog(JFrame parent) {
     super(parent, "Produto");
     setLayout(new BorderLayout());
@@ -51,14 +60,26 @@ public class ProdutoDialog extends JDialog {
     setVisible(true);
   }
 
+  /**
+   * Getter dos detalhes do produto.
+   * @return detalhes do produto.
+   */
   public ProdutoDetails getDetails() {
     return details;
   }
 
+  /**
+   * Getter do seletor de tipo de chocolate.
+   * @return JComboBox do seletor de tipo de chocolate.
+   */
   public JComboBox<String> getSeletor() {
     return seletor;
   }
 
+  /**
+   * Getter da quantidade de produtos.
+   * @return JSpinner da quantidade de produtos.
+   */
   public JSpinner getQuantidade() {
     return quantidade;
   }

@@ -6,7 +6,7 @@ import model.Pessoa;
 import javax.swing.*;
 
 /**
- * Classe de detalhes para o funcionario. Mostra todas as informações do funcionario selecionado. Usa a classe DetailsPanel como template.
+ * Classe de detalhes para o funcionario. Mostra todas as informações do funcionario selecionado. Usa a classe DetailsPanel como template e extende a classe PessoaDetails.
  */
 public class FuncionarioDetails extends PessoaDetails {
 
@@ -54,7 +54,7 @@ public class FuncionarioDetails extends PessoaDetails {
 
   /**
    * Getter do JTextField com o cargo do funcionario.
-   * @return
+   * @return JTextField com o cargo do funcionario.
    */
   public JTextField getCargo() {
     return cargo;
