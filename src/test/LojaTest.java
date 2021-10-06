@@ -111,7 +111,7 @@ class LojaTest {
   }
 
   @Test
-  @DisplayName("Pesquisar cliente por nome.")
+  @DisplayName("Pesquisar cliente por Id.")
   void getClientePorId() {
     Cliente c1 = loja.getClientePorId(1);
     Cliente c2 = loja.getClientePorId(2);
