@@ -51,7 +51,7 @@ public class MainToolBarController implements ActionListener {
         case 2 -> {
           Chocolate r =
                   (Chocolate) frame.getProdutosTab().getListaProdutos().getLista().getSelectedValue();
-          Loja.getInstance().getEstoque().removerChocolate(r);
+          Loja.getInstance().removerChocolate(r);
           frame.getProdutosTab().getListaProdutos().updateLista();
           frame.getProdutosTab().resetListSelectionController();
         }

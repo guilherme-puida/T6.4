@@ -1,10 +1,7 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Loja {
   private static final Loja instance = new Loja();
@@ -251,19 +248,21 @@ public class Loja {
     return s.toString();
   }
 
+  public void removerChocolate(Chocolate chocolate) {
+    vendas.removeIf(venda -> venda.getChocolateVendidos().containsKey(chocolate));
+    estoque.removerChocolate(chocolate);
+  }
+
   // Remove um funcionário da lista
   public void removerCliente(Cliente cliente) {
+    vendas.removeIf(venda -> venda.getCliente().equals(cliente));
     clientes.remove(cliente);
   }
 
   // Remove um cliente da lista
   public void removerFuncionario(Funcionario funcionario) {
+    vendas.removeIf(venda -> venda.getFuncionario().equals(funcionario));
     funcionarios.remove(funcionario);
-  }
-
-  // Remove uma venda da lista
-  public void removerVenda(Venda venda) {
-    vendas.remove(venda);
   }
 
   public Cliente[] getClientes() {
