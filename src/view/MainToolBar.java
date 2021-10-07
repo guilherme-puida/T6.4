@@ -100,3 +100,5 @@ public class MainToolBar extends JToolBar {
    */
   public JTextField getPesquisar() {return pesquisar;}
 }
+//TODO sistema de remover vendas.
+//TODO bug de remover um produto que ta numa venda ja criada.

@@ -10,6 +10,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ * Classe controller para adicionar um produto novo em uma venda já criada.
+ * @author Guilherme
+ * @version 1.0
+ */
 public class AdicionarProdutoVendaDialogController implements ActionListener {
   private final AdicionarProdutoVendaDialog view;
 

@@ -2,6 +2,11 @@ package model;
 
 import java.time.LocalDate;
 
+/**
+ * Classe abstrata que representa um chocolate, pode virar uma Barra, uma Trufa ou um Chocotone.
+ * @author Guilherme
+ * @version 1.0
+ */
 public abstract class Chocolate {
   private int id;
   private int peso;
@@ -16,6 +21,21 @@ public abstract class Chocolate {
   private boolean contemLactose;
   private boolean artesanal;
 
+  /**
+   * Representa uma unidade de chocolate.
+   * @param id representa o id do chocolate.
+   * @param peso representa o peso do chocolate.
+   * @param nome representa o nome do chocolate.
+   * @param descricao representa a descrição do chocolate.
+   * @param tipo representa o tipo do chocolate.
+   * @param dataCompra representa a data da compra do chocolate.
+   * @param precoCompra representa o preço de compra do chocolate.
+   * @param precoVenda representa o preço de venda do chocolate.
+   * @param porcentagemCacau representa a porcentagem de cacau do chocolate.
+   * @param contemGluten representa a opção de glutem do chocolate.
+   * @param contemLactose representa a opção de lactose do chocolate.
+   * @param artesanal representa a opção artesanal do chocolate.
+   */
   protected Chocolate(int id, int peso, String nome, String descricao, String tipo,
                    LocalDate dataCompra, double precoCompra, double precoVenda,
                    double porcentagemCacau, boolean contemGluten, boolean contemLactose,
@@ -36,7 +56,7 @@ public abstract class Chocolate {
 
   public abstract String infoBasica();
 
-  public abstract String infoCompleta();
+  //TODO tirar infoCompleta()
 
   public String toString() {
     return String.format("%d - %s", id, nome);
