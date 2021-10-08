@@ -46,7 +46,6 @@ public class Loja {
   }
 
   // Cadastra um novo funcionário na lista de funcionários
-
   public void cadastrarFuncionario(int id, int idade, String nome, String cpf, String telefone,
                                    String email, Endereco endereco, double salario, String cargo) {
     funcionarios.add(new Funcionario(id, idade, nome, cpf, telefone, email, endereco, salario,
