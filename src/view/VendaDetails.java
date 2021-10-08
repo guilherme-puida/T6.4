@@ -136,7 +136,7 @@ public class VendaDetails extends DetailsPanel {
 
 
       listaQuantidades.add(new JSpinner(new SpinnerNumberModel(quantidade, quantidade,
-              maxQuantidade, 1)));
+              quantidade + maxQuantidade, 1)));
 
       DefaultComboBoxModel<Chocolate> model =
               new DefaultComboBoxModel<>(loja.getEstoque().getChocolates().toArray(new Chocolate[0]));
