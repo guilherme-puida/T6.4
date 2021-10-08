@@ -35,7 +35,6 @@ public class ProdutoDialogController implements ActionListener {
     }
 
     if (e.getSource().equals(view.getDetails().getSubmit())) {
-      System.out.println("here");
       int peso;
       double porcentagemCacau;
       double precoCompra;

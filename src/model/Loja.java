@@ -224,14 +224,6 @@ public class Loja {
   }
 
   /**
-   * Retorna o proximo id da venda.
-   * @return Id da venda + 1.
-   */
-  public int showProximoIdVenda() {
-    return vendaId + 1;
-  }
-
-  /**
    * Realiza uma venda, retirando a quantidade de chocolates vendidos do estoque.
    * @param chocolatesQuantidades quantidades de chocolate vendido.
    * @param id id da venda.
@@ -248,8 +240,8 @@ public class Loja {
         estoque.retirarQuantidade(chocolate, chocolatesQuantidades.get(chocolate));
         venda.adicionarChocolate(chocolate, chocolatesQuantidades.get(chocolate));
       } catch (Exception e) {
-        System.out.println(e.getMessage());
-        return;
+        System.out.println(e.getMessage()); // Printa o erro
+        return;                             // Sai da função
       }
     }
 
@@ -336,7 +328,6 @@ public class Loja {
 
   public void removerChocolate(Chocolate chocolate) {
     vendas.removeIf(venda -> venda.getChocolateVendidos().containsKey(chocolate));
-    System.out.println(vendas);
     estoque.removerChocolate(chocolate);
   }
 
@@ -356,14 +347,6 @@ public class Loja {
   public void removerFuncionario(Funcionario funcionario) {
     vendas.removeIf(venda -> venda.getFuncionario().equals(funcionario));
     funcionarios.remove(funcionario);
-  }
-
-  /**
-   * Remove uma venda da lista.
-   * @param venda venda que sera removida da lista.
-   */
-  public void removerVenda(Venda venda) {
-    vendas.remove(venda);
   }
 
   public Cliente[] getClientes() {
