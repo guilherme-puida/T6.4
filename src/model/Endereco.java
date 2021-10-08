@@ -24,14 +24,6 @@ public class Endereco {
     this.cep = cep;
   }
 
-  /**
-   * Retorna o bairro, a rua, o numero, e o cep em formato de uma String.
-   * @return String do bairro, da rua, do numero e do cep.
-   */
-  public String stringEndereco() {
-    return String.format("%s %s-%s (%s)", bairro, rua, numero, cep);
-  }
-
   public String getBairro() {
     return bairro;
   }

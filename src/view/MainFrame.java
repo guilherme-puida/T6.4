@@ -47,14 +47,6 @@ public class MainFrame extends JFrame {
   }
 
   /**
-   * Getter da MainToolBar.
-   * @return MainToolBar toolBar.
-   */
-  public MainToolBar getToolBar() {
-    return toolBar;
-  }
-
-  /**
    * Getter das tabs criadas.
    * @return tabs de JTabbedPane.
    */

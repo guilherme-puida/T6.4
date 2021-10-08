@@ -12,7 +12,6 @@ import javax.swing.*;
  */
 public class ClienteDetails extends PessoaDetails {
   private final JTextField categoria;
-  private final JLabel labelCategoria;
 
   /**
    * Cria os JLabels e os JTextFields dos detalhes dos clientes.
@@ -20,7 +19,7 @@ public class ClienteDetails extends PessoaDetails {
   public ClienteDetails() {
     super("Detalhes do Cliente.");
 
-    labelCategoria = new JLabel("Categoria:");
+    JLabel labelCategoria = new JLabel("Categoria:");
     categoria = new JTextField();
 
     getInnerDetailsPanel().add(labelCategoria, getLeft());
@@ -47,11 +46,4 @@ public class ClienteDetails extends PessoaDetails {
     return categoria;
   }
 
-  /**
-   * Getter do Label da categoria do cliente.
-   * @return JLabel da categoria do cliente.
-   */
-  public JLabel getLabelCategoria() {
-    return labelCategoria;
-  }
 }

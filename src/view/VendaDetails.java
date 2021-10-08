@@ -162,22 +162,6 @@ public class VendaDetails extends DetailsPanel {
   }
 
   /**
-   * Getter do valor da venda.
-   * @return JTextField do valor da venda.
-   */
-  public JTextField getValor() {
-    return valor;
-  }
-
-  /**
-   * Getter da data da venda.
-   * @return JTextField da data da venda.
-   */
-  public JTextField getData() {
-    return data;
-  }
-
-  /**
    * Getter do cliente que fez a venda.
    * @return JComboBox do cliente que fez a venda.
    */

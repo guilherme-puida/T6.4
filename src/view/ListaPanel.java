@@ -95,26 +95,10 @@ public class ListaPanel extends JPanel {
   }
 
   /**
-   * Getter da seleção do objeto requerido.
-   * @return inteiro de seleção de objeto.
-   */
-  public int getSelection() {
-    return selection;
-  }
-
-  /**
    * Getter da lista
    * @return JList do modelo de lista
    */
   public JList<?> getLista() {
     return lista;
-  }
-
-  /**
-   * Getter do scroller da lista
-   * @return JScrollPane do modelo de scroller de lista.
-   */
-  public JScrollPane getListaScroller() {
-    return listaScroller;
   }
 }

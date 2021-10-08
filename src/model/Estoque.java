@@ -83,21 +83,6 @@ public class Estoque {
     return null;
   }
 
-  /**
-   * Representação em string do estoque
-   * @return estoque em String
-   */
-  public String stringEstoque() {
-    StringBuilder repr = new StringBuilder();
-
-    for (Chocolate chocolate : getChocolates()) {
-      repr.append(chocolate.infoBasica());
-      repr.append(" | Quantidade: ").append(chocolates.get(chocolate)).append("\n");
-    }
-
-    return repr.toString();
-  }
-
   public int getQuantidadeEmEstoque(Chocolate chocolate) {
     return chocolates.get(chocolate);
   }

@@ -35,10 +35,6 @@ public abstract class Pessoa {
     this.endereco = endereco;
   }
 
-  public abstract String infoBasica();
-
-  public abstract String infoCompleta();
-
   /**
    * Transforma em String.
    * @return String do id e da idade.

@@ -25,25 +25,6 @@ public class Cliente extends Pessoa {
     this.categoria = categoria;
   }
 
-  /**
-   * Retorna as informações basicas do cliente.
-   * @return String de informações basicas do cliente.
-   */
-  public String infoBasica() {
-    return String.format("Id: %d | Nome: %s | Telefone: %s | Categoria: %s", super.getId(),
-            super.getNome(), super.getTelefone(), categoria);
-  }
-
-  /**
-   * Retorna as informações completas do cliente.
-   * @return String de informações completas do cliente.
-   */
-  public String infoCompleta() {
-    return String.format("Id: %d|Idade: %d|Nome: %s|CPF: %s|Telefone: %s|Email: %s|Endereco: " +
-            "%s|Categoria: %s", super.getId(), super.getIdade(), super.getNome(), super.getCpf(),
-            super.getTelefone(), super.getEmail(), super.getEndereco().stringEndereco(), categoria);
-  }
-
   public String getCategoria() {
     return categoria;
   }

@@ -54,9 +54,6 @@ public abstract class Chocolate {
     this.artesanal = artesanal;
   }
 
-  public abstract String infoBasica();
-
-  //TODO tirar infoCompleta()
 
   public String toString() {
     return String.format("%d - %s", id, nome);
