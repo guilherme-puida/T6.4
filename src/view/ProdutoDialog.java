@@ -70,7 +70,7 @@ public class ProdutoDialog extends JDialog {
     return details;
   }
 
-  /**
+  /*
    * Getter do seletor de tipo de chocolate.
    * @return JComboBox do seletor de tipo de chocolate.
    */

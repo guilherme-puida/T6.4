@@ -220,58 +220,6 @@ public class Loja {
   }
 
   /**
-   * Calcula o lucro de determinado mes.
-   * @param mes mes que o lucro deve ser calculado.
-   * @param ano ano do mes que o lucro deve ser calculado.
-   * @return lucro desse mes.
-   * @throws IllegalArgumentException caso o mes inserido seja invalido.
-   */
-  public double calcularLucroMes(int mes, int ano) throws IllegalArgumentException {
-    if (mes < 1 || mes > 12) {
-      throw new IllegalArgumentException("Mês inválido");
-    }
-
-    double gastos = calcularGastosMes(mes, ano);
-    double receita = 0;
-
-    for (Venda venda : vendas) {
-      LocalDate dataVenda = venda.getData();
-      if (dataVenda.getMonthValue() == mes && dataVenda.getYear() == ano) {
-        receita += venda.getValor();
-      }
-    }
-
-    return receita - gastos;
-  }
-
-  /**
-   * Calcula os gastos em um determinado mes
-   * @param mes mes que os gastos deve ser calculado.
-   * @param ano ano do mes que os gastos deve ser calculado.
-   * @return gastos desses mes.
-   * @throws IllegalArgumentException caso o mes seja invalido.
-   */
-  public double calcularGastosMes(int mes, int ano) throws IllegalArgumentException {
-    if (mes < 1 || mes > 12) {
-      throw new IllegalArgumentException("Mês inválido");
-    }
-    double gastos = 0;
-
-    for (Chocolate chocolate : estoque.getChocolates()) {
-      LocalDate dataCompra = chocolate.getDataCompra();
-      if (dataCompra.getMonthValue() == mes && dataCompra.getYear() == ano) {
-        gastos += chocolate.getPrecoCompra();
-      }
-    }
-
-    for (Funcionario funcionario : funcionarios) {
-      gastos += funcionario.getSalario();
-    }
-
-    return gastos;
-  }
-
-  /**
    * Realiza uma venda, retirando a quantidade de chocolates vendidos do estoque.
    * @param chocolatesQuantidades quantidades de chocolate vendido.
    * @param id id da venda.
@@ -370,45 +318,6 @@ public class Loja {
   }
 
   /**
-   * Cria uma representação em string de todas as vendas.
-   * @return representação em string de todas as vendas.
-   */
-  public String stringVendas() {
-    StringBuilder s = new StringBuilder();
-    for (Venda venda : vendas) {
-      s.append(venda.info()).append("\n");
-    }
-
-    return s.toString();
-  }
-
-  /**
-   * Cria uma Representação em string de todos os funcionários.
-   * @return representação em string de todos os funcionários.
-   */
-  //
-  public String stringFuncionarios() {
-    StringBuilder s = new StringBuilder();
-    for (Funcionario funcionario : funcionarios) {
-      s.append(funcionario.infoBasica()).append("\n");
-    }
-
-    return s.toString();
-  }
-
-  /**
-   * Cria uma representação em string de todos os clientes.
-   * @return Representação em string de todos os clientes.
-   */
-  public String stringClientes() {
-    StringBuilder s = new StringBuilder();
-    for (Cliente cliente : clientes) {
-      s.append(cliente.infoBasica()).append("\n");
-    }
-    return s.toString();
-  }
-
-  /**
    * Remove um chocolate da lista.
    * @param chocolate chocolate que sera removido da lista.
    */
@@ -418,8 +327,6 @@ public class Loja {
     System.out.println(vendas);
     estoque.removerChocolate(chocolate);
   }
-
-  // Remove um funcionário da lista
 
   /**
    * Remove um cliente da lista.

@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 /**
@@ -49,10 +48,6 @@ public class Venda {
     chocolateVendidos.put(chocolate, chocolateVendidos.getOrDefault(chocolate, 0) + quantidade);
   }
 
-  public void retirarChocolate(Chocolate chocolate) {
-
-  }
-
   /**
    * Calcula o valor da venda.
    */
@@ -66,22 +61,8 @@ public class Venda {
     valor = valorVenda;
   }
 
-  /**
-   * Retorna a representação em string de uma compra.
-   * @return representação em string de uma compra.
-   */
-  public String info() {
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    return String.format("Id: %d | Cliente: %s | Funcionário: %s | Valor: %.2f | Data: %s%n", id,
-            cliente.getNome(), funcionario.getNome(), valor, data.format(dtf));
-  }
-
   public double getValor() {
     return valor;
-  }
-
-  public void setValor(double valor) {
-    this.valor = valor;
   }
 
   public int getId() {
