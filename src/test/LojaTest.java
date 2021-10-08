@@ -1,9 +1,11 @@
 package test;
-
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.sql.Array;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,6 +65,24 @@ class LojaTest {
             e2,
             600.0,
             "Jovem Aprendiz"
+    );
+
+    loja.cadastrarBarra(
+            loja.getProximoIdChocolate(),
+            200,
+            "Barra",
+            "Super barra",
+            "Meio Amargo",
+            LocalDate.now(),
+            3.00,
+            10.00,
+            70.0,
+            false,
+            false,
+            true,
+            "Meio Amargo",
+           new String[] {"Amêndoas"},
+           100
     );
   }
 
@@ -148,29 +168,20 @@ class LojaTest {
 
     assertEquals(1, loja.getClientes().length);
   }
+
+  @Test
+  @DisplayName("Testar venda")
+  void fazerVenda() {
+    HashMap<Chocolate, Integer> vendidos = new HashMap<>();
+    vendidos.put(loja.getEstoque().getChocolatePorId(1), 10);
+
+
+    loja.fazerVenda(vendidos,
+            loja.getProximoIdVenda(),
+            loja.getClientePorId(1),
+            loja.getFuncionarioPorId(1),
+            LocalDate.now());
+
+    assertEquals(1, loja.getVendas().length);
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
