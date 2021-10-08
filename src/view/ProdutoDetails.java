@@ -42,6 +42,7 @@ public class ProdutoDetails extends DetailsPanel {
   private final JLabel alcoolicoLabel;
 
   private final JSpinner quantidade;
+  private final JLabel quantidadeLabel;
 
   /**
    * Cria e adiciona os JLabels, e os JTextFields com setToolTipText do tipo de variavel aceito.
@@ -127,8 +128,9 @@ public class ProdutoDetails extends DetailsPanel {
     getInnerDetailsPanel().add(artesanal, right);
 
     quantidade = new JSpinner();
+    quantidadeLabel = new JLabel("Quantidade: ");
 
-    getInnerDetailsPanel().add(new JLabel("Quantidade:"), left);
+    getInnerDetailsPanel().add(quantidadeLabel, left);
     getInnerDetailsPanel().add(quantidade, right);
 
     setAllInvisible();
@@ -240,6 +242,10 @@ public class ProdutoDetails extends DetailsPanel {
 
   public JSpinner getQuantidade() {
     return quantidade;
+  }
+
+  public JLabel getQuantidadeLabel() {
+    return quantidadeLabel;
   }
 
   /**

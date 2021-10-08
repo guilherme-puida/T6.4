@@ -47,6 +47,8 @@ public class ProdutoDialog extends JDialog {
     add(topBar, BorderLayout.BEFORE_FIRST_LINE);
 
     details = new ProdutoDetails();
+    details.getQuantidade().setVisible(false);
+    details.getQuantidadeLabel().setVisible(false);
     add(details, BorderLayout.CENTER);
 
     details.getId().setText(String.valueOf(Loja.getInstance().showProximoIdChocolate()));
