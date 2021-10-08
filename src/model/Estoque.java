@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Classe que representa o estoque de produtos e seus metodos.
+ * Classe que representa o estoque de chocolates e seus metodos.
  */
 public class Estoque {
   private final HashMap<Chocolate, Integer> chocolates;
@@ -34,11 +34,12 @@ public class Estoque {
    * Retira certa quantidade de chocolate do map.
    * @param chocolate chocolate que será retirado do mapa.
    * @param quantidade quantidade desse chocolate que será retirado.
-   * @throws IllegalArgumentException quando o produto não esta no estoque, ou a quantidade for 0, ou a quantidade for maior do que em estoque.
+   * @throws IllegalArgumentException quando o Chocolate não esta no estoque, ou a quantidade for 0, ou a quantidade
+   * for maior do que em estoque.
    */
   public void retirarQuantidade(Chocolate chocolate, int quantidade) throws IllegalArgumentException {
     if (!chocolates.containsKey(chocolate)) {
-      throw new IllegalArgumentException("Produto não está no estoque");
+      throw new IllegalArgumentException("Chocolate não está no estoque");
     }
 
     if (quantidade == 0) {

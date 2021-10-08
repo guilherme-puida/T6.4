@@ -7,7 +7,6 @@ import view.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 /**
  * Classe controller da MainToolBar. Implementa ActionListeners à MainToolBar.
@@ -27,8 +26,8 @@ public class MainToolBarController implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == bar.getAdicionarCliente()) {
       new ClienteDialog(parent);
-    } else if (e.getSource() == bar.getAdicionarProduto()) {
-      new ProdutoDialog(parent);
+    } else if (e.getSource() == bar.getAdicionarChocolate()) {
+      new ChocolateDialog(parent);
     } else if (e.getSource() == bar.getAdicionarFuncionario()) {
       new FuncionarioDialog(parent);
     } else if (e.getSource() == bar.getAdicionarVenda()) {
@@ -55,10 +54,10 @@ public class MainToolBarController implements ActionListener {
         }
         case 2 -> {
           Chocolate r =
-                  (Chocolate) frame.getProdutosTab().getListaProdutos().getLista().getSelectedValue();
+                  (Chocolate) frame.getChocolatesTab().getListaChocolates().getLista().getSelectedValue();
           Loja.getInstance().removerChocolate(r);
-          frame.getProdutosTab().getListaProdutos().updateLista();
-          frame.getProdutosTab().resetListSelectionController();
+          frame.getChocolatesTab().getListaChocolates().updateLista();
+          frame.getChocolatesTab().resetListSelectionController();
         }
       }
       Venda v = (Venda) frame.getVendasTab().getListaVendas().getLista().getSelectedValue();
@@ -78,13 +77,13 @@ public class MainToolBarController implements ActionListener {
       if (bar.getPesquisar().getText().equals("")) {
         frame.getClientesTab().getListaClientes().updateLista();
         frame.getFuncionariosTab().getListaFuncionarios().updateLista();
-        frame.getProdutosTab().getListaProdutos().updateLista();
+        frame.getChocolatesTab().getListaChocolates().updateLista();
         frame.getVendasTab().getListaVendas().updateLista();
       } else {
         String text = bar.getPesquisar().getText();
         frame.getClientesTab().getListaClientes().updateLista(text);
         frame.getFuncionariosTab().getListaFuncionarios().updateLista(text);
-        frame.getProdutosTab().getListaProdutos().updateLista(text);
+        frame.getChocolatesTab().getListaChocolates().updateLista(text);
         frame.getVendasTab().getListaVendas().updateLista(text);
         }
       }

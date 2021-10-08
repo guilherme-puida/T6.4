@@ -45,7 +45,7 @@ public class Main {
             + "-9999", "email@email.com", new Endereco("Sudoeste", "SQNW", "302", "00002-00"),
             30000.00, "Gerente");
 
-    // Cadastro dos produtos iniciais:
+    // Cadastro dos chocolates iniciais:
     loja.cadastrarBarra(loja.getProximoIdChocolate(), 250, "Barra Incrível", "Uma incrível barra "
             + "de chocolate", "Meio-Amargo", LocalDate.of(2021, 9, 10), 10.0, 20.0, 70.0, true,
             true, true, "Chocolate", new String[]{"Amendoim", "Nozes"}, 25);
@@ -92,7 +92,7 @@ public class Main {
 
     int quantidadeClientes = randInt(min, max);
     int quantidadeFuncionarios = randInt(min, max);
-    int quantidadeProdutos = randInt(min, max);
+    int quantidadeChocolates = randInt(min, max);
     int quantidadeVendas = randInt(min, max);
 
     for (int i = 0; i < quantidadeClientes; i++) {

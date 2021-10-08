@@ -4,17 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Classe MainFrame que: (1)Adiciona o MainToolBar. (2)Cria o JTabbedPane e adiciona as tabs de clientes, funcionarios, produtos e vendas nele.
+ * Tela principal do programa.
+ *
+ * Adiciona a MainToolBar, cria o JTabbedPane e adiciona as tabs de Clientes, Funcionarios, Chocolates e Vendas nele.
  * @author Guilherme
  * @version 1.0
  */
 public class MainFrame extends JFrame {
-  private final MainToolBar toolBar;
   private final JTabbedPane tabs;
 
   private final ClientesTab clientesTab;
   private final FuncionariosTab funcionariosTab;
-  private final ProdutosTab produtosTab;
+  private final ChocolatesTab chocolatesTab;
   private final VendasTab vendasTab;
 
   /**
@@ -28,15 +29,15 @@ public class MainFrame extends JFrame {
     tabs = new JTabbedPane();
     clientesTab = new ClientesTab();
     funcionariosTab = new FuncionariosTab();
-    produtosTab = new ProdutosTab();
+    chocolatesTab = new ChocolatesTab();
     vendasTab = new VendasTab();
 
     tabs.add("Clientes", clientesTab);
     tabs.add("Funcionarios", funcionariosTab);
-    tabs.add("Produtos", produtosTab);
+    tabs.add("Chocolates", chocolatesTab);
     tabs.add("Vendas", vendasTab);
 
-    toolBar = new MainToolBar();
+    MainToolBar toolBar = new MainToolBar();
 
     getContentPane().add(tabs, BorderLayout.CENTER);
     add(toolBar, BorderLayout.BEFORE_FIRST_LINE);
@@ -71,11 +72,11 @@ public class MainFrame extends JFrame {
   }
 
   /**
-   * Getter da tab de produtos.
-   * @return tab de produtos.
+   * Getter da tab de Chocolates.
+   * @return tab de Chocolates.
    */
-  public ProdutosTab getProdutosTab() {
-    return produtosTab;
+  public ChocolatesTab getChocolatesTab() {
+    return chocolatesTab;
   }
 
   /**

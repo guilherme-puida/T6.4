@@ -2,23 +2,26 @@ package controller;
 
 import main.Main;
 import model.Loja;
-import view.ProdutoDetails;
-import view.ProdutoDialog;
+import view.ChocolateDetails;
+import view.ChocolateDialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
 /**
- * Classe controller do dialog de produtos. Implementa ActionListeners ao dialog.
+ * Classe controller do dialog de Chocolates. Implementa ActionListeners ao dialog.
  * @author Guilherme e Tiago
  * @version 1.0
  */
-public class ProdutoDialogController implements ActionListener {
-  private final ProdutoDialog view;
+public class ChocolateDialogController implements ActionListener {
+  private final ChocolateDialog view;
 
 
-  public ProdutoDialogController(ProdutoDialog view) {
+  /** Constrói um novo controller associado ao diálogo de adicionar um novo Chocolate.
+   * @param view diálogo de adicionar chocolate.
+   */
+  public ChocolateDialogController(ChocolateDialog view) {
     this.view = view;
   }
 
@@ -45,7 +48,7 @@ public class ProdutoDialogController implements ActionListener {
       double precoCompra;
       double precoVenda;
 
-      ProdutoDetails details = view.getDetails();
+      ChocolateDetails details = view.getDetails();
 
       try {
         peso = Integer.parseInt(details.getPeso().getText());
@@ -115,8 +118,8 @@ public class ProdutoDialogController implements ActionListener {
         }
       }
 
-      Main.getFrame().getProdutosTab().getListaProdutos().updateLista();
-      Main.getFrame().getProdutosTab().resetListSelectionController();
+      Main.getFrame().getChocolatesTab().getListaChocolates().updateLista();
+      Main.getFrame().getChocolatesTab().resetListSelectionController();
 
       view.dispose();
     }

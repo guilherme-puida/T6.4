@@ -41,12 +41,12 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       venda.setFuncionario((Funcionario) details.getFuncionario().getSelectedItem());
 
       HashMap<Chocolate, Integer> vendidos = new HashMap<>();
-      List<JSpinner> produtosSpinner = details.getListaQuantidades();
+      List<JSpinner> chocolatesSpinner = details.getListaQuantidades();
       List<JComboBox<Chocolate>> boxes = details.getListaChocolates();
 
-      for (int i = 0; i < produtosSpinner.size(); i++) {
+      for (int i = 0; i < chocolatesSpinner.size(); i++) {
         vendidos.put(
-            (Chocolate) boxes.get(i).getSelectedItem(), (int) produtosSpinner.get(i).getValue());
+            (Chocolate) boxes.get(i).getSelectedItem(), (int) chocolatesSpinner.get(i).getValue());
       }
 
       HashMap<Chocolate, Integer> vendidosAntes = venda.getChocolateVendidos();

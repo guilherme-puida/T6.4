@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Classe que cria o painel de listagem que será usado nas abas de Cliente, Funcionário, Produto e Venda.
+ * Classe que cria o painel de listagem que será usado nas abas de Cliente, Funcionário, Chocolate e Venda.
  */
 public class ListaPanel extends JPanel {
 

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Classe abstrata de template para os detalhes dos clientes, funcionarios, produtos e vendas.
+ * Classe abstrata de template para os detalhes dos clientes, funcionarios, chocolates e vendas.
  * @author Guilherme
  * @version 1.0
  */
@@ -15,7 +15,7 @@ public abstract class DetailsPanel extends JPanel {
   private final GridBagConstraints right;
 
   /**
-   * Cria o painel que irá ser usado como template nas classes ClienteDetails, FuncionarioDetails, ProdutoDetails e VendaDetails. Utiliza o layout BorderLayout.
+   * Cria o painel que irá ser usado como template nas classes ClienteDetails, FuncionarioDetails, ChocolateDetails e VendaDetails. Utiliza o layout BorderLayout.
    * @param titulo String do titulo, varia dependendo de qual objeto é requerido.
    */
   protected DetailsPanel(String titulo) {

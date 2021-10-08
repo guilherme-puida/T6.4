@@ -1,6 +1,6 @@
 package view;
 
-import controller.ProdutoDialogController;
+import controller.ChocolateDialogController;
 import model.Loja;
 
 import javax.swing.*;
@@ -8,25 +8,26 @@ import java.awt.*;
 import java.time.LocalDate;
 
 /**
- * Classe com o dialog de criação de Produtos. Usa a classe ProdutoDetails como base.
+ * Classe com o dialog de criação de Chocolates. Usa a classe ChocolateDetails como base.
  * @author Guilherme e Tiago
  * @version 1.0
  */
-public class ProdutoDialog extends JDialog {
-  private final ProdutoDetails details;
+public class ChocolateDialog extends JDialog {
+  private final ChocolateDetails details;
   private final JComboBox<String> seletor;
   private final JSpinner quantidade;
 
   /**
-   * Cria o dialog de criação de produtos. Varia dependendo da escolha de tipo de chocolate. Usa a classe ProdutoDetails como base.
+   * Cria o dialog de criação de Chocolates. Varia dependendo da escolha de tipo de chocolate. Usa a classe
+   * ChocolateDetails como base.
    * @param parent JFrame da classe pai.
    */
-  public ProdutoDialog(JFrame parent) {
-    super(parent, "Produto");
+  public ChocolateDialog(JFrame parent) {
+    super(parent, "Chocolate");
     setLayout(new BorderLayout());
     setModalityType(ModalityType.APPLICATION_MODAL);
 
-    ProdutoDialogController controller = new ProdutoDialogController(this);
+    ChocolateDialogController controller = new ChocolateDialogController(this);
 
     JPanel topBar = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
 
@@ -46,7 +47,7 @@ public class ProdutoDialog extends JDialog {
 
     add(topBar, BorderLayout.BEFORE_FIRST_LINE);
 
-    details = new ProdutoDetails();
+    details = new ChocolateDetails();
     details.getQuantidade().setVisible(false);
     details.getQuantidadeLabel().setVisible(false);
     add(details, BorderLayout.CENTER);
@@ -63,24 +64,24 @@ public class ProdutoDialog extends JDialog {
   }
 
   /**
-   * Getter dos detalhes do produto.
-   * @return detalhes do produto.
+   * Getter dos detalhes do Chocolate.
+   * @return detalhes do Chocolate.
    */
-  public ProdutoDetails getDetails() {
+  public ChocolateDetails getDetails() {
     return details;
   }
 
   /*
-   * Getter do seletor de tipo de chocolate.
-   * @return JComboBox do seletor de tipo de chocolate.
+   * Getter do seletor de tipo de Chocolate.
+   * @return JComboBox do seletor de tipo de Chocolate.
    */
   public JComboBox<String> getSeletor() {
     return seletor;
   }
 
   /**
-   * Getter da quantidade de produtos.
-   * @return JSpinner da quantidade de produtos.
+   * Getter da quantidade de Chocolates.
+   * @return JSpinner da quantidade de Chocolate.
    */
   public JSpinner getQuantidade() {
     return quantidade;

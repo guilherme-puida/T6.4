@@ -17,10 +17,17 @@ import java.awt.event.ActionListener;
 public class FuncionariosTabController implements ListSelectionListener, ActionListener {
   FuncionariosTab funcionariosTab;
 
+  /** Constrói um novo controller associado à aba de Funcionários.
+   * @param funcionariosTab aba de Funcionários.
+   */
   public FuncionariosTabController(FuncionariosTab funcionariosTab) {
     this.funcionariosTab = funcionariosTab;
   }
 
+  /**
+   * Altera o painel de detalhes para corresponder com os dados do Funcionário selecionado.
+   * @param e evento recebido da lista de Funcionários.
+   */
   @Override
   public void valueChanged(ListSelectionEvent e) {
     if (!e.getValueIsAdjusting()) {
@@ -30,6 +37,10 @@ public class FuncionariosTabController implements ListSelectionListener, ActionL
     }
   }
 
+  /**
+   * Altera os dados do Funcionário selecionado com base nos elementos do painel de detalhes.
+   * @param e evento recebido.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(funcionariosTab.getDetails().getSubmit())) {
