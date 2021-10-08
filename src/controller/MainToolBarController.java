@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+/**
+ * Classe controller da MainToolBar. Implementa ActionListeners à MainToolBar.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class MainToolBarController implements ActionListener {
   protected MainToolBar bar;
   protected JFrame parent;

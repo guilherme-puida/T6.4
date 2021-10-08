@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 /**
- * Classe controller para adicionar um produto novo em uma venda já criada.
+ * Classe controller para o dialog de adicionar um produto novo a uma venda já criada.
  * @author Guilherme
  * @version 1.0
  */

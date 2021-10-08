@@ -11,6 +11,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
+/**
+ * Classe controller da tab de vendas. Implementa ActionListeners e ListSelectionListeners à tab.
+ * @author Guilherme
+ * @version 1.0
+ */
 public class VendasTabController implements ActionListener, ListSelectionListener {
   private final VendasTab vendasTab;
 

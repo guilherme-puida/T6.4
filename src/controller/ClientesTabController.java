@@ -9,6 +9,11 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Classe controle para a tab de clientes. Implementa ActionListeners e ListSelectionListeners à tab.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ClientesTabController implements ListSelectionListener, ActionListener {
   ClientesTab clientesTab;
 

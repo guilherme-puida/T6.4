@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
+/**
+ * Classe controller do dialog de produtos. Implementa ActionListeners ao dialog.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ProdutoDialogController implements ActionListener {
   private final ProdutoDialog view;
 

@@ -9,6 +9,11 @@ import view.FuncionarioDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Classe controller do dialog de funcionarios. Implementa ActionListeners ao dialog.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class FuncionarioDialogController implements ActionListener {
   FuncionarioDialog view;
 
