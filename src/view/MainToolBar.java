@@ -17,7 +17,6 @@ public class MainToolBar extends JToolBar {
   private final JButton adicionarVenda;
   private final JButton remover;
 
-  private final JLabel pesquisaLabel;
   private final JTextField pesquisar;
 
   /**
@@ -31,7 +30,7 @@ public class MainToolBar extends JToolBar {
 
     remover = new JButton("Remover");
 
-    pesquisaLabel = new JLabel("Pesquisar:");
+    JLabel pesquisaLabel = new JLabel("Pesquisar:");
     pesquisar = new JTextField();
 
     add(adicionarCliente);
