@@ -5,14 +5,16 @@ import controller.MainToolBarController;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-/**
- * Classe que cria uma JToolBar, com os botões de adicionar cliente, funcionario, produto e venda, alem do botão de remover e o sistema de pesquisa.
+/** ToolBar principal do programa.
+ *
+ * Possui botões de adicionar Cliente, Funcionario, Chocolate e Venda, alem do botão de remover e a barra de texto de
+ * pesquisa.
  * @author Guilherme e Tiago
  * @version 1.0
  */
 public class MainToolBar extends JToolBar {
   private final JButton adicionarCliente;
-  private final JButton adicionarProduto;
+  private final JButton adicionarChocolate;
   private final JButton adicionarFuncionario;
   private final JButton adicionarVenda;
   private final JButton remover;
@@ -24,7 +26,7 @@ public class MainToolBar extends JToolBar {
    */
   public MainToolBar() {
     adicionarCliente = new JButton("Adicionar Cliente");
-    adicionarProduto = new JButton("Adicionar Produto");
+    adicionarChocolate = new JButton("Adicionar Chocolate");
     adicionarFuncionario = new JButton("Adicionar Funcinario");
     adicionarVenda = new JButton("Adicionar Venda");
 
@@ -35,7 +37,7 @@ public class MainToolBar extends JToolBar {
 
     add(adicionarCliente);
     add(adicionarFuncionario);
-    add(adicionarProduto);
+    add(adicionarChocolate);
     add(adicionarVenda);
     add(remover);
     add(pesquisaLabel);
@@ -47,7 +49,7 @@ public class MainToolBar extends JToolBar {
     setFloatable(false);
     ActionListener actionListener = new MainToolBarController(this);
     adicionarCliente.addActionListener(actionListener);
-    adicionarProduto.addActionListener(actionListener);
+    adicionarChocolate.addActionListener(actionListener);
     adicionarFuncionario.addActionListener(actionListener);
     adicionarVenda.addActionListener(actionListener);
     remover.addActionListener(actionListener);
@@ -63,11 +65,11 @@ public class MainToolBar extends JToolBar {
   }
 
   /**
-   * Getter do botão de adicionar produto.
-   * @return JButton de adicionar produto.
+   * Getter do botão de adicionar Chocolate.
+   * @return JButton de adicionar Chocolate.
    */
-  public JButton getAdicionarProduto() {
-    return adicionarProduto;
+  public JButton getAdicionarChocolate() {
+    return adicionarChocolate;
   }
 
   /**
@@ -100,5 +102,3 @@ public class MainToolBar extends JToolBar {
    */
   public JTextField getPesquisar() {return pesquisar;}
 }
-//TODO sistema de remover vendas.
-//TODO bug de remover um produto que ta numa venda ja criada.

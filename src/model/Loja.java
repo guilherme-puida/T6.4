@@ -18,7 +18,7 @@ public class Loja {
 
   private int clienteId = 0;
   private int funcionarioId = 0;
-  private int produtoId = 0;
+  private int chocolateId = 0;
   private int vendaId = 0;
 
   /**
@@ -39,7 +39,7 @@ public class Loja {
 
     clienteId = 0;
     funcionarioId = 0;
-    produtoId = 0;
+    chocolateId = 0;
     vendaId = 0;
   }
 
@@ -202,8 +202,8 @@ public class Loja {
    * @return Id do chocolate.
    */
   public int getProximoIdChocolate() {
-    produtoId++;
-    return produtoId;
+    chocolateId++;
+    return chocolateId;
   }
 
   /**
@@ -211,7 +211,7 @@ public class Loja {
    * @return Id do chocolate + 1.
    */
   public int showProximoIdChocolate() {
-    return produtoId + 1;
+    return chocolateId + 1;
   }
 
   /**

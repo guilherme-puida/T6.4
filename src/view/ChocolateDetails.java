@@ -6,11 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Classe de detalhes para o produto. Mostra todas as informações do produto selecionado. Usa a classe DetailsPanel como template.
+ * Classe de detalhes para o Chocolate. Mostra todas as informações do Chocolate selecionado. Usa a classe DetailsPanel
+ * como template.
  * @author Guilherme e Tiago
  * @version 1.0
  */
-public class ProdutoDetails extends DetailsPanel {
+public class ChocolateDetails extends DetailsPanel {
 
   public static final int BARRA = 0;
   public static final int CHOCOTONE = 1;
@@ -47,8 +48,8 @@ public class ProdutoDetails extends DetailsPanel {
   /**
    * Cria e adiciona os JLabels, e os JTextFields com setToolTipText do tipo de variavel aceito.
    */
-  public ProdutoDetails() {
-    super("Detalhes do produto");
+  public ChocolateDetails() {
+    super("Detalhes do chocolate");
 
 
     id = new JTextField();
@@ -153,7 +154,7 @@ public class ProdutoDetails extends DetailsPanel {
   }
 
   /**
-   * Popula os JTextFields do metodo ProdutoDetails() com os detalhes do produto.
+   * Popula os JTextFields do metodo ChocolateDetails() com os detalhes do Chocolate.
    * @param selection inteiro que seleciona o tipo de chocolate.
    * @param chocolate objeto Chocolate.
    */
@@ -249,136 +250,136 @@ public class ProdutoDetails extends DetailsPanel {
   }
 
   /**
-   * Getter do id do produto.
-   * @return JTextfield do id do produto.
+   * Getter do id do Chocolate.
+   * @return JTextfield do id do Chocolate.
    */
   public JTextField getId() {
     return id;
   }
 
   /**
-   * Getter do peso do produto.
-   * @return JTextfield do peso do produto.
+   * Getter do peso do Chocolate.
+   * @return JTextfield do peso do Chocolate.
    */
   public JTextField getPeso() {
     return peso;
   }
 
   /**
-   * Getter do nome do produto.
-   * @return JTextfield do nome do produto.
+   * Getter do nome do Chocolate.
+   * @return JTextfield do nome do Chocolate.
    */
   public JTextField getNome() {
     return nome;
   }
 
   /**
-   * Getter da descrição do produto.
-   * @return JTextfield da descrição do produto.
+   * Getter da descrição do Chocolate.
+   * @return JTextfield da descrição do Chocolate.
    */
   public JTextField getDescricao() {
     return descricao;
   }
 
   /**
-   * Getter do tipo do produto.
-   * @return JTextfield do tipo do produto.
+   * Getter do tipo do Chocolate.
+   * @return JTextfield do tipo do Chocolate.
    */
   public JTextField getTipo() {
     return tipo;
   }
 
   /**
-   * Getter do preço de compra do produto.
-   * @return JTextfield do preço de compra do produto.
+   * Getter do preço de compra do Chocolate.
+   * @return JTextfield do preço de compra do Chocolate.
    */
   public JTextField getPrecoCompra() {
     return precoCompra;
   }
 
   /**
-   * Getter do preço de venda do produto.
-   * @return JTextfield do preço de venda do produto.
+   * Getter do preço de venda do Chocolate.
+   * @return JTextfield do preço de venda do Chocolate.
    */
   public JTextField getPrecoVenda() {
     return precoVenda;
   }
 
   /**
-   * Getter da porcentagem de cacau do produto.
-   * @return JTextfield da porcentagem de cacau do produto.
+   * Getter da porcentagem de cacau do Chocolate.
+   * @return JTextfield da porcentagem de cacau do Chocolate.
    */
   public JTextField getPorcentagemCacau() {
     return porcentagemCacau;
   }
 
   /**
-   * Getter da opção de glutem do produto.
-   * @return JCheckBox da opção de glutem do produto.
+   * Getter da opção de glutem do Chocolate.
+   * @return JCheckBox da opção de glutem do Chocolate.
    */
   public JCheckBox getContemGluten() {
     return contemGluten;
   }
 
   /**
-   * Getter da opção de lactose do produto.
-   * @return JCheckBox da opção de lactose do produto.
+   * Getter da opção de lactose do Chocolate.
+   * @return JCheckBox da opção de lactose do Chocolate.
    */
   public JCheckBox getContemLactose() {
     return contemLactose;
   }
 
   /**
-   * Getter da opção artesanal do produto.
-   * @return JCheckBox da opção artesanal do produto.
+   * Getter da opção artesanal do Chocolate.
+   * @return JCheckBox da opção artesanal do Chocolate.
    */
   public JCheckBox getArtesanal() {
     return artesanal;
   }
 
   /**
-   * Getter do sabor do produto.
-   * @return JTextfield do sabor do produto.
+   * Getter do sabor do Chocolate.
+   * @return JTextfield do sabor do Chocolate.
    */
   public JTextField getSabor() {
     return sabor;
   }
 
   /**
-   * Getter do(s) nib(s) do produto.
-   * @return JTextfield do(s) nib(s) do produto.
+   * Getter do(s) nib(s) do Chocolate.
+   * @return JTextfield do(s) nib(s) do Chocolate.
    */
   public JTextField getNibs() {
     return nibs;
   }
 
   /**
-   * Getter do recheio do produto.
-   * @return JTextfield do recheio do produto.
+   * Getter do recheio do Chocolate.
+   * @return JTextfield do recheio do Chocolate.
    */
   public JTextField getRecheio() {
     return recheio;
   }
 
   /**
-   * Getter das frutas do produto.
-   * @return JTextfield das frutas do produto.
+   * Getter das frutas do Chocolate.
+   * @return JTextfield das frutas do Chocolate.
    */
   public JTextField getFrutas() {
     return frutas;
   }
 
   /**
-   * Getter da opção alcoolica do produto.
-   * @return JCheckBox da opção alcoolica do produto.
+   * Getter da opção alcoolica do Chocolate.
+   * @return JCheckBox da opção alcoolica do Chocolate.
    */
   public JCheckBox getAlcoolico() {
     return alcoolico;
   }
 
   /**
-   * Getter da data de compra do produto.
-   * @return JTextfield da data de compra do produto.
+   * Getter da data de compra do Chocolate.
+   * @return JTextfield da data de compra do Chocolate.
    */
   public JTextField getDataCompra() {
     return dataCompra;

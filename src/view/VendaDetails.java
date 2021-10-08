@@ -22,7 +22,7 @@ public class VendaDetails extends DetailsPanel {
   private final JComboBox<Funcionario> funcionario;
   private final ArrayList<JComboBox<Chocolate>> listaChocolates;
   private final ArrayList<JSpinner> listaQuantidades;
-  private final JButton adicionarNovoProduto;
+  private final JButton adicionarNovoChocolate;
 
 
   /**
@@ -31,9 +31,9 @@ public class VendaDetails extends DetailsPanel {
   public VendaDetails() {
     super("Detalhes da venda:");
 
-    adicionarNovoProduto = new JButton("Adicionar novo produto");
-    add(adicionarNovoProduto, BorderLayout.BEFORE_FIRST_LINE);
-    adicionarNovoProduto.addActionListener(e -> new AdicionarProdutoVendaDialog(Main.getFrame()));
+    adicionarNovoChocolate = new JButton("Adicionar novo chocolate:");
+    add(adicionarNovoChocolate, BorderLayout.BEFORE_FIRST_LINE);
+    adicionarNovoChocolate.addActionListener(e -> new AdicionarChocolateVendaDialog(Main.getFrame()));
 
     listaChocolates = new ArrayList<>();
     listaQuantidades = new ArrayList<>();
@@ -77,7 +77,7 @@ public class VendaDetails extends DetailsPanel {
     listaChocolates.clear();
     listaQuantidades.clear();
 
-    adicionarNovoProduto.setEnabled(false);
+    adicionarNovoChocolate.setEnabled(false);
 
     getInnerDetailsPanel().validate();
     getInnerDetailsPanel().repaint();
@@ -121,13 +121,13 @@ public class VendaDetails extends DetailsPanel {
     funcionario.setSelectedItem(venda.getFuncionario());
     funcionario.setEnabled(true);
 
-    adicionarNovoProduto.setEnabled(true);
+    adicionarNovoChocolate.setEnabled(true);
 
     id.setText(String.valueOf(venda.getId()));
     valor.setText(String.valueOf(venda.getValor()));
     data.setText(venda.getData().toString());
 
-    // Adicionando os produtos
+    // Adicionando os Chocolates
     for (Map.Entry<Chocolate, Integer> entry : venda.getChocolateVendidos().entrySet()) {
       Chocolate chocolate = entry.getKey();
       int quantidade = entry.getValue();

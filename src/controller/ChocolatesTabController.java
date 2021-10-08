@@ -1,8 +1,8 @@
 package controller;
 
 import model.*;
-import view.ProdutoDetails;
-import view.ProdutosTab;
+import view.ChocolateDetails;
+import view.ChocolatesTab;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -10,43 +10,43 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Classe controller da tab de Produtos. Implementa ActionListeners e ListSelectionListeners à tab.
+ * Classe controller da tab de Chocolates. Implementa ActionListeners e ListSelectionListeners à tab.
  * @author Guilherme e Tiago
  * @version 1.0
  */
-public class ProdutosTabController implements ListSelectionListener, ActionListener {
-  private final ProdutosTab produtosTab;
+public class ChocolatesTabController implements ListSelectionListener, ActionListener {
+  private final ChocolatesTab chocolatesTab;
 
-  public ProdutosTabController(ProdutosTab produtosTab) {
-    this.produtosTab = produtosTab;
+  public ChocolatesTabController(ChocolatesTab chocolatesTab) {
+    this.chocolatesTab = chocolatesTab;
   }
 
   @Override
   public void valueChanged(ListSelectionEvent e) {
     if (!e.getValueIsAdjusting()) {
       Chocolate chocolate =
-              (Chocolate) produtosTab.getListaProdutos().getLista().getSelectedValue();
+              (Chocolate) chocolatesTab.getListaChocolates().getLista().getSelectedValue();
       if (chocolate instanceof Barra) {
-        produtosTab.getDetails().popularDados(ProdutoDetails.BARRA, chocolate);
+        chocolatesTab.getDetails().popularDados(ChocolateDetails.BARRA, chocolate);
       } else if (chocolate instanceof Chocotone) {
-        produtosTab.getDetails().popularDados(ProdutoDetails.CHOCOTONE, chocolate);
+        chocolatesTab.getDetails().popularDados(ChocolateDetails.CHOCOTONE, chocolate);
       } else if (chocolate instanceof Trufa) {
-        produtosTab.getDetails().popularDados(ProdutoDetails.TRUFA, chocolate);
+        chocolatesTab.getDetails().popularDados(ChocolateDetails.TRUFA, chocolate);
       }
     }
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource().equals(produtosTab.getDetails().getSubmit())) {
+    if (e.getSource().equals(chocolatesTab.getDetails().getSubmit())) {
       Chocolate chocolate =
-              (Chocolate) produtosTab.getListaProdutos().getLista().getSelectedValue();
+              (Chocolate) chocolatesTab.getListaChocolates().getLista().getSelectedValue();
 
       int peso;
       double precoVenda;
       double precoCompra;
       double porcentagemCacau;
-      ProdutoDetails details = produtosTab.getDetails();
+      ChocolateDetails details = chocolatesTab.getDetails();
 
       try {
         peso = Integer.parseInt(details.getPeso().getText());

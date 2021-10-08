@@ -188,8 +188,8 @@ class LojaTest {
   }
 
   @Test
-  @DisplayName("Remover produto que está numa venda deleta a venda")
-  void removerProdutoEmVenda() {
+  @DisplayName("Remover Chocolate que está numa venda deleta a venda")
+  void removerChocolateEmVenda() {
     Chocolate chocolateVendido = loja.getEstoque().getChocolatePorId(1);
     fazerVenda();
     loja.removerChocolate(chocolateVendido);
