@@ -42,7 +42,8 @@ public class MainToolBar extends JToolBar {
     add(pesquisaLabel);
     add(pesquisar);
 
-
+    pesquisaLabel.setToolTipText("Digite e aperte ENTER para pesquisar. Limpe a caixa de pesquisa" +
+            " e aperte ENTER para limpar o filtro.");
 
     setFloatable(false);
     ActionListener actionListener = new MainToolBarController(this);
