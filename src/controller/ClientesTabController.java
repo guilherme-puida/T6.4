@@ -17,10 +17,18 @@ import java.awt.event.ActionListener;
 public class ClientesTabController implements ListSelectionListener, ActionListener {
   ClientesTab clientesTab;
 
+  /**
+   * Constroi um novo controller associado à aba de clientes.
+   * @param clientesTab aba dos clientes.
+   */
   public ClientesTabController(ClientesTab clientesTab) {
     this.clientesTab = clientesTab;
   }
 
+  /**
+   * Altera os detalhes para corresponder com os dados do cliente selecionado.
+   * @param e evento recebido da lista de clientes.
+   */
   @Override
   public void valueChanged(ListSelectionEvent e) {
     if (!e.getValueIsAdjusting()) {
@@ -29,6 +37,10 @@ public class ClientesTabController implements ListSelectionListener, ActionListe
     }
   }
 
+  /**
+   * Altera os dados do cliente selecionado com base nos elementos do painel de detalhes.
+   * @param e evento recebido.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(clientesTab.getDetails().getSubmit())) {

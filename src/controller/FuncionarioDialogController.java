@@ -17,10 +17,18 @@ import java.awt.event.ActionListener;
 public class FuncionarioDialogController implements ActionListener {
   FuncionarioDialog view;
 
+  /**
+   * Constroi um novo controller associado ao dialog de adicionar funcionario.
+   * @param view dialogo de adicionar funcionario.
+   */
   public FuncionarioDialogController(FuncionarioDialog view) {
     this.view = view;
   }
 
+  /**
+   * Cadastra um novo funcionario com os valores das caixas de texto.
+   * @param e evento recebido.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
 
