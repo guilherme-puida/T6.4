@@ -49,8 +49,6 @@ public class VendasTabController implements ActionListener, ListSelectionListene
             (Chocolate) boxes.get(i).getSelectedItem(), (int) produtosSpinner.get(i).getValue());
       }
 
-      System.out.println(vendidos);
-
       HashMap<Chocolate, Integer> vendidosAntes = venda.getChocolateVendidos();
       venda.setChocolateVendidos(vendidos);
 

@@ -2,9 +2,7 @@ package test;
 import model.*;
 import org.junit.jupiter.api.*;
 
-import java.sql.Array;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -94,7 +92,6 @@ class LojaTest {
   @Test
   @DisplayName("Pesquisar funcionário por ID")
   void getFuncionarioPorId() {
-    System.out.println(Arrays.toString(loja.getFuncionarios()));
     Funcionario c1 = loja.getFuncionarioPorId(1);
     Funcionario c2 = loja.getFuncionarioPorId(2);
     Funcionario c3 = loja.getFuncionarioPorId(3);
@@ -173,8 +170,9 @@ class LojaTest {
   @DisplayName("Testar venda")
   void fazerVenda() {
     HashMap<Chocolate, Integer> vendidos = new HashMap<>();
-    vendidos.put(loja.getEstoque().getChocolatePorId(1), 10);
-
+    Chocolate chocolateVendido = loja.getEstoque().getChocolatePorId(1);
+    int quantidadeAnterior = loja.getEstoque().getQuantidadeEmEstoque(chocolateVendido);
+    vendidos.put(chocolateVendido, 10);
 
     loja.fazerVenda(vendidos,
             loja.getProximoIdVenda(),
@@ -182,6 +180,38 @@ class LojaTest {
             loja.getFuncionarioPorId(1),
             LocalDate.now());
 
-    assertEquals(1, loja.getVendas().length);
+    assertAll(
+            () -> assertEquals(1, loja.getVendas().length),
+            () -> assertEquals(quantidadeAnterior - 10, loja.getEstoque().getQuantidadeEmEstoque(chocolateVendido))
+    );
+
+  }
+
+  @Test
+  @DisplayName("Remover produto que está numa venda deleta a venda")
+  void removerProdutoEmVenda() {
+    Chocolate chocolateVendido = loja.getEstoque().getChocolatePorId(1);
+    fazerVenda();
+    loja.removerChocolate(chocolateVendido);
+
+    assertEquals(0, loja.getVendas().length);
+  }
+
+  @Test
+  @DisplayName("Remover cliente que está numa venda deleta a venda")
+  void removerClienteEmVenda() {
+    fazerVenda();
+    loja.removerCliente(loja.getClientePorId(1));
+
+    assertEquals(0, loja.getVendas().length);
+  }
+
+  @Test
+  @DisplayName("Remover funcionário que está numa venda deleta a venda")
+  void removerFuncionarioEmVenda() {
+    fazerVenda();
+    loja.removerFuncionario(loja.getFuncionarioPorId(1));
+
+    assertEquals(0, loja.getVendas().length);
   }
 }
