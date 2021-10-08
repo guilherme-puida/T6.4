@@ -15,9 +15,11 @@ import view.MainFrame;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Main {
   private static MainFrame frame;
+  private static Random random;
 
   public static void main(String[] args) {
 
@@ -80,6 +82,30 @@ public class Main {
     loja.fazerVenda(chocolatesVendidos, loja.getProximoIdVenda(), cliente, funcionario,
             LocalDate.now());
 
+  }
+
+  public static void carregar_aleatorio() {
+    Random random = new Random();
+
+    int max = 10;
+    int min = 2;
+
+    int quantidadeClientes = randInt(min, max);
+    int quantidadeFuncionarios = randInt(min, max);
+    int quantidadeProdutos = randInt(min, max);
+    int quantidadeVendas = randInt(min, max);
+
+    for (int i = 0; i < quantidadeClientes; i++) {
+      int id =Loja.getInstance().getProximoIdCliente();
+      String nome = String.format("Cliente%d", i);
+      int idade = randInt(10, 60);
+
+    }
+
+  }
+
+  public static int randInt(int min, int max) {
+    return random.nextInt((max - min) + 1) + min;
   }
 
   public static MainFrame getFrame() {
