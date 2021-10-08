@@ -1,9 +1,6 @@
 package controller;
 
-import model.Barra;
-import model.Chocolate;
-import model.Chocotone;
-import model.Trufa;
+import model.*;
 import view.ProdutoDetails;
 import view.ProdutosTab;
 
@@ -68,6 +65,8 @@ public class ProdutosTabController implements ListSelectionListener, ActionListe
       chocolate.setContemGluten(details.getContemGluten().isSelected());
       chocolate.setContemLactose(details.getContemLactose().isSelected());
       chocolate.setArtesanal(details.getArtesanal().isSelected());
+
+      Loja.getInstance().getEstoque().setQuantidade(chocolate, (int) details.getQuantidade().getValue());
 
       if (chocolate instanceof Barra barra) {
         barra.setSabor(details.getSabor().getText());

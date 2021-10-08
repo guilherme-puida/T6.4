@@ -51,24 +51,30 @@ public class MainToolBarController implements ActionListener {
         case 2 -> {
           Chocolate r =
                   (Chocolate) frame.getProdutosTab().getListaProdutos().getLista().getSelectedValue();
-          Loja.getInstance().getEstoque().removerChocolate(r);
+          Loja.getInstance().removerChocolate(r);
           frame.getProdutosTab().getListaProdutos().updateLista();
           frame.getProdutosTab().resetListSelectionController();
         }
-
       }
+      Venda v = (Venda) frame.getVendasTab().getListaVendas().getLista().getSelectedValue();
+
+      // Teste para ver se ainda existe alguma lista na venda.
+      if (v != null) {
+        frame.getVendasTab().getDetails().popularDados(v);
+      } else {
+        // Caso não exista, deixar a tela de editar detalhes da venda desativada até outra venda
+        // for adicionada.
+        frame.getVendasTab().getDetails().popularDados();
+      }
+      frame.getVendasTab().getListaVendas().updateLista();
+
     } else if (e.getSource() == bar.getPesquisar()) {
       MainFrame frame = Main.getFrame();
-      if (Objects.equals(bar.getPesquisar().getText(), "")) {
-        System.out.println("Here");
+      if (bar.getPesquisar().getText().equals("")) {
         frame.getClientesTab().getListaClientes().updateLista();
-        frame.getClientesTab().resetListSelectionController();
         frame.getFuncionariosTab().getListaFuncionarios().updateLista();
-        frame.getFuncionariosTab().resetListSelectionController();
         frame.getProdutosTab().getListaProdutos().updateLista();
-        frame.getProdutosTab().resetListSelectionController();
         frame.getVendasTab().getListaVendas().updateLista();
-        frame.getVendasTab().resetListSelectionController();
       } else {
         String text = bar.getPesquisar().getText();
         frame.getClientesTab().getListaClientes().updateLista(text);

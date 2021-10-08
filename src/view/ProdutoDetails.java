@@ -1,13 +1,15 @@
 package view;
 
-import model.Barra;
-import model.Chocolate;
-import model.Chocotone;
-import model.Trufa;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe de detalhes para o produto. Mostra todas as informações do produto selecionado. Usa a classe DetailsPanel como template.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ProdutoDetails extends DetailsPanel {
 
   public static final int BARRA = 0;
@@ -39,6 +41,12 @@ public class ProdutoDetails extends DetailsPanel {
   private final JLabel frutasLabel;
   private final JLabel alcoolicoLabel;
 
+  private final JSpinner quantidade;
+  private final JLabel quantidadeLabel;
+
+  /**
+   * Cria e adiciona os JLabels, e os JTextFields com setToolTipText do tipo de variavel aceito.
+   */
   public ProdutoDetails() {
     super("Detalhes do produto");
 
@@ -119,9 +127,18 @@ public class ProdutoDetails extends DetailsPanel {
     getInnerDetailsPanel().add(new JLabel("Artesanal:"), left);
     getInnerDetailsPanel().add(artesanal, right);
 
+    quantidade = new JSpinner();
+    quantidadeLabel = new JLabel("Quantidade: ");
+
+    getInnerDetailsPanel().add(quantidadeLabel, left);
+    getInnerDetailsPanel().add(quantidade, right);
+
     setAllInvisible();
   }
 
+  /**
+   * Deixa todos os Labels e TextFields invisiveis.
+   */
   public void setAllInvisible() {
     recheioLabel.setVisible(false);
     recheio.setVisible(false);
@@ -135,6 +152,11 @@ public class ProdutoDetails extends DetailsPanel {
     nibs.setVisible(false);
   }
 
+  /**
+   * Popula os JTextFields do metodo ProdutoDetails() com os detalhes do produto.
+   * @param selection inteiro que seleciona o tipo de chocolate.
+   * @param chocolate objeto Chocolate.
+   */
   public void popularDados(int selection, Chocolate chocolate) {
     id.setText(String.valueOf(chocolate.getId()));
     peso.setText(String.valueOf(chocolate.getPeso()));
@@ -174,10 +196,20 @@ public class ProdutoDetails extends DetailsPanel {
         recheio.setText(trufa.getRecheio());
         alcoolico.setSelected(trufa.isAlcoolico());
       }
-
     }
+
+    int quantidadeAtual = Loja.getInstance().getEstoque().getQuantidadeEmEstoque(chocolate);
+    quantidade.setModel(new SpinnerNumberModel(
+            quantidadeAtual,
+            quantidadeAtual,
+            null,
+            1
+    ));
   }
 
+  /**
+   * Deixa os elementos da Barra visiveis.
+   */
   public void showBarra() {
     setAllInvisible();
     saborLabel.setVisible(true);
@@ -186,6 +218,9 @@ public class ProdutoDetails extends DetailsPanel {
     nibs.setVisible(true);
   }
 
+  /**
+   * Deixa os elementos do Chocotone visiveis.
+   */
   public void showChocotone() {
     setAllInvisible();
     frutasLabel.setVisible(true);
@@ -194,6 +229,9 @@ public class ProdutoDetails extends DetailsPanel {
     recheio.setVisible(true);
   }
 
+  /**
+   * Deixa os elementos da Trufa visiveis.
+   */
   public void showTrufa() {
     setAllInvisible();
     recheioLabel.setVisible(true);
@@ -202,70 +240,146 @@ public class ProdutoDetails extends DetailsPanel {
     alcoolico.setVisible(true);
   }
 
+  public JSpinner getQuantidade() {
+    return quantidade;
+  }
+
+  public JLabel getQuantidadeLabel() {
+    return quantidadeLabel;
+  }
+
+  /**
+   * Getter do id do produto.
+   * @return JTextfield do id do produto.
+   */
   public JTextField getId() {
     return id;
   }
 
+  /**
+   * Getter do peso do produto.
+   * @return JTextfield do peso do produto.
+   */
   public JTextField getPeso() {
     return peso;
   }
 
+  /**
+   * Getter do nome do produto.
+   * @return JTextfield do nome do produto.
+   */
   public JTextField getNome() {
     return nome;
   }
 
+  /**
+   * Getter da descrição do produto.
+   * @return JTextfield da descrição do produto.
+   */
   public JTextField getDescricao() {
     return descricao;
   }
 
+  /**
+   * Getter do tipo do produto.
+   * @return JTextfield do tipo do produto.
+   */
   public JTextField getTipo() {
     return tipo;
   }
 
+  /**
+   * Getter do preço de compra do produto.
+   * @return JTextfield do preço de compra do produto.
+   */
   public JTextField getPrecoCompra() {
     return precoCompra;
   }
 
+  /**
+   * Getter do preço de venda do produto.
+   * @return JTextfield do preço de venda do produto.
+   */
   public JTextField getPrecoVenda() {
     return precoVenda;
   }
 
+  /**
+   * Getter da porcentagem de cacau do produto.
+   * @return JTextfield da porcentagem de cacau do produto.
+   */
   public JTextField getPorcentagemCacau() {
     return porcentagemCacau;
   }
 
+  /**
+   * Getter da opção de glutem do produto.
+   * @return JCheckBox da opção de glutem do produto.
+   */
   public JCheckBox getContemGluten() {
     return contemGluten;
   }
 
+  /**
+   * Getter da opção de lactose do produto.
+   * @return JCheckBox da opção de lactose do produto.
+   */
   public JCheckBox getContemLactose() {
     return contemLactose;
   }
 
+  /**
+   * Getter da opção artesanal do produto.
+   * @return JCheckBox da opção artesanal do produto.
+   */
   public JCheckBox getArtesanal() {
     return artesanal;
   }
 
+  /**
+   * Getter do sabor do produto.
+   * @return JTextfield do sabor do produto.
+   */
   public JTextField getSabor() {
     return sabor;
   }
 
+  /**
+   * Getter do(s) nib(s) do produto.
+   * @return JTextfield do(s) nib(s) do produto.
+   */
   public JTextField getNibs() {
     return nibs;
   }
 
+  /**
+   * Getter do recheio do produto.
+   * @return JTextfield do recheio do produto.
+   */
   public JTextField getRecheio() {
     return recheio;
   }
 
+  /**
+   * Getter das frutas do produto.
+   * @return JTextfield das frutas do produto.
+   */
   public JTextField getFrutas() {
     return frutas;
   }
 
+  /**
+   * Getter da opção alcoolica do produto.
+   * @return JCheckBox da opção alcoolica do produto.
+   */
   public JCheckBox getAlcoolico() {
     return alcoolico;
   }
 
+  /**
+   * Getter da data de compra do produto.
+   * @return JTextfield da data de compra do produto.
+   */
   public JTextField getDataCompra() {
     return dataCompra;
   }

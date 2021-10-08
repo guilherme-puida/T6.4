@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Classe abstrata que representa uma pessoa, pode virar Cliente ou Funcionario.
+ * @author Guilherme
+ * @version 1.0
+ */
 public abstract class Pessoa {
   private int id;
   private int idade;
@@ -9,14 +14,18 @@ public abstract class Pessoa {
   private String email;
   private Endereco endereco;
 
-  protected Pessoa(
-      int id,
-      int idade,
-      String nome,
-      String cpf,
-      String telefone,
-      String email,
-      Endereco endereco) {
+  /**
+   * Representa uma pessoa.
+   * @param id representa o id da pessoa.
+   * @param idade representa a idade da pessoa.
+   * @param nome representa o nome da pessoa.
+   * @param cpf representa o cpf da pessoa.
+   * @param telefone representa o telefone da pessoa.
+   * @param email representa o email da pessoa.
+   * @param endereco representa o endereço da pessoa.
+   */
+  protected Pessoa(int id, int idade, String nome, String cpf, String telefone, String email,
+                Endereco endereco) {
     this.id = id;
     this.idade = idade;
     this.nome = nome;
@@ -26,10 +35,10 @@ public abstract class Pessoa {
     this.endereco = endereco;
   }
 
-  public abstract String infoBasica();
-
-  public abstract String infoCompleta();
-
+  /**
+   * Transforma em String.
+   * @return String do id e da idade.
+   */
   @Override
   public String toString() {
     return String.format("%d - %s", id, nome);

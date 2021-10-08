@@ -6,10 +6,19 @@ import model.Chocolate;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe que cria um dialog para a adição de um produto novo em uma venda já criada.
+ * @author Guilherme
+ * @version 1.0 (Oct 2021
+ */
 public class AdicionarProdutoVendaDialog extends JDialog {
   private final JComboBox<Chocolate> produto;
   private final JButton submit;
 
+  /**
+   * Cria o dialog de adição de um produto novo em uma venda já criada.
+   * @param parent JFrame da classe pai.
+   */
   public AdicionarProdutoVendaDialog(JFrame parent) {
     super(parent, "Adicionar novo produto");
     setModalityType(ModalityType.APPLICATION_MODAL);
@@ -35,10 +44,18 @@ public class AdicionarProdutoVendaDialog extends JDialog {
     setVisible(true);
   }
 
+  /**
+   * Getter do produto.
+   * @return JComboBox de Chocolate do produto da venda.
+   */
   public JComboBox<Chocolate> getProduto() {
     return produto;
   }
 
+  /**
+   * Getter do botão submit.
+   * @return botão para salvar as mudanças feitas.
+   */
   public JButton getSubmit() {
     return submit;
   }
