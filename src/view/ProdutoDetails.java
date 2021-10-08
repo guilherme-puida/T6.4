@@ -1,9 +1,6 @@
 package view;
 
-import model.Barra;
-import model.Chocolate;
-import model.Chocotone;
-import model.Trufa;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,6 +40,8 @@ public class ProdutoDetails extends DetailsPanel {
   private final JLabel nibsLabel;
   private final JLabel frutasLabel;
   private final JLabel alcoolicoLabel;
+
+  private final JSpinner quantidade;
 
   /**
    * Cria e adiciona os JLabels, e os JTextFields com setToolTipText do tipo de variavel aceito.
@@ -127,6 +126,11 @@ public class ProdutoDetails extends DetailsPanel {
     getInnerDetailsPanel().add(new JLabel("Artesanal:"), left);
     getInnerDetailsPanel().add(artesanal, right);
 
+    quantidade = new JSpinner();
+
+    getInnerDetailsPanel().add(new JLabel("Quantidade:"), left);
+    getInnerDetailsPanel().add(quantidade, right);
+
     setAllInvisible();
   }
 
@@ -190,8 +194,15 @@ public class ProdutoDetails extends DetailsPanel {
         recheio.setText(trufa.getRecheio());
         alcoolico.setSelected(trufa.isAlcoolico());
       }
-
     }
+
+    int quantidadeAtual = Loja.getInstance().getEstoque().getQuantidadeEmEstoque(chocolate);
+    quantidade.setModel(new SpinnerNumberModel(
+            quantidadeAtual,
+            quantidadeAtual,
+            null,
+            1
+    ));
   }
 
   /**
@@ -225,6 +236,10 @@ public class ProdutoDetails extends DetailsPanel {
     recheio.setVisible(true);
     alcoolicoLabel.setVisible(true);
     alcoolico.setVisible(true);
+  }
+
+  public JSpinner getQuantidade() {
+    return quantidade;
   }
 
   /**

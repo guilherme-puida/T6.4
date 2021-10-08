@@ -109,4 +109,8 @@ public class Estoque {
   public void removerChocolate(Chocolate chocolate) {
     chocolates.remove(chocolate);
   }
+
+  public void setQuantidade(Chocolate chocolate, int quantidade) {
+    chocolates.put(chocolate, quantidade);
+  }
 }
