@@ -415,6 +415,7 @@ public class Loja {
 
   public void removerChocolate(Chocolate chocolate) {
     vendas.removeIf(venda -> venda.getChocolateVendidos().containsKey(chocolate));
+    System.out.println(vendas);
     estoque.removerChocolate(chocolate);
   }
 

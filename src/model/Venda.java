@@ -49,6 +49,10 @@ public class Venda {
     chocolateVendidos.put(chocolate, chocolateVendidos.getOrDefault(chocolate, 0) + quantidade);
   }
 
+  public void retirarChocolate(Chocolate chocolate) {
+
+  }
+
   /**
    * Calcula o valor da venda.
    */

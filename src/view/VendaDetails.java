@@ -22,6 +22,7 @@ public class VendaDetails extends DetailsPanel {
   private final JComboBox<Funcionario> funcionario;
   private final ArrayList<JComboBox<Chocolate>> listaChocolates;
   private final ArrayList<JSpinner> listaQuantidades;
+  private final JButton adicionarNovoProduto;
 
 
   /**
@@ -30,7 +31,7 @@ public class VendaDetails extends DetailsPanel {
   public VendaDetails() {
     super("Detalhes da venda:");
 
-    JButton adicionarNovoProduto = new JButton("Adicionar novo produto");
+    adicionarNovoProduto = new JButton("Adicionar novo produto");
     add(adicionarNovoProduto, BorderLayout.BEFORE_FIRST_LINE);
     adicionarNovoProduto.addActionListener(e -> new AdicionarProdutoVendaDialog(Main.getFrame()));
 
@@ -66,6 +67,32 @@ public class VendaDetails extends DetailsPanel {
     popularDados(Loja.getInstance().getVendaPorId(1));
   }
 
+  public void popularDados() {
+    for (JComboBox<Chocolate> label : listaChocolates) {
+      getInnerDetailsPanel().remove(label);
+    }
+    for (JSpinner spinner : listaQuantidades) {
+      getInnerDetailsPanel().remove(spinner);
+    }
+    listaChocolates.clear();
+    listaQuantidades.clear();
+
+    adicionarNovoProduto.setEnabled(false);
+
+    getInnerDetailsPanel().validate();
+    getInnerDetailsPanel().repaint();
+
+    Loja loja = Loja.getInstance();
+    cliente.setModel(new DefaultComboBoxModel<>(loja.getClientes()));
+    funcionario.setModel(new DefaultComboBoxModel<>(loja.getFuncionarios()));
+    cliente.setEnabled(false);
+    funcionario.setEnabled(false);
+
+    id.setText("");
+    valor.setText("");
+    data.setText("");
+  }
+
   /**
    * Popula os JTextFields do metodo VendaDetails() com os detalhes da venda requerida.
    * @param venda objeto da Venda.
@@ -88,9 +115,13 @@ public class VendaDetails extends DetailsPanel {
     Loja loja = Loja.getInstance();
     cliente.setModel(new DefaultComboBoxModel<>(loja.getClientes()));
     cliente.setSelectedItem(venda.getCliente());
+    cliente.setEnabled(true);
 
     funcionario.setModel(new DefaultComboBoxModel<>(loja.getFuncionarios()));
     funcionario.setSelectedItem(venda.getFuncionario());
+    funcionario.setEnabled(true);
+
+    adicionarNovoProduto.setEnabled(true);
 
     id.setText(String.valueOf(venda.getId()));
     valor.setText(String.valueOf(venda.getValor()));

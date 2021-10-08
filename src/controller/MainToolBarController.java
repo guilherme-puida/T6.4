@@ -52,11 +52,20 @@ public class MainToolBarController implements ActionListener {
           Chocolate r =
                   (Chocolate) frame.getProdutosTab().getListaProdutos().getLista().getSelectedValue();
           Loja.getInstance().removerChocolate(r);
+          frame.getVendasTab().getListaVendas().updateLista();
+          frame.getVendasTab().getListaVendas().getLista().setSelectedIndex(0);
           frame.getProdutosTab().getListaProdutos().updateLista();
           frame.getProdutosTab().resetListSelectionController();
         }
-
       }
+      Venda v = (Venda) frame.getVendasTab().getListaVendas().getLista().getSelectedValue();
+      if (v != null) {
+        frame.getVendasTab().getDetails().popularDados(v);
+      } else {
+        frame.getVendasTab().getDetails().popularDados();
+      }
+      frame.getVendasTab().getListaVendas().updateLista();
+
     } else if (e.getSource() == bar.getPesquisar()) {
       MainFrame frame = Main.getFrame();
       if (Objects.equals(bar.getPesquisar().getText(), "")) {
