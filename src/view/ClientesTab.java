@@ -7,11 +7,21 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * Aba de Clientes. Contém a representação da lista de Clientes cadastrados, além de mostrar os detalhes do Cliente
+ * selecionado no painel central.
+ *
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ClientesTab extends JPanel {
   private final ListaPanel listaClientes;
 
   private final ClienteDetails details;
 
+  /**
+   * Cria o painel da lista de clientes, usando o template da classe ListaPanel.
+   */
   public ClientesTab() {
     setLayout(new BorderLayout(0, 0));
 
@@ -25,16 +35,28 @@ public class ClientesTab extends JPanel {
 
     listaClientes.getLista().addListSelectionListener(controller);
     details.getSubmit().addActionListener(controller);
+    listaClientes.getLista().setSelectedIndex(0);
   }
 
+  /**
+   * Getter da lista de clientes.
+   * @return painel da lista de clientes.
+   */
   public ListaPanel getListaClientes() {
     return listaClientes;
   }
 
+  /**
+   * Getter dos detalhes do cliente.
+   * @return detalhes do cliente.
+   */
   public ClienteDetails getDetails() {
     return details;
   }
 
+  /**
+   * Reseta o controller de seleção da lista, para aplicar as mudanças feitas.
+   */
   public void resetListSelectionController() {
     for (ListSelectionListener l : listaClientes.getLista().getListSelectionListeners()) {
       listaClientes.getLista().removeListSelectionListener(l);

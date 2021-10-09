@@ -16,18 +16,28 @@ import view.MainFrame;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+/**
+ * Classe de entry-point do programa.
+ */
 public class Main {
   private static MainFrame frame;
 
+  /**
+   * Função principal do programa: carrega os valores iniciais na loja e inicia a interface.
+   * @param args argumentos da linha de comando -- não utilizados.
+   */
   public static void main(String[] args) {
 
-    Loja loja = Loja.getInstance();
-    carregar_clientes(loja);
+    carregarInicial();
 
     frame = new MainFrame("teste");
   }
 
-  public static void carregar_clientes(Loja loja) {
+  /**
+   * Carrega os dados iniciais no programa.
+   */
+  public static void carregarInicial() {
+    Loja loja = Loja.getInstance();
     loja.cadastrarCliente(loja.getProximoIdCliente(), 19, "Guilherme", "000.000.000-00",
             "99999" + "-9999", "email@email.com", new Endereco("Asa Norte", "SQN", "307",
                     "00000" + "-00"), "diamante");
@@ -43,7 +53,7 @@ public class Main {
             + "-9999", "email@email.com", new Endereco("Sudoeste", "SQNW", "302", "00002-00"),
             30000.00, "Gerente");
 
-    // Cadastro dos produtos iniciais:
+    // Cadastro dos chocolates iniciais:
     loja.cadastrarBarra(loja.getProximoIdChocolate(), 250, "Barra Incrível", "Uma incrível barra "
             + "de chocolate", "Meio-Amargo", LocalDate.of(2021, 9, 10), 10.0, 20.0, 70.0, true,
             true, true, "Chocolate", new String[]{"Amendoim", "Nozes"}, 25);

@@ -6,9 +6,18 @@ import model.Loja;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe com o dialog de criação de Clientes. Usa a classe ClienteDetails como base.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ClienteDialog extends JDialog {
   private final ClienteDetails details;
 
+  /**
+   * Cria o dialog de criação de clientes. Usa a classe ClienteDetails como base.
+   * @param parent JFrame da classe pai.
+   */
   public ClienteDialog(JFrame parent) {
     super(parent, "Cliente");
     setModalityType(ModalityType.APPLICATION_MODAL);
@@ -26,6 +35,10 @@ public class ClienteDialog extends JDialog {
     setVisible(true);
   }
 
+  /**
+   * Getter dos painel de detalhes central.
+   * @return detalhes do cliente.
+   */
   public ClienteDetails getDetails() {
     return details;
   }

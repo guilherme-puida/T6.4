@@ -7,11 +7,20 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * Aba de funcionários. Contém a representação da lista de funcionários cadastrados, além de mostrar os detalhes de
+ * um funcionário específico no painel central.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class FuncionariosTab extends JPanel {
   private final ListaPanel listaFuncionarios;
 
   private final FuncionarioDetails details;
 
+  /**
+   * Cria o painel da lista de funcionarios, usando o template da classe ListaPanel.
+   */
   public FuncionariosTab() {
     setLayout(new BorderLayout(0, 0));
 
@@ -25,16 +34,28 @@ public class FuncionariosTab extends JPanel {
 
     listaFuncionarios.getLista().addListSelectionListener(controller);
     details.getSubmit().addActionListener(controller);
+    listaFuncionarios.getLista().setSelectedIndex(0);
   }
 
+  /**
+   * Getter da lista de funcionarios.
+   * @return painel da lista de funcionarios.
+   */
   public ListaPanel getListaFuncionarios() {
     return listaFuncionarios;
   }
 
+  /**
+   * Getter dos detalhes do funcionario.
+   * @return detalhes do funcionario
+   */
   public FuncionarioDetails getDetails() {
     return details;
   }
 
+  /**
+   * Reseta o controller de seleção da lista, para aplicar as mudanças feitas.
+   */
   public void resetListSelectionController() {
     for (ListSelectionListener l : listaFuncionarios.getLista().getListSelectionListeners()) {
       listaFuncionarios.getLista().removeListSelectionListener(l);

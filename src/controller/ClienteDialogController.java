@@ -9,13 +9,26 @@ import view.ClienteDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Classe controller do dialog de clientes. Implementa ActionListeners ao dialog.
+ * @author Guilherme e Tiago
+ * @version 1.0
+ */
 public class ClienteDialogController implements ActionListener {
   ClienteDialog view;
 
+  /**
+   * Constroi um novo controller associado ao dialog de adicionar cliente.
+   * @param view dialogo de adicionar cliente.
+   */
   public ClienteDialogController(ClienteDialog view) {
     this.view = view;
   }
 
+  /**
+   * Cadastra um novo cliente com os valores das caixas de texto.
+   * @param e evento recebido.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
 

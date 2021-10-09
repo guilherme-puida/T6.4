@@ -8,10 +8,19 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+/**
+ * Classe com o dialog de criação de Venda. Usa a classe VendaDetails como base.
+ * @author Guilherme
+ * @version 1.0
+ */
 public class VendaDialog extends JDialog {
   private final JComboBox<Cliente> cliente;
   private final JComboBox<Funcionario> funcionario;
 
+  /**
+   * Cria o dialog de criação de vendas. Usa a classe VendaDetails como base.
+   * @param parent JFrame da classe pai.
+   */
   public VendaDialog(JFrame parent) {
     super(parent, "Venda");
     setModalityType(ModalityType.APPLICATION_MODAL);
@@ -41,6 +50,7 @@ public class VendaDialog extends JDialog {
     JButton submit = new JButton("Salvar");
     add(submit, BorderLayout.AFTER_LAST_LINE);
 
+    // Action listener anônimo para adicionar a nova venda.
     submit.addActionListener(e -> {
      Loja.getInstance().fazerVenda(
              new HashMap<>(),

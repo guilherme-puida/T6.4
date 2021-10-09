@@ -11,21 +11,35 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
+/**
+ * Classe controller da tab de vendas. Implementa ActionListeners e ListSelectionListeners à tab.
+ * @author Guilherme
+ * @version 1.0
+ */
 public class VendasTabController implements ActionListener, ListSelectionListener {
   private final VendasTab vendasTab;
 
+  /** Constrói um novo controller associado à aba de Vendas.
+   * @param vendasTab aba de Vendas.
+   */
   public VendasTabController(VendasTab vendasTab) {
     this.vendasTab = vendasTab;
   }
 
+  /** Atualiza o painel de detalhes com os dados da Venda selecionada na lista.
+   * @param e evento recebido da lista de Vendas.
+   */
   @Override
   public void valueChanged(ListSelectionEvent e) {
     if (!e.getValueIsAdjusting()) {
       Venda venda = (Venda) vendasTab.getListaVendas().getLista().getSelectedValue();
       vendasTab.getDetails().popularDados(venda);
+      vendasTab.getDetails().getSubmit().setEnabled(true);
     }
   }
 
+  /** Atualiza os dados da Venda selecionada com base nos elementos do painel de detalhes.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(vendasTab.getDetails().getSubmit())) {
@@ -36,15 +50,13 @@ public class VendasTabController implements ActionListener, ListSelectionListene
       venda.setFuncionario((Funcionario) details.getFuncionario().getSelectedItem());
 
       HashMap<Chocolate, Integer> vendidos = new HashMap<>();
-      List<JSpinner> produtosSpinner = details.getListaQuantidades();
+      List<JSpinner> chocolatesSpinner = details.getListaQuantidades();
       List<JComboBox<Chocolate>> boxes = details.getListaChocolates();
 
-      for (int i = 0; i < produtosSpinner.size(); i++) {
+      for (int i = 0; i < chocolatesSpinner.size(); i++) {
         vendidos.put(
-            (Chocolate) boxes.get(i).getSelectedItem(), (int) produtosSpinner.get(i).getValue());
+            (Chocolate) boxes.get(i).getSelectedItem(), (int) chocolatesSpinner.get(i).getValue());
       }
-
-      System.out.println(vendidos);
 
       HashMap<Chocolate, Integer> vendidosAntes = venda.getChocolateVendidos();
       venda.setChocolateVendidos(vendidos);

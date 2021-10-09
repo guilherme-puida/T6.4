@@ -1,25 +1,55 @@
 package model;
 
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Classe que representa o estoque de chocolates e seus metodos.
+ *
+ * Os Chocolates são armazenados em um HashMap, sendo a chave o Chocolate em si e o valor a quantidade em estoque.
+ * @see Chocolate
+ * @see HashMap
+ */
 public class Estoque {
   private final HashMap<Chocolate, Integer> chocolates;
 
+  /**
+   * Constrói um novo estoque para armazenar os Chocolates em um HashMap.
+   */
   public Estoque() {
     chocolates = new HashMap<>();
   }
 
-  // Adiciona um chocolate no mapa de chocolates
+  /**
+   * Retira todos os produtos do estoque. Útil para testes.
+   */
+  public void clear() {
+    chocolates.clear();
+  }
+
+  /**
+   * Adiciona o chocolate no mapa de chocolates.
+   * @param chocolate chocolate que será adicionado no mapa de chocolates.
+   * @param quantidade quantidade desse chocolate que será adicionado.
+   */
   public void adicionarChocolate(Chocolate chocolate, int quantidade) {
     chocolates.put(chocolate, chocolates.getOrDefault(chocolate, 0) + quantidade);
   }
 
-  // Retira certa quantidade de chocolate do map.
+  /**
+   * Retira certa quantidade de chocolate do HashMap. <br>
+   *
+   * Esse método checa se a quantidade pode ser retirada, ou seja, checa se o Chocolate passado como parâmetro existe
+   * no HashMap e se a quantidade a ser retirada é válida {@code 0 < quantidad <= quantidade em estoque}.
+   *
+   * @param chocolate chocolate que será retirado do mapa.
+   * @param quantidade quantidade desse chocolate que será retirado.
+   * @throws IllegalArgumentException quando o Chocolate não esta no estoque, ou a quantidade for 0, ou a quantidade
+   * for maior do que em estoque.
+   */
   public void retirarQuantidade(Chocolate chocolate, int quantidade) throws IllegalArgumentException {
     if (!chocolates.containsKey(chocolate)) {
-      throw new IllegalArgumentException("Produto não está no estoque");
+      throw new IllegalArgumentException("Chocolate não está no estoque");
     }
 
     if (quantidade == 0) {
@@ -34,7 +64,11 @@ public class Estoque {
     chocolates.put(chocolate, chocolates.get(chocolate) - quantidade);
   }
 
-  // Pesquisa um chocolate por Id
+  /**
+   * Pesquisa um chocolate por Id.
+   * @param id inteiro id do chocolate.
+   * @return chocolate do id requerido.
+   */
   public Chocolate getChocolatePorId(int id) {
     for (Chocolate chocolate : getChocolates()) {
       if (chocolate.getId() == id) {
@@ -49,33 +83,29 @@ public class Estoque {
     return chocolates.keySet();
   }
 
-  public Chocolate getChocolatePorNome(String nome) {
-    for (Chocolate chocolate : getChocolates()) {
-      if (Objects.equals(chocolate.getNome(), nome)) {
-        return chocolate;
-      }
-    }
-
-    return null;
-  }
-
-  // Representação em string do estoque
-  public String stringEstoque() {
-    StringBuilder repr = new StringBuilder();
-
-    for (Chocolate chocolate : getChocolates()) {
-      repr.append(chocolate.infoBasica());
-      repr.append(" | Quantidade: ").append(chocolates.get(chocolate)).append("\n");
-    }
-
-    return repr.toString();
-  }
-
+  /** Checa quantas unidade de um Chocolate estão em estoque.
+   *
+   * @param chocolate o Chocolate a ser consultado
+   * @return a quantidade em estoque
+   */
   public int getQuantidadeEmEstoque(Chocolate chocolate) {
     return chocolates.get(chocolate);
   }
 
+  /**
+   * Remove o chocolate do estoque.
+   * @param chocolate chocolate que será removido.
+   */
   public void removerChocolate(Chocolate chocolate) {
     chocolates.remove(chocolate);
+  }
+
+  /**
+   * Altera a quantidade em estoque de certo chocolate.
+   * @param chocolate chocolate a ser editado.
+   * @param quantidade nova quantidade em estoque.
+   */
+  public void setQuantidade(Chocolate chocolate, int quantidade) {
+    chocolates.put(chocolate, quantidade);
   }
 }
