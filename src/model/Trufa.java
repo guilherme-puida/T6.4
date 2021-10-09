@@ -1,10 +1,12 @@
 package model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
- * Classe que representa uma unidade de Trufa.
+ * Classe que representa uma unidade de Trufa. <br>
+ * 
+ * Essa classe nunca é instanciada diretamente. Para adicionar um novo chocolate, usamos o método
+ * {@link model.Loja#cadastrarTrufa Loja.cadastrarTrufa()}
  */
 public class Trufa extends Chocolate {
   private String recheio;
@@ -52,4 +54,3 @@ public class Trufa extends Chocolate {
     this.alcoolico = alcoolico;
   }
 }
-//TODO import sem uso

@@ -50,6 +50,7 @@ public class VendaDialog extends JDialog {
     JButton submit = new JButton("Salvar");
     add(submit, BorderLayout.AFTER_LAST_LINE);
 
+    // Action listener anônimo para adicionar a nova venda.
     submit.addActionListener(e -> {
      Loja.getInstance().fazerVenda(
              new HashMap<>(),

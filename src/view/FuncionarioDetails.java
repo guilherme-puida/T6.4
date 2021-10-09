@@ -6,7 +6,8 @@ import model.Pessoa;
 import javax.swing.*;
 
 /**
- * Classe de detalhes para o funcionario. Mostra todas as informações do funcionario selecionado. Usa a classe DetailsPanel como template e extende a classe PessoaDetails.
+ * Classe de detalhes para o funcionario. Mostra todas as informações do funcionario selecionado.
+ * Usa a classe DetailsPanel como template e extende a classe PessoaDetails.
  */
 public class FuncionarioDetails extends PessoaDetails {
 
@@ -40,8 +41,23 @@ public class FuncionarioDetails extends PessoaDetails {
   public void popularDados(Pessoa pessoa) {
     Funcionario funcionario = (Funcionario) pessoa;
     super.popularDados(funcionario);
+    salario.setEnabled(true);
+    cargo.setEnabled(true);
     salario.setText(String.valueOf(funcionario.getSalario()));
     cargo.setText(funcionario.getCargo());
+  }
+
+  /**
+   * Desabilita e remove o texto dos componentes. Usado quando não há nenhum funcionário cadastrado.
+   */
+  @Override
+  public void popularDados() {
+    super.popularDados();
+    salario.setEnabled(false);
+    cargo.setEnabled(false);
+
+    salario.setText("");
+    cargo.setText("");
   }
 
   /**

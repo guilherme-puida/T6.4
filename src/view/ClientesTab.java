@@ -8,7 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Classe com a lista de todos os clientes cadastrados.
+ * Aba de Clientes. Contém a representação da lista de Clientes cadastrados, além de mostrar os detalhes do Cliente
+ * selecionado no painel central.
+ *
  * @author Guilherme e Tiago
  * @version 1.0
  */
@@ -33,6 +35,7 @@ public class ClientesTab extends JPanel {
 
     listaClientes.getLista().addListSelectionListener(controller);
     details.getSubmit().addActionListener(controller);
+    listaClientes.getLista().setSelectedIndex(0);
   }
 
   /**

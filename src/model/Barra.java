@@ -1,12 +1,16 @@
 package model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Classe que representa uma unidade da Barra.
+ * Classe que representa uma unidade da Barra. <br>
+ *
+ * Essa classe nunca é instanciada diretamente. Para adicionar uma nova Barra, usamos
+ * o método
+ * {@link model.Loja#cadastrarBarra Loja.cadastrarBarra()}
+ *
  * @author Guilherme
  * @version 1.0
  */
@@ -58,4 +62,3 @@ public class Barra extends Chocolate {
     Collections.addAll(this.nibs, nibs);
   }
 }
-//TODO import sem uso

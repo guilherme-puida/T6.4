@@ -17,10 +17,16 @@ import java.awt.event.ActionListener;
 public class ChocolatesTabController implements ListSelectionListener, ActionListener {
   private final ChocolatesTab chocolatesTab;
 
+  /** Constrói um novo controller associado à aba de Chocolates.
+   * @param chocolatesTab aba de chocolates
+   */
   public ChocolatesTabController(ChocolatesTab chocolatesTab) {
     this.chocolatesTab = chocolatesTab;
   }
 
+  /** Atualiza o painel de detalhes para corresponder com os dados do Chocolate selecionado na lista
+   * @param e evento recebido da lista de Chocolates.
+   */
   @Override
   public void valueChanged(ListSelectionEvent e) {
     if (!e.getValueIsAdjusting()) {
@@ -33,9 +39,13 @@ public class ChocolatesTabController implements ListSelectionListener, ActionLis
       } else if (chocolate instanceof Trufa) {
         chocolatesTab.getDetails().popularDados(ChocolateDetails.TRUFA, chocolate);
       }
+      chocolatesTab.getDetails().getSubmit().setEnabled(true);
     }
   }
 
+  /** Altera os dados do Chocolate selecionado com base nos elementos do painel de detalhes.
+   * @param e evento recebido.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(chocolatesTab.getDetails().getSubmit())) {

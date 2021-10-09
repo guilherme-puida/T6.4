@@ -45,7 +45,7 @@ public class AdicionarChocolateVendaDialog extends JDialog {
   }
 
   /**
-   * Getter do chocolate.
+   * Getter do chocolate selecionado..
    * @return JComboBox de Chocolate do chocolate da venda.
    */
   public JComboBox<Chocolate> getChocolate() {

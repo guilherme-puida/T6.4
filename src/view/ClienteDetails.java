@@ -6,7 +6,8 @@ import model.Pessoa;
 import javax.swing.*;
 
 /**
- * Classe de detalhes para o cliente. Mostra todas as informações do cliente selecionado. Usa a classe DetailsPanel como template e extende a classe PessoaDetails.
+ * Classe de detalhes para o cliente. Mostra todas as informações do cliente selecionado.
+ * Usa a classe DetailsPanel como template e extende a classe PessoaDetails.
  * @author Guilherme e Tiago
  * @version 1.0
  */
@@ -35,7 +36,18 @@ public class ClienteDetails extends PessoaDetails {
     Cliente cliente = (Cliente) pessoa;
     super.popularDados(cliente);
 
+    categoria.setEnabled(true);
     categoria.setText(cliente.getCategoria());
+  }
+
+  /**
+   * Desabilita e retira o texto dos componentes. Usado quando não há nenhum cliente cadastrado.
+   */
+  @Override
+  public void popularDados() {
+    super.popularDados();
+    categoria.setEnabled(false);
+    categoria.setText("");
   }
 
   /**

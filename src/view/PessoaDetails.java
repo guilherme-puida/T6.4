@@ -83,6 +83,8 @@ public abstract class PessoaDetails extends DetailsPanel {
    * @param pessoa objeto da Pessoa, com as informações desta.
    */
   public void popularDados(Pessoa pessoa) {
+    setAllEnabled(true);
+
     id.setText(String.valueOf(pessoa.getId()));
     idade.setText(String.valueOf(pessoa.getIdade()));
     nome.setText(pessoa.getNome());
@@ -93,6 +95,41 @@ public abstract class PessoaDetails extends DetailsPanel {
     rua.setText(pessoa.getEndereco().getRua());
     numero.setText(pessoa.getEndereco().getNumero());
     cep.setText(pessoa.getEndereco().getCep());
+  }
+
+  /**
+   * Desabilita e retira o textp de todos os componentes. Usado quando não há nenhuma pessoa (Cliente ou Funcionário)
+   * cadastrado.
+   */
+  public void popularDados() {
+    setAllEnabled(false);
+
+    id.setText("");
+    idade.setText("");
+    nome.setText("");
+    cpf.setText("");
+    telefone.setText("");
+    email.setText("");
+    bairro.setText("");
+    rua.setText("");
+    numero.setText("");
+    cep.setText("");
+  }
+
+  /** Ativa ou desativa os componentes.
+   * @param bool seletor se ativa ou desativa.
+   */
+  public void setAllEnabled(boolean bool) {
+    id.setEnabled(bool);
+    idade.setEnabled(bool);
+    nome.setEnabled(bool);
+    cpf.setEnabled(bool);
+    telefone.setEnabled(bool);
+    email.setEnabled(bool);
+    bairro.setEnabled(bool);
+    rua.setEnabled(bool);
+    numero.setEnabled(bool);
+    cep.setEnabled(bool);
   }
 
   /**

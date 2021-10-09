@@ -36,7 +36,7 @@ public class ClienteDialog extends JDialog {
   }
 
   /**
-   * Getter dos detalhes do cliente.
+   * Getter dos painel de detalhes central.
    * @return detalhes do cliente.
    */
   public ClienteDetails getDetails() {

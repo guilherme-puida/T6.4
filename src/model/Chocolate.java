@@ -6,6 +6,9 @@ import java.time.LocalDate;
  * Classe abstrata que representa um chocolate, pode virar uma Barra, uma Trufa ou um Chocotone.
  * @author Guilherme
  * @version 1.0
+ * @see Barra
+ * @see Trufa
+ * @see Chocotone
  */
 public abstract class Chocolate {
   private int id;
@@ -22,7 +25,10 @@ public abstract class Chocolate {
   private boolean artesanal;
 
   /**
-   * Representa uma unidade de chocolate.
+   * Representa uma unidade de chocolate. <br>
+   *
+   * O id do chocolate é gerado automaticamente pelo método {@link Loja#getProximoIdChocolate()}
+   *
    * @param id representa o id do chocolate.
    * @param peso representa o peso do chocolate.
    * @param nome representa o nome do chocolate.
@@ -155,4 +161,3 @@ public abstract class Chocolate {
     this.artesanal = artesanal;
   }
 }
-//TODO metodo sem uso

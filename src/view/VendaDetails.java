@@ -67,6 +67,9 @@ public class VendaDetails extends DetailsPanel {
     popularDados(Loja.getInstance().getVendaPorId(1));
   }
 
+  /**
+   * Desabilita os inputs do painel de detalhes. Usado quando não existem mais vendas na lista de vendas.
+   */
   public void popularDados() {
     for (JComboBox<Chocolate> label : listaChocolates) {
       getInnerDetailsPanel().remove(label);

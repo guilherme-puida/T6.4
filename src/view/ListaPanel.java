@@ -25,8 +25,7 @@ public class ListaPanel extends JPanel {
   /**
    * Cria o JScrollPane de listagem.
    * @param selection inteiro para a seleção do objeto desejado. Usar os atributos estáticos CLIENTE, FUNCIONARIO,
-   *                  CHOCOLATE e VENDA em vez de usar um int diretamente Usar os atributos estáticos CLIENTE,
-   *                  FUNCIONARIO, * CHOCOLATE e VENDA em vez de usar um int diretamente.
+   *                  CHOCOLATE e VENDA em vez de usar um int diretamente
    */
   public ListaPanel(int selection) {
     this.selection = selection;
@@ -80,7 +79,7 @@ public class ListaPanel extends JPanel {
 
     assert filtrado != null;
 
-    // Essa é a linha mais importante do método. Transforma o array em uma stram, depois usa o método filter com uma
+    // Essa é a linha mais importante do método. Transforma o array em uma stream, depois usa o método filter com uma
     // função lambda para selecionar somente os elementos que contem text como substring. Depois, transforma a stream
     // em array com o método collect.
     filtrado = filtrado.stream().filter(p -> p.toString().contains(text)).collect(Collectors.toList());

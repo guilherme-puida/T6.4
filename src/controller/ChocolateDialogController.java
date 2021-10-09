@@ -25,6 +25,9 @@ public class ChocolateDialogController implements ActionListener {
     this.view = view;
   }
 
+  /** Cadastra um novo Chocolate com os valores das caixas de texto.
+   * @param e evento recebido.
+   */
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource().equals(view.getSeletor())) {

@@ -26,7 +26,7 @@ public class ClientesTabController implements ListSelectionListener, ActionListe
   }
 
   /**
-   * Altera os detalhes para corresponder com os dados do cliente selecionado.
+   * Atualiza o painel de detalhes para corresponde com os dados do Cliente selecionado na lista.
    * @param e evento recebido da lista de clientes.
    */
   @Override
@@ -34,6 +34,7 @@ public class ClientesTabController implements ListSelectionListener, ActionListe
     if (!e.getValueIsAdjusting()) {
       Cliente cliente = (Cliente) clientesTab.getListaClientes().getLista().getSelectedValue();
       clientesTab.getDetails().popularDados(cliente);
+      clientesTab.getDetails().getSubmit().setEnabled(true);
     }
   }
 

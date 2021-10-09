@@ -8,7 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Classe com a lista de todos as vendas feitas.
+ * Aba de vendas. Contém a representação da lista de vendas cadastradas, além de mostrar os detalhes de um venda
+ * específica no painel central.
  */
 public class VendasTab extends JPanel {
   private final ListaPanel listaVendas;
@@ -21,7 +22,6 @@ public class VendasTab extends JPanel {
     setLayout(new BorderLayout(0, 0));
 
     listaVendas = new ListaPanel(ListaPanel.VENDA);
-    listaVendas.getLista().setSelectedIndex(0);
     add(listaVendas, BorderLayout.LINE_START);
 
     details = new VendaDetails();
@@ -31,6 +31,7 @@ public class VendasTab extends JPanel {
 
     details.getSubmit().addActionListener(controller);
     listaVendas.getLista().addListSelectionListener(controller);
+    listaVendas.getLista().setSelectedIndex(0);
   }
 
   /**

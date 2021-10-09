@@ -8,7 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Classe com a lista de todos os funcionarios cadastrados.
+ * Aba de funcionários. Contém a representação da lista de funcionários cadastrados, além de mostrar os detalhes de
+ * um funcionário específico no painel central.
  * @author Guilherme e Tiago
  * @version 1.0
  */
@@ -33,6 +34,7 @@ public class FuncionariosTab extends JPanel {
 
     listaFuncionarios.getLista().addListSelectionListener(controller);
     details.getSubmit().addActionListener(controller);
+    listaFuncionarios.getLista().setSelectedIndex(0);
   }
 
   /**

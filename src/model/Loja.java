@@ -4,7 +4,18 @@ import java.time.LocalDate;
 import java.util.*;
 
 /**
- * Classe que representa a loja. Guarda e configura os clientes, funcionarios, vendas e estoque.
+ * Classe que representa a Loja. Guarda e configura os clientes, funcionarios, vendas e estoque. <br>
+ *
+ * Essa classe é a principal do programa, já que armazena todas as informações. Como ela tem que ser acessada em
+ * diversas outras classes, passá-la como parâmetro em todos os construtores seria uma tarefa repetitiva. Por isso,
+ * optamos em seguir o padrão singleton, onde só existe uma instância da classe. Essa instância é estática e pode ser
+ * acessada por meio de um método estático, possibilitando que qualquer outra classe modifique a instância por meio
+ * do método {@link #getInstance()}. <br>
+ *
+ * O parão de design simpleton não é considerado boa prática pela maioria dos profissionais, mas para um projeto de
+ * pequeno porte como esse ele pode ser usado se tomarmos as devidas precauções. Uma dessas precauções é relacionada
+ * aos testes unitários. Como a instância é estática, os valores não são perdidos quando o escopo do teste acaba,
+ * então temos que resetar a instância para seu estado inicial, usando {@link #reset()}.
  * @author Guilherme e Tiago
  * @version 1.0
  */
@@ -22,7 +33,7 @@ public class Loja {
   private int vendaId = 0;
 
   /**
-   * Guarda os clientes, funcionarios, vendas e estoque* em ArrayLists.
+   * Constrói uma nova instância da Loja. Importante notar que o construtor é privado, já que a classe é um singleton.
    */
   private Loja() {
     this.estoque = new Estoque();
@@ -31,6 +42,10 @@ public class Loja {
     this.vendas = new ArrayList<>();
   }
 
+  /**
+   * Retorna a classe para ser estado inicial, sem clientes, funcionários, chocolates nem vendas cadastradas. Útil
+   * para testes.
+   */
   public void reset() {
     clientes.clear();
     funcionarios.clear();
@@ -43,6 +58,11 @@ public class Loja {
     vendaId = 0;
   }
 
+  /**
+   * Acessa a instância global da classe. Esse é o metodo característico de um singleton.
+   *
+   * @return a instância global da Loja.
+   */
   public static Loja getInstance() {
     return instance;
   }
@@ -164,7 +184,9 @@ public class Loja {
   }
 
   /**
-   * Soma 1 ao id do cliente e o retorna.
+   * Soma 1 ao id do cliente e o retorna. <br>
+   *
+   * Usado quando um novo cliente é adicionado.
    * @return Id do Cliente.
    */
   public int getProximoIdCliente() {
@@ -173,7 +195,9 @@ public class Loja {
   }
 
   /**
-   * Retorna o proximo id do cliente.
+   * Retorna o proximo id do cliente. <br>
+   *
+   * Usado para mostrar qual seria o Id do próximo cliente em {@link controller.ClienteDialogController}.
    * @return Id do cliente + 1.
    */
   public int showProximoIdCliente() {
@@ -181,7 +205,9 @@ public class Loja {
   }
 
   /**
-   * Soma 1 ao id do funcionario e o retorna.
+   * Soma 1 ao id do funcionario e o retorna. <br>
+   *
+   * Usado quando um novo Funcionário é adicionado.
    * @return Id do Funcionario.
    */
   public int getProximoIdFuncionario() {
@@ -191,6 +217,8 @@ public class Loja {
 
   /**
    * Retorna o proximo id do funcionario.
+   *
+   * Usado para mostrar qual seria o Id do próximo funcionário em {@link controller.FuncionarioDialogController}.
    * @return Id do funcionario + 1.
    */
   public int showProximoIdFuncionario() {
@@ -199,6 +227,8 @@ public class Loja {
 
   /**
    * Soma 1 ao id do chocolate e o retorna.
+   *
+   * Usado quando um novo chocolate é adicionado.
    * @return Id do chocolate.
    */
   public int getProximoIdChocolate() {
@@ -224,7 +254,12 @@ public class Loja {
   }
 
   /**
-   * Realiza uma venda, retirando a quantidade de chocolates vendidos do estoque.
+   * Realiza uma venda, retirando a quantidade de chocolates vendidos do estoque. <br>
+   *
+   * Como o método {@link model.Estoque#removerChocolate(Chocolate)} checa se a quantidade poder ser removida, esse
+   * método trata dessa exceção. Mesmo assim, os Spinners que controlam a quantidade de produtos a serem adicionados
+   * a uma venda só conseguem ir até a quantidade em estoque do chocolate, então essa medida é redundante.
+   *
    * @param chocolatesQuantidades quantidades de chocolate vendido.
    * @param id id da venda.
    * @param cliente cliente que fez a venda.
@@ -322,7 +357,9 @@ public class Loja {
   }
 
   /**
-   * Remove um chocolate da lista.
+   * Remove um chocolate da lista. <br>
+   *
+   * Quando um chocolate é removido, esse método também remove qualquer venda que continha tal chocolate.
    * @param chocolate chocolate que sera removido da lista.
    */
 
@@ -332,7 +369,9 @@ public class Loja {
   }
 
   /**
-   * Remove um cliente da lista.
+   * Remove um cliente da lista. <br>
+   *
+   * Quando um cliente é removido, esse método também remove qualquer venda que continha tal cliente.
    * @param cliente cliente que sera removivdo da lista.
    */
   public void removerCliente(Cliente cliente) {
@@ -341,7 +380,9 @@ public class Loja {
   }
 
   /**
-   * Remove um funcionario da lista.
+   * Remove um funcionario da lista. <br>
+   *
+   * Quando um funcionário é removido, esse método também remove qualquer venda que continha tal funcionário.
    * @param funcionario funcionario que sera removido da lista.
    */
   public void removerFuncionario(Funcionario funcionario) {

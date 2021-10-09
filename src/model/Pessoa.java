@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Classe abstrata que representa uma pessoa, pode virar Cliente ou Funcionario.
+ * Classe abstrata que representa uma pessoa, é a classe base de {@link model.Cliente} e {@link model.Funcionario}.
  * @author Guilherme
  * @version 1.0
  */
@@ -36,8 +36,11 @@ public abstract class Pessoa {
   }
 
   /**
-   * Transforma em String.
-   * @return String do id e da idade.
+   * Faz a representação em string do Objeto. <br>
+   *
+   * Como estamos usando {@link javax.swing.JList}, o texto padrão que aparece nessas lista é a representação em
+   * string do objeto. Assim, podemos controlar como ele aparece na lista fazendo Override no método {@code toString()}.
+   * @return representação em string do objeto.
    */
   @Override
   public String toString() {
@@ -100,4 +103,3 @@ public abstract class Pessoa {
     this.endereco = endereco;
   }
 }
-//TODO metodo sem uso

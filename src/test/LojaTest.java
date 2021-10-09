@@ -187,6 +187,12 @@ class LojaTest {
 
   }
 
+  // Os próximos testes confirmam uma funcionalidade muito importante: deletar um chocolate, cliente ou funcionário
+  // também deleta quaisquer vendas que estejam associadas ao elemento deletado. Essa funcionalidade foi bem complexa
+  // de implementar, mas a lógica dela é bem simples. A parte mais complicada foi lidar com situações onde a lista de
+  // algum dos objetos ficava vazia, e desabilitar e habilitar os componentes da interface para impedir exceções de
+  // NullPointer e IllegalArgument.
+
   @Test
   @DisplayName("Remover Chocolate que está numa venda deleta a venda")
   void removerChocolateEmVenda() {

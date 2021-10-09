@@ -1,22 +1,28 @@
 package model;
 
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.Set;
 
 /**
  * Classe que representa o estoque de chocolates e seus metodos.
+ *
+ * Os Chocolates são armazenados em um HashMap, sendo a chave o Chocolate em si e o valor a quantidade em estoque.
+ * @see Chocolate
+ * @see HashMap
  */
 public class Estoque {
   private final HashMap<Chocolate, Integer> chocolates;
 
   /**
-   * Representa o estoque de chocolates em um HashMap.
+   * Constrói um novo estoque para armazenar os Chocolates em um HashMap.
    */
   public Estoque() {
     chocolates = new HashMap<>();
   }
 
+  /**
+   * Retira todos os produtos do estoque. Útil para testes.
+   */
   public void clear() {
     chocolates.clear();
   }
@@ -31,7 +37,11 @@ public class Estoque {
   }
 
   /**
-   * Retira certa quantidade de chocolate do map.
+   * Retira certa quantidade de chocolate do HashMap. <br>
+   *
+   * Esse método checa se a quantidade pode ser retirada, ou seja, checa se o Chocolate passado como parâmetro existe
+   * no HashMap e se a quantidade a ser retirada é válida {@code 0 < quantidad <= quantidade em estoque}.
+   *
    * @param chocolate chocolate que será retirado do mapa.
    * @param quantidade quantidade desse chocolate que será retirado.
    * @throws IllegalArgumentException quando o Chocolate não esta no estoque, ou a quantidade for 0, ou a quantidade
@@ -73,21 +83,11 @@ public class Estoque {
     return chocolates.keySet();
   }
 
-  /**
-   * Pesquisa um chocolate por Nome.
-   * @param nome nome do chocolate
-   * @return chocolate do nome requerido.
+  /** Checa quantas unidade de um Chocolate estão em estoque.
+   *
+   * @param chocolate o Chocolate a ser consultado
+   * @return a quantidade em estoque
    */
-  public Chocolate getChocolatePorNome(String nome) {
-    for (Chocolate chocolate : getChocolates()) {
-      if (Objects.equals(chocolate.getNome(), nome)) {
-        return chocolate;
-      }
-    }
-
-    return null;
-  }
-
   public int getQuantidadeEmEstoque(Chocolate chocolate) {
     return chocolates.get(chocolate);
   }
@@ -100,8 +100,12 @@ public class Estoque {
     chocolates.remove(chocolate);
   }
 
+  /**
+   * Altera a quantidade em estoque de certo chocolate.
+   * @param chocolate chocolate a ser editado.
+   * @param quantidade nova quantidade em estoque.
+   */
   public void setQuantidade(Chocolate chocolate, int quantidade) {
     chocolates.put(chocolate, quantidade);
   }
 }
-//TODO metodo sem uso

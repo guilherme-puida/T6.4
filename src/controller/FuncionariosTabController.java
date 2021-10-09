@@ -25,7 +25,7 @@ public class FuncionariosTabController implements ListSelectionListener, ActionL
   }
 
   /**
-   * Altera o painel de detalhes para corresponder com os dados do Funcionário selecionado.
+   * Atualiza o painel de detalhes para corresponder com os dados do Funcionário selecionado na lista.
    * @param e evento recebido da lista de Funcionários.
    */
   @Override
@@ -34,6 +34,7 @@ public class FuncionariosTabController implements ListSelectionListener, ActionL
       Funcionario funcionario =
               (Funcionario) funcionariosTab.getListaFuncionarios().getLista().getSelectedValue();
       funcionariosTab.getDetails().popularDados(funcionario);
+      funcionariosTab.getDetails().getSubmit().setEnabled(true);
     }
   }
 

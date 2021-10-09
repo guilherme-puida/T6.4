@@ -6,15 +6,32 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Classe de detalhes para o Chocolate. Mostra todas as informações do Chocolate selecionado. Usa a classe DetailsPanel
- * como template.
+ * Classe de detalhes para o Chocolate. Mostra todas as informações do Chocolate selecionado. Usa a classe
+ * {@link view.DetailsPanel} como template.
  * @author Guilherme e Tiago
  * @version 1.0
  */
 public class ChocolateDetails extends DetailsPanel {
 
+  /**
+   * Constante que representa a {@link model.Barra}. Usado no método {@link #popularDados}, já que é necessário saber
+   * qual o tipo de Chocolate sendo representado(Barra, Trufa ou Chocotone) para mostrar os campos correspondentes às
+   * suas propriedades específicas.
+   */
   public static final int BARRA = 0;
+  /**
+   * Constante que representa o {@link model.Chocotone}. Usado no método {@link #popularDados},
+   * já que é necessário saber qual o tipo
+   * de Chocolate sendo representado(Barra, Trufa ou Chocotone) para mostrar os campos correspondentes às suas
+   * propriedades específicas.
+   */
   public static final int CHOCOTONE = 1;
+  /**
+   * Constante que representa a {@link model.Trufa}. Usado no método {@link #popularDados}, já que é necessário saber
+   * qual o tipo
+   * de Chocolate sendo representado(Barra, Trufa ou Chocotone) para mostrar os campos correspondentes às suas
+   * propriedades específicas.
+   */
   public static final int TRUFA = 2;
 
   private final JTextField id;
@@ -53,7 +70,7 @@ public class ChocolateDetails extends DetailsPanel {
 
 
     id = new JTextField();
-    id.setEditable(false);
+    id.setEnabled(false);
 
     peso = new JTextField();
     peso.setToolTipText("Inteiro.");
@@ -67,7 +84,7 @@ public class ChocolateDetails extends DetailsPanel {
     porcentagemCacau = new JTextField();
 
     dataCompra = new JTextField();
-    dataCompra.setEditable(false);
+    dataCompra.setEnabled(false);
 
     sabor = new JTextField();
     nibs = new JTextField();
@@ -138,9 +155,9 @@ public class ChocolateDetails extends DetailsPanel {
   }
 
   /**
-   * Deixa todos os Labels e TextFields invisiveis.
+   * Deixa todos os Labels e TextFields que não são comuns à todos os tipos de chocolate invisiveis.
    */
-  public void setAllInvisible() {
+  private void setAllInvisible() {
     recheioLabel.setVisible(false);
     recheio.setVisible(false);
     frutasLabel.setVisible(false);
@@ -153,8 +170,20 @@ public class ChocolateDetails extends DetailsPanel {
     nibs.setVisible(false);
   }
 
+  private void setAllEditable(boolean bool) {
+    peso.setEnabled(bool);
+    nome.setEnabled(bool);
+    descricao.setEnabled(bool);
+    precoCompra.setEnabled(bool);
+    precoVenda.setEnabled(bool);
+    quantidade.setEnabled(bool);
+    contemGluten.setEnabled(bool);
+    contemLactose.setEnabled(bool);
+    artesanal.setEnabled(bool);
+  }
+
   /**
-   * Popula os JTextFields do metodo ChocolateDetails() com os detalhes do Chocolate.
+   * Popula os JTextFields do metodo {@link ChocolateDetails()} com os detalhes do Chocolate.
    * @param selection inteiro que seleciona o tipo de chocolate.
    * @param chocolate objeto Chocolate.
    */
@@ -174,6 +203,7 @@ public class ChocolateDetails extends DetailsPanel {
     artesanal.setSelected(chocolate.isArtesanal());
 
     setAllInvisible();
+    setAllEditable(true);
 
     switch (selection) {
       case BARRA -> {
@@ -206,6 +236,14 @@ public class ChocolateDetails extends DetailsPanel {
             null,
             1
     ));
+  }
+
+  /**
+   * Desativa todos os componentes. Usado quando não há Chocolates cadastrados.
+   */
+  public void popularDados() {
+    setAllInvisible();
+    setAllEditable(false);
   }
 
   /**

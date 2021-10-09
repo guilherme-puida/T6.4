@@ -1,12 +1,16 @@
 package model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Classe que representa uma unidade de Chocotone.
+ * Classe que representa uma unidade de Chocotone. <br>
+ * 
+ * Essa classe nunca é instanciada diretamente. Para adicionar um novo chocotone, usamos o método
+ *
+ * {@link model.Loja#cadastrarChocotone Loja.cadastrarTrufa()}
+ *
  * @author Guilherme
  * @version 1.0
  */
@@ -15,8 +19,8 @@ public class Chocotone extends Chocolate {
   private String recheio;
 
   /**
-   * Representa uma unidade de Chocotone.
-   * @param id representa o id do Chocotone.
+   * Cria um novo Chocotone.
+   * @param id representa o id do Chocotone. Gerado automaticamente.
    * @param peso representa o peso do Chocotone.
    * @param nome representa o nome do Chocotone.
    * @param descricao representa a descrição do Chocotone.
@@ -60,4 +64,3 @@ public class Chocotone extends Chocolate {
     Collections.addAll(this.frutas, frutas);
   }
 }
-//TODO import sem uso

@@ -1,7 +1,10 @@
 package model;
 
 /**
- * Classe que representa um cliente.
+ * Classe que representa um cliente. <br>
+ * 
+ * Para adicionar um Cliente, use o método {@link model.Loja#cadastrarCliente Loja.cadastrarCLiente()}
+ * 
  * @author Guilherme
  * @version 1.0
  */
@@ -10,7 +13,7 @@ public class Cliente extends Pessoa {
 
   /**
    * Representa um cliente.
-   * @param id representa o id do cliente.
+   * @param id representa o id do cliente. Gerado automaticamente.
    * @param idade representa a idade do cliente.
    * @param nome representa o nome do cliente.
    * @param cpf representa o cpf do cliente.

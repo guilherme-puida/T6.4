@@ -15,7 +15,9 @@ public abstract class DetailsPanel extends JPanel {
   private final GridBagConstraints right;
 
   /**
-   * Cria o painel que irá ser usado como template nas classes ClienteDetails, FuncionarioDetails, ChocolateDetails e VendaDetails. Utiliza o layout BorderLayout.
+   * Cria o painel que irá ser usado como template nas classes ClienteDetails, FuncionarioDetails,
+   * ChocolateDetails e VendaDetails. Utiliza o layout BorderLayout. O painel interior é construído em GridBagLayout,
+   * e já são definidas as Constraints left e right, para alinhar, respectivamente, o nome do input e o input em si.
    * @param titulo String do titulo, varia dependendo de qual objeto é requerido.
    */
   protected DetailsPanel(String titulo) {
@@ -55,16 +57,16 @@ public abstract class DetailsPanel extends JPanel {
   }
 
   /**
-   * Getter da parte esquerda do BorderLayout.
-   * @return GridBagConstraintrs da parte esquerda do BorderLayout.
+   * Getter da contraint usada para alinhar um elemento na esquerda do painel interior.
+   * @return constraint da esquerda.
    */
   public GridBagConstraints getLeft() {
     return left;
   }
 
   /**
-   * Getter da parte direita do BorderLayout.
-   * @return GridBagConstraints da parte direita do BorderLayout.
+   * Getter da da constraint usada para alinhas um elemento na direita do paineil inferior
+   * @return constraint da direita.
    */
   public GridBagConstraints getRight() {
     return right;

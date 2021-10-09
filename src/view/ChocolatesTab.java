@@ -8,7 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Classe com a lista de todos os chocolates cadastrados.
+ * Aba de Chocolates. Contém a representação da lista de Chocolates cadastrados, além de mostrar os detalhes do
+ * Chocolate selecionado no painel central.
  */
 public class ChocolatesTab extends JPanel {
   private final ListaPanel listaChocolates;
@@ -31,6 +32,8 @@ public class ChocolatesTab extends JPanel {
 
     listaChocolates.getLista().addListSelectionListener(controller);
     details.getSubmit().addActionListener(controller);
+
+    listaChocolates.getLista().setSelectedIndex(0);
   }
 
   /**

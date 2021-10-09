@@ -1,7 +1,11 @@
 package model;
 
 /**
- * Classe que representa um funcionario.
+ * Classe que representa um funcionario. <br>
+ *
+ * Essa classe nunca é instanciada diretamente. Para adicionar um Funcionário, usamos o método
+ * {@link model.Loja#cadastrarFuncionario Loja.cadastrarFuncionário()}.
+ *
  * @author Guilherme
  * @version 1.0
  */
@@ -11,7 +15,7 @@ public class Funcionario extends Pessoa {
 
   /**
    * Representa um funcionario.
-   * @param id representa o id do funcionario.
+   * @param id representa o id do funcionario. Gerado automaticamente.
    * @param idade representa a idade do funcionario.
    * @param nome representa o nome do funcionario.
    * @param cpf representa o cpf do funcionario.

@@ -18,6 +18,11 @@ import java.util.Set;
 public class AdicionarChocolateVendaDialogController implements ActionListener {
   private final AdicionarChocolateVendaDialog view;
 
+  /** Constrói um controller associado ao dialog de adicionar um Chocolate em uma Venda existente.
+   *
+   * O construtor popula o ComboBox no dialog com as opções de Chocolate disponíveis.
+   * @param view dialogo de adicionar Chocolate em uma Venda.
+   */
   public AdicionarChocolateVendaDialogController(AdicionarChocolateVendaDialog view) {
     this.view = view;
     Set<Chocolate> chocolatesVenda =
